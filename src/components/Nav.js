@@ -1,6 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import './Nav.css';
 class Nav extends React.Component{
     
     render()
@@ -15,7 +14,7 @@ class Nav extends React.Component{
             listStyle: "none"
         }
         return(
-            <nav className="navbar App-navbar" style={n_style}>
+            <nav className="mainmenu__nav" style={n_style}>
             <div className="container">
                 <li className="nav-item" style={li_style}>
                   <a className="nav-link" href="#"><i className="fas fa-home"></i>Trang Chủ</a>
@@ -24,7 +23,7 @@ class Nav extends React.Component{
                   <a className="nav-link " href="#">Thể Loại </a>
                 </li>
                 <li className="nav-item" style={li_style}>
-                  <a className="nav-link" href="#" >Truyện Mới</a>
+                  <a className="nav-link" href="#" ><i className="fas fa-newspaper"></i>Truyện Mới</a>
                 </li>
                 <li className="nav-item" style={li_style}>
                   <a className="nav-link" href="#" ><i className="fab fa-hotjar"></i>Truyện Hot</a>
