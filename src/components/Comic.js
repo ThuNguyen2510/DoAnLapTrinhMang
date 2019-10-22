@@ -47,7 +47,7 @@ class Comic extends React.Component{
                 <div className="item-summary">
                     <div className="post-title font-title">
                     <h4 className="title">
-                        <Link style={a_s} to="/truyen/he-thong-game-tai-di-gioi/">Hệ Thống Game Tại Dị Giới</Link>
+                        <Link style={a_s} to="/">Hệ Thống Game Tại Dị Giới</Link>
                     </h4>
                     </div>
                     <div style={x}>

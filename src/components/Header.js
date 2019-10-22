@@ -1,6 +1,10 @@
 import React from 'react';
 import createBrowserHistory from 'history/createBrowserHistory'
-import { Router, Route, Link, NavLink } from "react-router-dom";
+import { Router, Route, Link,Switch, NavLink } from "react-router-dom";
+import App from '../App';
+import Home from './Home';
+import Login from './Login';
+import routes from '../routes';
 class Header extends React.Component{
     
     render()
@@ -41,15 +45,10 @@ class Header extends React.Component{
                 <div style={d_style}>
                     <ul>
                         <li style={li_style}>
-                             <Link to="/"><i className="fas fa-sign-in-alt"></i></Link>
-                        </li>
-                        <li style={li_style}>
-                        <Link to="/"><i className="fas fa-user-plus"></i></Link>
+                             <Link to="/Signin"><i className="fas fa-sign-in-alt"></i>Sign in</Link>
                         </li>
                     </ul>                
-                </div>
-                
-                
+                </div>  
                 </div>
             </header>
         );

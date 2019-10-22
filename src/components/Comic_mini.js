@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link,Route} from 'react-router-dom';
 class Comic_mini extends React.Component{
     render()
     {
@@ -29,6 +29,7 @@ class Comic_mini extends React.Component{
                     </h4>
                     <span class="post-on font-meta"> September 21, 2019 </span>                    
             </div>
+           
             </div>
             <hr></hr>
             </>
