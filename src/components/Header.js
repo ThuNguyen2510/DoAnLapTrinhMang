@@ -47,7 +47,6 @@ class Header extends React.Component{
                         <Link to="/"><i className="fas fa-user-plus"></i></Link>
                         </li>
                     </ul>                
-                
                 </div>
                 
                 
