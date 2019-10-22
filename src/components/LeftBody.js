@@ -1,5 +1,6 @@
 import React from 'react';
 import Comic from './Comic';
+import ListComic from './ListComic';
 class LeftBody extends React.Component{
     
     render(){
@@ -89,16 +90,9 @@ class LeftBody extends React.Component{
                     </ul>
                 </nav>
                 </div>
-               <ul className="books-list list-unstyled large-items">
-                   <li class="with-border" style={li}><Comic/></li>
-                   <li class="with-border" style={li}><Comic/></li>
-                   <li class="with-border" style={li}><Comic/></li>
-                   <li class="with-border" style={li}><Comic/></li>
-                   <li class="with-border" style={li}><Comic/></li>
-                   <li class="with-border" style={li}><Comic/></li>
-                   <li class="with-border" style={li}><Comic/></li>
-                   <li class="with-border" style={li}><Comic/></li>
-                   </ul> 
+               <div className="row row-eq-height">
+                   <ListComic/><ListComic/><ListComic/><ListComic/>
+                   </div> 
             </div>
         );
 
