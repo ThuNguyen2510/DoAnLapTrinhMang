@@ -1,7 +1,6 @@
 import React from 'react';
-import { Router } from 'react-router'
 import createBrowserHistory from 'history/createBrowserHistory'
-import { Link } from 'react-router-dom'
+import { Router, Route, Link, NavLink } from "react-router-dom";
 class Header extends React.Component{
     
     render()
@@ -26,7 +25,7 @@ class Header extends React.Component{
         return(
             <header className="container mt-3 site-header">
                 <div className="d-flex">
-                    <a href="/" className="site-logo"><img src={require('../TVT.PNG')} alt="Logo" style={image_s} /></a>
+                <Link to="/" className="site-logo"><img src={require('../TVT.PNG')} alt="Logo" style={image_s} /></Link>
                     <div id="react-root_desktop-search" className="search" style={d1_S}>
                     <form action="/tim-kiem/nang-cao/">
                         <div className="input-group" style={input_s} >
@@ -42,10 +41,10 @@ class Header extends React.Component{
                 <div style={d_style}>
                     <ul>
                         <li style={li_style}>
-                            <a  href="/"><i className="fas fa-sign-in-alt"></i></a>                        
+                             <Link to="/"><i className="fas fa-sign-in-alt"></i></Link>
                         </li>
                         <li style={li_style}>
-                        <a  href="/"><i className="fas fa-user-plus"></i></a>
+                        <Link to="/"><i className="fas fa-user-plus"></i></Link>
                         </li>
                     </ul>                
                 

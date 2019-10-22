@@ -1,6 +1,6 @@
 import React from 'react';
-import Comic from './Comic';
 import ListComic from './ListComic';
+import {Link} from 'react-router-dom';
 class LeftBody extends React.Component{
     
     render(){
@@ -73,19 +73,19 @@ class LeftBody extends React.Component{
                 <nav aria-label="Page navigation example">
                     <ul className="pagination justify-content-center">
                     <li className="page-item">
-                        <a className="page-link" href="#" aria-label="Previous">
+                        <Link className="page-link" to="#" aria-label="Previous">
                         <span aria-hidden="true">«</span>
                         <span className="sr-only">Previous</span>
-                        </a>
+                        </Link>
                     </li>
-                    <li className="page-item"><a className="page-link" href="#">1</a></li>
-                    <li className="page-item"><a className="page-link" href="#">2</a></li>
-                    <li className="page-item"><a className="page-link" href="#">3</a></li>
+                    <li className="page-item"><Link className="page-link" to="#">1</Link></li>
+                    <li className="page-item"><Link className="page-link" to="#">2</Link></li>
+                    <li className="page-item"><Link className="page-link" to="#">3</Link></li>
                     <li className="page-item">
-                        <a className="page-link" href="#" aria-label="Next">
+                        <Link className="page-link" to="#" aria-label="Next">
                         <span aria-hidden="true">»</span>
                         <span className="sr-only">Next</span>
-                        </a>
+                        </Link>
                     </li>
                     </ul>
                 </nav>

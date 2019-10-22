@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 class Comic extends React.Component{
     render()
     {
@@ -30,29 +31,30 @@ class Comic extends React.Component{
             padding: "4px 10px",
             borderRadius: "10px",
             fontWeight: "600",
-            textDecoration: "none"
+            textDecoration: "none",
+            textAlign:"left"
         }
         return(
             <>
             <div className="col-12 col-md-6 badge-pos-1" style={i_k}>
                 <div className="page-item-detail manga">
                     <div className="item-thumb hover-details c-image-hover">
-                    <a className="book-img position-relative" href="/">
+                    <Link className="book-img position-relative" to="/">
                     <img style={i_s} src="https://yycdn.truyenyy.com/media/novels/2019-04/b48f97e6b6.jpg" alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
-                </a>
+                </Link>
                     </div>
                 </div>
                 <div className="item-summary">
                     <div className="post-title font-title">
                     <h4 className="title">
-                        <a style={a_s} href="/truyen/he-thong-game-tai-di-gioi/">Hệ Thống Game Tại Dị Giới</a>
+                        <Link style={a_s} to="/truyen/he-thong-game-tai-di-gioi/">Hệ Thống Game Tại Dị Giới</Link>
                     </h4>
                     </div>
                     <div style={x}>
                     Mô tả : The Grandmaster of Demonic The Grandmaster of Demonic
                     </div>
                     <span className="chapter font-meta" style={sp}>
-                    <a href="/" className="btn-link" style={sp}>Tác giả: ABHSKC</a>
+                    <Link to="/" className="btn-link" style={sp}>Tác giả: ABHSKC</Link>
                     </span>
                     
                 </div>
