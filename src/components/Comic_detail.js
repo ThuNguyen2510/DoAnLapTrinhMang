@@ -2,6 +2,7 @@ import React from 'react';
 import {Link,Route} from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
+import Footer from './Footer';
 class Comic_detail extends React.Component{
     render()
     {
@@ -23,7 +24,9 @@ class Comic_detail extends React.Component{
                     </div>
 
                 </div>
-                <div className="row">                   
+                <hr/>
+                <div className="row">   
+                    <Footer/>                
                 </div>
             </div>
             </div>

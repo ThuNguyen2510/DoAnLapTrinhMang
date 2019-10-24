@@ -5,6 +5,7 @@ import LeftBody from './LeftBody';
 import RightBody from './RightBody';
 import Slider from './Slider';
 import routes from '../routes';
+import Footer from './Footer';
 class Home extends React.Component{
     
     render()
@@ -28,6 +29,10 @@ class Home extends React.Component{
                 <div className="col-md-4">
                 <RightBody/>
                 </div>
+            </div>
+            <hr/>
+            <div className="row">
+                <Footer/>
             </div>
             </div>              
             </div>
