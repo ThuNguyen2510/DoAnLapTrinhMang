@@ -45,18 +45,18 @@ class Signup extends React.Component{
                     <form>
                     <div className="form-group">
                         <p style={p} ><i className="far fa-user"></i>User Name</p>
-                        <input style={input} type="text" className="form-control" id="userName"
-                        placeholder="MuGiWara" name="txtUserName" />
+                        <input style={input} type="text" className="form-control" 
+                        placeholder="MuGiWara" />
                     </div>
                     <div className="form-group">
                         <p style={p} ><i className="fas fa-at"></i>Email</p>
-                        <input style={input} type="text" className="form-control" id="email"
-                        placeholder="abcdef@gmail.com" name="email" />
+                        <input style={input} type="text" className="form-control" 
+                        placeholder="abcdef@gmail.com"  />
                     </div>
                     <div className="form-group">
                         <p style={p}><i className="fas fa-lock"></i>PassWord</p>
-                        <input style={input}type="password" className="form-control" id="passWord"
-                        placeholder="***********" name="txtPassWord" />
+                        <input style={input}type="password" className="form-control"
+                        placeholder="***********"  />
                     </div>
                     <button type="submit" className="btn btn-primary">Sign up</button>
                     <br>

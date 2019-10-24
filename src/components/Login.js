@@ -43,19 +43,19 @@ class Login extends React.Component{
                     <div className="form-group">
                         <p style={p} ><i className="far fa-user"></i>User Name</p>
                         <input style={input} type="text" className="form-control" id="userName"
-                        placeholder="Mugiwara" name="txtUserName" />
+                        placeholder="Mugiwara" />
                     </div>
                     <div className="form-group">
                         <p style={p}><i className="fas fa-lock"></i>PassWord</p>
                         <input style={input}type="password" className="form-control" id="passWord"
-                        placeholder="***********" name="txtPassWord" />
+                        placeholder="***********"  />
                     </div>
                     <button type="submit" className="btn btn-primary">Sign in</button>
                     </form>
                 </div>
                 </div>
                 <div>Not have Account <Link to="/Signup" >Signup</Link></div>
-                <Route path="/Signup" exact component={Signup}/>
+               
                 </div>
                     
              

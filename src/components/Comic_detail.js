@@ -2,7 +2,6 @@ import React from 'react';
 import {Link,Route} from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
-import Slider from './Slider';
 class Comic_detail extends React.Component{
     render()
     {

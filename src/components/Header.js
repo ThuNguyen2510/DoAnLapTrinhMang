@@ -1,10 +1,6 @@
 import React from 'react';
 import createBrowserHistory from 'history/createBrowserHistory'
 import { Router, Route, Link,Switch, NavLink } from "react-router-dom";
-import App from '../App';
-import Home from './Home';
-import Login from './Login';
-import routes from '../routes';
 class Header extends React.Component{
     
     render()

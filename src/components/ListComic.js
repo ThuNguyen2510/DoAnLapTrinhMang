@@ -6,7 +6,7 @@ class ListComic extends React.Component{
         
         return(
             <>
-            <div sty>
+            <div >
                 <Comic/>
                 <Comic/>
             </div>

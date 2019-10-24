@@ -46,7 +46,7 @@ import {Link} from 'react-router-dom';
                 <Comic_mini/>
               </div> 
               <span class="c-wg-button-wrap">
-                  <Link style={a_style}class="widget-view-more" href="/">Xem thêm</Link>
+                  <Link style={a_style} className="widget-view-more" to="/TruyenHot">Xem thêm</Link>
               </span>           
             </div>
             </>

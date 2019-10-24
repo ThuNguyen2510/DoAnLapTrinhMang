@@ -17,8 +17,9 @@ class Home extends React.Component{
             <div>
             <Header/>
             <Nav/>
-            <Slider/>
             <hr></hr>  
+            <Slider/>
+            
             <div className="container" style={c}>
             <div className="row">
                 <div className="col-md-8">
