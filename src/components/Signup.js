@@ -49,7 +49,7 @@ class Signup extends React.Component{
                         placeholder="MuGiWara" name="txtUserName" />
                     </div>
                     <div className="form-group">
-                        <p style={p} ><i className="far fa-user"></i>Email</p>
+                        <p style={p} ><i className="fas fa-at"></i>Email</p>
                         <input style={input} type="text" className="form-control" id="email"
                         placeholder="abcdef@gmail.com" name="email" />
                     </div>

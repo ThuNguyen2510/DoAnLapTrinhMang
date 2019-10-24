@@ -26,6 +26,11 @@ class Header extends React.Component{
             width: "8000px",
             marginLeft: "350px"
           }
+          var li={
+            color:"#e3538c",
+            fontSize:"17px",
+            textDecoration: "none",
+          }
         return(
             <header className="container mt-3 site-header">
                 <div className="d-flex">
@@ -45,7 +50,7 @@ class Header extends React.Component{
                 <div style={d_style}>
                     <ul>
                         <li style={li_style}>
-                             <Link to="/Signin"><i className="fas fa-sign-in-alt"></i>Sign in</Link>
+                             <Link style={li} to="/Signin"><i className="fas fa-sign-in-alt"></i>Sign in</Link>
                         </li>
                     </ul>                
                 </div>  
