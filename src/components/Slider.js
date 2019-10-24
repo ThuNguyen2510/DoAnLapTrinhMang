@@ -18,7 +18,7 @@ class Slider extends React.Component{
         }
         const slider = (
             <AwesomeSlider style={style}>
-              <div style={s}>1  </div>
+              <div style={s}>1 </div>
               <div style={s} >2</div>
               <div style={s}>3</div>
             </AwesomeSlider>

@@ -16,11 +16,12 @@ class Home extends React.Component{
         return(
             <>           
             <div>
-            <Header/>
+             <div className="container">
+             <Header/>
+            </div> 
             <Nav/>
-            <hr></hr>  
+            <hr></hr> 
             <Slider/>
-            
             <div className="container" style={c}>
             <div className="row">
                 <div className="col-md-8">
