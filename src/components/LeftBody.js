@@ -1,14 +1,13 @@
 import React from 'react';
 import ListComic from './ListComic';
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
 class LeftBody extends React.Component{
     
     render(){
         var con_m21={
-            width: "750px",
             backgroundColor: "#fff",
             height: "98%",
-            marginLeft: "120px",
+          
             
         }
         var but_style={
@@ -73,7 +72,7 @@ class LeftBody extends React.Component{
                 <nav aria-label="Page navigation example">
                     <ul className="pagination justify-content-center">
                     <li className="page-item">
-                        <Link className="page-link" to="#" aria-label="Previous">
+                        <Link className="page-link" to="/" aria-label="Previous">
                         <span aria-hidden="true">«</span>
                         <span className="sr-only">Previous</span>
                         </Link>
@@ -82,7 +81,7 @@ class LeftBody extends React.Component{
                     <li className="page-item"><Link className="page-link" to="#">2</Link></li>
                     <li className="page-item"><Link className="page-link" to="#">3</Link></li>
                     <li className="page-item">
-                        <Link className="page-link" to="#" aria-label="Next">
+                        <Link className="page-link" to="/" aria-label="Next">
                         <span aria-hidden="true">»</span>
                         <span className="sr-only">Next</span>
                         </Link>

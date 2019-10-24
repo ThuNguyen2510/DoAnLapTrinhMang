@@ -9,6 +9,9 @@ class Home extends React.Component{
     
     render()
     {
+        var c={
+            marginTop:"80px"
+        }
         return(
             <>           
             <div>
@@ -16,8 +19,16 @@ class Home extends React.Component{
             <Nav/>
             <Slider/>
             <hr></hr>  
-            <LeftBody/>
-            <RightBody/>
+            <div className="container" style={c}>
+            <div className="row">
+                <div className="col-md-8">
+                <LeftBody/>
+                </div>
+                <div className="col-md-4">
+                <RightBody/>
+                </div>
+            </div>
+            </div>              
             </div>
             
             </>

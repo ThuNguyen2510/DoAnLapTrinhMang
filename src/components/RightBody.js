@@ -5,12 +5,9 @@ import {Link} from 'react-router-dom';
      render()
      {
         var con_d={
-            width: "300px",
             backgroundColor: "#fff",
             height: "100%",
-            marginLeft: "950px",
             border: "2.5px solid #e1e1e1",
-            marginTop: "50px"
             
         }
         var i_s={
@@ -33,7 +30,7 @@ import {Link} from 'react-router-dom';
         }
          return(
             <>
-            <div className="right" style={con_d}>
+            <div style={con_d}>
               <div>
               <h5 className="widget-heading font-nav" title="TRUYỆN ĐỌC NHIỀU NHẤT" >
               <i style={i_s} className="fab fa-font-awesome-flag"></i>

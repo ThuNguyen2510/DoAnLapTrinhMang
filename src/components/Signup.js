@@ -65,10 +65,8 @@ class Signup extends React.Component{
                     <br></br><br></br>
                     <span><Link to="/"><i className="far fa-arrow-alt-circle-left"></i>Back to Homepage </Link></span>
                     </form>
-                </div>
-                   
-                </div>
-                
+                </div>                   
+                </div>                
                 </div>
             </>
         )
