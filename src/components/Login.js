@@ -6,7 +6,7 @@ class Login extends React.Component{
     render()
     {
         var image_s={
-            width:"250px",marginLeft:" 540px"
+            width:"250px",marginLeft:" 530px"
           }
         var d_s={
                     
@@ -33,7 +33,7 @@ class Login extends React.Component{
         }
         return(
                   
-             
+             <>
             <div className="relative z-1 mw6-l center-l">
                 <div className="w-50 p-3">
                 <Link to="/" className="site-logo"><img src={require('../TVT.PNG')} alt="Logo" style={image_s} /></Link>
@@ -58,7 +58,7 @@ class Login extends React.Component{
                
                 </div>
                     
-             
+             </>
 
          
         )

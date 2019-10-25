@@ -30,6 +30,7 @@ import {Link} from 'react-router-dom';
         }
          return(
             <>
+            <div className="row">
             <div style={con_d}>
               <div>
               <h5 className="widget-heading font-nav" title="TRUYỆN ĐỌC NHIỀU NHẤT" >
@@ -48,6 +49,9 @@ import {Link} from 'react-router-dom';
               <span class="c-wg-button-wrap">
                   <Link style={a_style} className="widget-view-more" to="/TruyenHot">Xem thêm</Link>
               </span>           
+            </div>
+            </div>            
+            <div className="row">             
             </div>
             </>
          );
