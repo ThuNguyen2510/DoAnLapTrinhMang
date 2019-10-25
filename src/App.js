@@ -9,6 +9,7 @@ import index from './components/Admin/index';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Comic_detail from './components/Comic_detail';
 import Admin_Comic from './components/Admin/Admin_Comic';
+import Update_Comic from './components/Admin/Update_Comic';
 import Hello from './components/Admin/Hello';
 const history = createBrowserHistory()
 class App extends React.Component {
@@ -27,6 +28,8 @@ class App extends React.Component {
           <Route path='/Category' exact component={Comic_detail}/>  
           <Route path='/Admin' exact component={index}/> 
           <Route path='/Admin_Comic' exact component={Admin_Comic}/> 
+          <Route path='/Update_Comic' exact component={Update_Comic}/> 
+          <Route path='/Delete_Comic' exact component={Admin_Comic}/> 
           <Route path='/Admin_User' exact component={index}/> 
           <Route path='/' component={Home} />
           </Switch>        

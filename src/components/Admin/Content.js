@@ -5,7 +5,7 @@ import Hello from './Hello';
 class Content extends React.Component{
     render(){
         return (
-            <div id="wrapper">
+            
             <ul className="sidebar navbar-nav">
                     <li className="nav-item active">
                     <Link className="nav-link" to="/Admin_Comic">
@@ -20,7 +20,7 @@ class Content extends React.Component{
                     </Link>
                    </li>
             </ul>
-            </div>
+           
         );
     }
 

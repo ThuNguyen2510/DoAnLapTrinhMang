@@ -1,24 +1,24 @@
 import React from 'react';
 import {Link,Route} from 'react-router-dom';
+import './Update_Comic.css';
 import './index.css'
-import Hello from './Hello';
 import Nav from './Nav';
 import Content from './Content';
-class index extends React.Component{
-    render(){
+class Update_Comic extends React.Component{
+    render()
+    {
         return(
-            
+            <>
             <body id="page-top">
                 <Nav/>
                 <div id="wrapper">
-                <Content/>
-                <Hello/>
+                <Content/>                
                 </div>
                 
                 
             </body>
-           
+            </>
         );
     }
 }
-export default index;
+export default Update_Comic;

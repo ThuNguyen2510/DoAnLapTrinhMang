@@ -5,7 +5,7 @@
     display: flex;
 }
 #nav{
-    background-color: #622a63 !important;
+    background-color: #159cadcf !important;
 }
 .sidebar {
     width: 90px !important;
@@ -25,8 +25,10 @@
 .navbar-dark .navbar-brand {
     color: #fff;
 }
+
 ul.sidebar.navbar-nav {
-    background-color: #7c458a
+    background-color: #159cad;
+    /* float: left; */
 }
 span{
     color:white

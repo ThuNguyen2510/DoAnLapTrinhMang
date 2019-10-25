@@ -19,7 +19,7 @@ class Hello extends React.Component{
             <div  id="row" className="row">
             <div className="col-md-2"></div>
             <div className="col-md-8">
-                <div className="card text-white bg-danger o-hidden h-100">
+                <div className="card text-white bg-primary o-hidden h-100">
                     <div className="card-body">
                     <div className="card-body-icon">
                         <i className="far fa-smile-wink"></i>

@@ -5,12 +5,10 @@ class ListComic extends React.Component{
     {
         
         return(
-            <>
-            <div >
+            <>                         
                 <Comic/>
                 <Comic/>
-            </div>
-            <hr></hr>
+                <hr></hr>
             </>
         )
     }
