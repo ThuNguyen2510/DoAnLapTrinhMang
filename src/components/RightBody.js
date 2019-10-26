@@ -38,6 +38,7 @@ import {Link} from 'react-router-dom';
                 <Link to="/" style={i_s}>TRUYỆN ĐỌC NHIỀU NHẤT</Link>                
                 </h5>
               </div>
+              <hr></hr>
               <div className="widget-content" style={tb_s}>
                 <Comic_mini/>                
                 <Comic_mini/>               

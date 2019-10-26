@@ -28,8 +28,9 @@ class App extends React.Component {
           <Route path='/Category' exact component={Comic_detail}/>  
           <Route path='/Admin' exact component={index}/> 
           <Route path='/Admin_Comic' exact component={Admin_Comic}/> 
-          <Route path='/Update_Comic' exact component={Update_Comic}/> 
-          <Route path='/Delete_Comic' exact component={Admin_Comic}/> 
+          <Route path='/Comics/Update/:index' component={Update_Comic}/> 
+          <Route path='/Comics/Delete/:index' component={Admin_Comic}/> 
+          <Route path="/Comics/trang:index" component={Admin_Comic}/>
           <Route path='/Admin_User' exact component={index}/> 
           <Route path='/' component={Home} />
           </Switch>        

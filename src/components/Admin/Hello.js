@@ -1,21 +1,14 @@
 import React from 'react';
 import {Link,Route} from 'react-router-dom';
 import './index.css'
+import Breadcrumb from './Breadcrumb';
 class Hello extends React.Component{
     render()
     {
         return (
             <>
             <div className="content-wrapper" id="con">
-            <div className="container-fluid">
-                <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                    <Link to="/Admin">TVT</Link>
-                    </li>
-                    <li className="breadcrumb-item active">Overview</li>
-                </ol>
-        
-            </div>
+            <Breadcrumb br="Overview"/>
             <div  id="row" className="row">
             <div className="col-md-2"></div>
             <div className="col-md-8">

@@ -3,6 +3,7 @@ import {Link,Route} from 'react-router-dom';
 import Nav from './Nav';
 import Content from './Content';
 import './Admin_Comic.css';
+import Breadcrumb from './Breadcrumb';
 class Admin_Comic extends React.Component{
     constructor(props)
     {
@@ -52,13 +53,14 @@ class Admin_Comic extends React.Component{
     {
         const list=this.state.list.map((a,index)=>
             <tr>
-            <td> <Link to="/Update_Comic">{a.name}</Link></td>
+            <td> <Link to={"/Comics/Update/"+index}>{a.name}</Link></td>
             <td>{a.author}</td>
             <td>{a.genre}</td>     
             <td>
              <ul>
-             <li id="but" key={index}><Link to="/Update_Comic"><i class="far fa-edit"></i></Link></li>
-             <li id="but" key={index}><Link to="/Delete_Comic"><i id="del" class="far fa-minus-square"></i></Link></li>
+             <li id="but" key={index}><Link to={"/Comics/Update/"+index}><i class="far fa-edit"></i></Link></li>
+            
+             <li id="but" key={index}><Link to={"/Comics/Delete/" +index}><i id="del" class="far fa-minus-square"></i></Link></li>
              </ul>
             </td>           
             </tr>
@@ -66,6 +68,7 @@ class Admin_Comic extends React.Component{
         var a={
             float:"left"
         }
+        var k="Quản lý truyện";
         return(
             <>
              <body id="page-top">
@@ -73,14 +76,7 @@ class Admin_Comic extends React.Component{
                <div id="wrapper" >                   
                    <Content /> 
                    <div id="content-wrapper" >
-                   <div className="container-fluid">
-                <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                    <Link to="/Admin">TVT</Link>
-                    </li>
-                    <li className="breadcrumb-item active">Quản lý truyện</li>
-                    
-                </ol>
+                    <Breadcrumb br="Quản lý truyện"/>
                 
                 <div className="card mb-3">
                     <div className="card-header">
@@ -125,9 +121,9 @@ class Admin_Comic extends React.Component{
                                             <div className="dataTables_paginate paging_simple_numbers">
                                                 <ul className="pagination">
                                                 <li className="paginate_button page-item previous disabled" id="dataTable_previous"><Link to="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" className="page-link">Previous</Link></li>
-                                                <li className="paginate_button page-item active"><Link to="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" className="page-link">1</Link></li>
-                                                <li className="paginate_button page-item "><Link to="#"aria-controls="dataTable" data-dt-idx="1" tabindex="0" className="page-link">2</Link></li>
-                                                <li className="paginate_button page-item "><Link to="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" className="page-link">3</Link></li>
+                                                <li className="paginate_button page-item active"><Link to={"/Comics/trang/"+1} aria-controls="dataTable" data-dt-idx="1" tabindex="0" className="page-link">1</Link></li>
+                                                <li className="paginate_button page-item "><Link to={"/Comics/trang"+2} aria-controls="dataTable" data-dt-idx="1" tabindex="0" className="page-link">2</Link></li>
+                                                <li className="paginate_button page-item "><Link to={"/Comics/trang"+3} aria-controls="dataTable" data-dt-idx="1" tabindex="0" className="page-link">3</Link></li>
                                                 <li className="paginate_button page-item next" ><Link to="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" className="page-link">Next</Link></li>
 
                                                 </ul>
@@ -143,7 +139,7 @@ class Admin_Comic extends React.Component{
                        </div>            
                              
                
-               </div>              
+               {/* </div>               */}
                
             </body>
             </>

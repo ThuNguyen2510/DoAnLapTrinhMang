@@ -90,7 +90,7 @@ class LeftBody extends React.Component{
                 </nav>
                 </div>
                <div className="row row-eq-height">
-                   <ListComic/><ListComic/><ListComic/><ListComic/>
+                   <ListComic/>
                    </div> 
             </div>
         );

@@ -5,8 +5,9 @@ class Comic extends React.Component{
     render()
     {
         var i_s={
-            width: "80px",
-            float: "left"
+            width: "100px",
+            float: "left",
+            height: "150px"
         }
         var d_s={
             marginBottom: "8px",
@@ -21,6 +22,9 @@ class Comic extends React.Component{
         }
         var i_k={
             float:"left",
+           
+                padding: "10px"
+            
 
         }
         var x={
@@ -41,21 +45,21 @@ class Comic extends React.Component{
                 <div className="page-item-detail manga">
                     <div className="item-thumb hover-details c-image-hover">
                     <Link className="book-img position-relative" to="/Comic_id">
-                    <img style={i_s} src="https://yycdn.truyenyy.com/media/novels/2019-04/b48f97e6b6.jpg" alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
+                    <img style={i_s} src={this.props.Src} alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
                 </Link>
                     </div>
                 </div>
                 <div className="item-summary">
                     <div className="post-title font-title">
                     <h4 className="title">
-                        <Link style={a_s} to="/Comic_id">Hệ Thống Game Tại Dị Giới</Link>
+                        <Link style={a_s} to="/Comic_id">{this.props.name}</Link>
                     </h4>
                     </div>
                     <div style={x}>
-                    Mô tả : The Grandmaster of Demonic The Grandmaster of Demonic
+                    {this.props.descrip}
                     </div>
                     <span className="chapter font-meta" style={sp}>
-                    <Link to="/Tacgia_id" className="btn-link" style={sp}>Tác giả: ABHSKC</Link>
+                    <Link to="/Tacgia_id" className="btn-link" style={sp}>Tác giả: {this.props.author}</Link>
                     </span>                    
                 </div>
                 
