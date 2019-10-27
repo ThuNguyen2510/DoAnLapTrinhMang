@@ -1,7 +1,15 @@
 import React from 'react';
 import Comic_mini from './Comic_mini';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux'
  class RightBody extends React.Component{
+   
+    show()
+    {
+      return this.props.list.map((a,index)=>
+      <Comic_mini src={a.Image} name={a.Name} datetime={a.Post_DateTime}/>
+      )
+    }
      render()
      {
         var con_d={
@@ -28,6 +36,7 @@ import {Link} from 'react-router-dom';
           color: "white",
           borderRadius: "8px"
         }
+        
          return(
             <>
             <div className="row">
@@ -40,12 +49,7 @@ import {Link} from 'react-router-dom';
               </div>
               <hr></hr>
               <div className="widget-content" style={tb_s}>
-                <Comic_mini/>                
-                <Comic_mini/>               
-                <Comic_mini/>
-                <Comic_mini/>               
-                <Comic_mini/>
-                <Comic_mini/>
+                {this.show()}
               </div> 
               <span class="c-wg-button-wrap">
                   <Link style={a_style} className="widget-view-more" to="/TruyenHot">Xem thêm</Link>
@@ -59,4 +63,10 @@ import {Link} from 'react-router-dom';
 
      }
  }
- export default RightBody;
+ function mapStateToProps (state)
+{
+  return{
+    list: state.comic
+  }
+}
+export default connect(mapStateToProps)(RightBody);   

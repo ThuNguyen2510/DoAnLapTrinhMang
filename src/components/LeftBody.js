@@ -1,6 +1,7 @@
 import React from 'react';
 import ListComic from './ListComic';
 import {Link,Redirect} from 'react-router-dom';
+import './LeftBody.css'
 class LeftBody extends React.Component{
     
     render(){

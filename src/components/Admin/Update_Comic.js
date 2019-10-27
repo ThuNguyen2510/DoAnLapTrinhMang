@@ -138,7 +138,7 @@ class Update_Comic extends React.Component{
                             <div className="row">
                                 <img src="http://dummyimage.com/250x235.bmp/dddddd/000000"></img>
                             </div>
-                            <button className="btn btn-primary btn-lg btn-block"><i class="fas fa-upload"></i></button>                            
+                            <input type="file" ></input>                            
                         </div>
                        
                     </div>

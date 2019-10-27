@@ -10,24 +10,28 @@ class Comic_mini extends React.Component{
         }
         var a_s={
             color:"#1b1e21",
-            fontSize:"14px",
+            fontSize:"16px",
             textDecoration: "none",
         }
-        
+        var k={
+            
+                color: "#952121",fontSize:"14px"
+            
+        }
         return(
             <>
             <div className="popular-item-wrap">
                 <div className="popular-img widget-thumbnail c-image-hover">
                 <Link className="book-img position-relative" to="/Comic_id" style={i_s}>
-            <img style={i_s} src="https://yycdn.truyenyy.com/media/novels/2019-04/b48f97e6b6.jpg" alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
+            <img style={i_s} src={this.props.src} alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
                 </Link>
                 </div>
            
                 <div className="popular-content">
                     <h4 className="widget-title">
-                        <Link style={a_s} to="/Comic_id">Hệ Thống Game Tại Dị Giới</Link>
+                        <Link style={a_s} to="/Comic_id">{this.props.name}</Link>
                     </h4>
-                    <span class="post-on font-meta"> September 21, 2019 </span>                    
+                    <span className="post-on font-meta" style={k}>Cập nhật :{this.props.datetime} </span>                    
             </div>
            
             </div>

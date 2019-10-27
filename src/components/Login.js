@@ -55,7 +55,9 @@ class Login extends React.Component{
                 </div>
                 </div>
                 <div>Not have Account <Link to="/Signup" >Signup</Link></div>
-               
+                <br></br>
+                <span><Link to="/"><i className="far fa-arrow-alt-circle-left"></i>Back to Homepage </Link></span>
+
                 </div>
                     
              </>
