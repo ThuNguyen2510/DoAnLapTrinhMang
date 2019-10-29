@@ -3,10 +3,10 @@ import Comic from './Comic';
 import {connect} from 'react-redux';
 import Comic_mini from './Comic_mini';
 class ListComic extends React.Component{
-    
     show(){
-      return this.props.list.map(a=>
-        <Comic Src={a.Image} name={a.Name} descrip={a.Description} author={a.Author}/>
+      return this.props.list.map((a,index)=>
+      
+        <Comic  id={index} Src={a.Image} name={a.Name} descrip={a.Description} author={a.Author}/>
       )
     }
     render()

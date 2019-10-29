@@ -44,7 +44,7 @@ class Comic extends React.Component{
             <div className="col-12 col-md-6 badge-pos-1" style={i_k}>
                 <div className="page-item-detail manga">
                     <div className="item-thumb hover-details c-image-hover">
-                    <Link className="book-img position-relative" to="/Comic_id">
+                    <Link className="book-img position-relative" to={"/Comic/"+this.props.id}>
                     <img style={i_s} src={this.props.Src} alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
                 </Link>
                     </div>
@@ -52,7 +52,7 @@ class Comic extends React.Component{
                 <div className="item-summary">
                     <div className="post-title font-title">
                     <h4 className="title">
-                        <Link style={a_s} to="/Comic_id">{this.props.name}</Link>
+                        <Link  style={a_s} to={"/Comic/"+this.props.id}>{this.props.name}</Link>
                     </h4>
                     </div>
                     <div style={x}>

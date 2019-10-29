@@ -1,5 +1,6 @@
+import {SHOW_LIST,SHOW_A_COMIC} from './../actions/ComicActions';
 var initialState=[
-    {
+     {
         "Id": 1,
         "Name": "Sylvicapra grimma",
         "Author": "Isacco O'Geneay",

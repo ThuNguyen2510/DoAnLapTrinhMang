@@ -58,9 +58,9 @@ class Admin_Comic extends React.Component{
             <td>{a.genre}</td>     
             <td>
              <ul>
-             <li id="but" key={index}><Link to={"/Comics/Update/"+index}><i class="far fa-edit"></i></Link></li>
+             <li id="but" key={index}><Link to={"/Comic/"+index+"/Edit"}><i class="far fa-edit"></i></Link></li>
             
-             <li id="but" key={index}><Link to={"/Comics/Delete/" +index}><i id="del" class="far fa-minus-square"></i></Link></li>
+             <li id="but" key={index}><Link to={"/Comic/" +index+"/Delete"}><i id="del" class="far fa-minus-square"></i></Link></li>
              </ul>
             </td>           
             </tr>

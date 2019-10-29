@@ -16,20 +16,19 @@ class App extends React.Component {
   render(){
     
     return (
-      <div className="App">
-        
+      <div className="App">        
         <Router history={history}>
           <Switch>         
           <Route path='/Signin' exact component={Login}/>   
           <Route path='/Signup' exact component={Signup}/>   
-          <Route path='/Comic_id' exact component={Comic_detail}/>   
+          <Route path='/Comic/:index' exact component={Comic_detail}/>   
           <Route path='/TruyenMoi' exact component={Comic_detail}/>   
           <Route path='/TruyenHot' exact component={Comic_detail}/>   
           <Route path='/Category' exact component={Comic_detail}/>  
           <Route path='/Admin' exact component={index}/> 
           <Route path='/Admin_Comic' exact component={Admin_Comic}/> 
-          <Route path='/Comics/Update/:index' component={Update_Comic}/> 
-          <Route path='/Comics/Delete/:index' component={Admin_Comic}/> 
+          <Route path='/Comic/:index/Edit' component={Update_Comic}/> 
+          <Route path='/Comic/:index/Delete' component={Admin_Comic}/> 
           <Route path="/Comics/trang:index" component={Admin_Comic}/>
           <Route path='/Admin_User' exact component={index}/> 
           <Route path='/' component={Home} />
