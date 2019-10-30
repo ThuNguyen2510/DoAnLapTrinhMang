@@ -6,13 +6,13 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.scss';
 import 'font-awesome/css/font-awesome.min.css';
-
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
 import  appReducers from './reducers/index';
 import {Provider} from 'react-redux';
-import comic from './reducers/comic';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 const store=createStore(
-    appReducers
+    appReducers,{}, applyMiddleware(thunk, logger)
 );
 ReactDOM.render(
         <Provider store={store}>
