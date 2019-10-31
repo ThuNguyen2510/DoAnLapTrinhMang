@@ -49,8 +49,9 @@ function callLoginApi(username, password, callback) {
         data =>
       {         
           const user=data.data;
+          console.log(user);
             setTimeout(() => {
-                if (password === user.password) {
+                if (password === user[0].password) {
                 return callback(null);
                 } else {
                 return callback(new Error('Invalid email and password'));

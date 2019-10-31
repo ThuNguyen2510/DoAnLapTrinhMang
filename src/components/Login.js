@@ -1,7 +1,9 @@
 import React from 'react';
 import { Router, Route, Link,Switch, NavLink } from "react-router-dom";
 import Signup from './Signup';
+import Home from './Home';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { login } from './../reducers/login';
 class Login extends React.Component{
     constructor(props) {
@@ -59,7 +61,7 @@ class Login extends React.Component{
                         <input style={input}type="password" className="form-control" id="passWord"
                         placeholder="***********" onChange={e => this.setState({password: e.target.value})} value={password} />
                     </div>
-                    <button type="submit" className="btn btn-primary">Sign in</button>
+                    <button type="submit" className="btn btn-primary" >Sign in</button>
                     </form>
                 </div>
                 </div>
@@ -67,9 +69,9 @@ class Login extends React.Component{
                 <br></br>
                 <span><Link to="/"><i className="far fa-arrow-alt-circle-left"></i>Back to Homepage </Link></span>
                 <div className="message">
-                { isLoginPending && <div>Please wait...</div> }
-                { isLoginSuccess && <div>Success.</div> }
-                { loginError && <div>{loginError.message}</div> }
+               
+                { isLoginSuccess && <Redirect  to="/" />}
+               
                 </div>
                 </div>
                 </form>  
@@ -84,7 +86,7 @@ class Login extends React.Component{
         this.props.login(email, password);
         this.setState({
           email: '',
-          password: ''
+          password: '',
         });
       }
     
