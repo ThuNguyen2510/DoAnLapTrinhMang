@@ -8,13 +8,13 @@ class Content extends React.Component{
             
             <ul className="sidebar navbar-nav">
                     <li className="nav-item active">
-                    <Link className="nav-link" to="/Admin_Comic">
+                    <Link className="nav-link" to="/Admin/Comics">
                         <i id ="i" className="fas fa-fw fa-tachometer-alt" />
                         <span>Quản lý truyện</span>
                     </Link>
                     </li>
                     <li className="nav-item dropdown">
-                    <Link className="nav-link" to="/Admin_User">
+                    <Link className="nav-link" to="/Admin/Users">
                         <i id ="i" className="fas fa-users"></i>
                         <span>Quản lý User</span>
                     </Link>

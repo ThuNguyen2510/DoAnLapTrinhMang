@@ -26,7 +26,7 @@ class App extends React.Component {
           <Route path='/TruyenHot' exact component={Comic_detail}/>   
           <Route path='/Category' exact component={Comic_detail}/>  
           <Route path='/Admin' exact component={index}/> 
-          <Route path='/Admin_Comic' exact component={Admin_Comic}/> 
+          <Route path='/Admin/Comics' exact component={Admin_Comic}/> 
           <Route path='/Comic/:index/Edit' component={Update_Comic}/> 
           <Route path='/Comic/:index/Delete' component={Admin_Comic}/> 
           <Route path="/Comics/trang:index" component={Admin_Comic}/>
