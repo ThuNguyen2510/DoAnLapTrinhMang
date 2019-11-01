@@ -20,6 +20,21 @@ class Slider extends React.Component{
         }
         const slider = (
             <AwesomeSlider style={style}>
+            <div style={s} className="row"> 
+              <div className="col-md-3">
+              <Comic_inSlider/> 
+              </div>
+              <div className="col-md-3">
+              <Comic_inSlider/> 
+              </div>
+              <div className="col-md-3">
+              <Comic_inSlider/> 
+              </div>
+              <div className="col-md-3">
+              <Comic_inSlider/> 
+              </div>
+              </div> 
+              
               <div style={s} className="row"> 
               <div className="col-md-3">
               <Comic_inSlider/> 
@@ -31,23 +46,9 @@ class Slider extends React.Component{
               <Comic_inSlider/> 
               </div>
               <div className="col-md-3">
+              <Comic_inSlider/> 
+              </div>
 
-              <Comic_inSlider/> 
-              </div>
-              <div style={s} className="row"> 
-              <div className="col-md-3">
-              <Comic_inSlider/> 
-              </div>
-              <div className="col-md-3">
-              <Comic_inSlider/> 
-              </div>
-              <div className="col-md-3">
-              <Comic_inSlider/> 
-              </div>
-              <div className="col-md-3">
-
-              <Comic_inSlider/> 
-              </div>
               </div>
               <div style={s} className="row"> 
               <div className="col-md-3">
@@ -63,7 +64,7 @@ class Slider extends React.Component{
               <Comic_inSlider/> 
               </div>
               </div>
-             </div>
+                  
             </AwesomeSlider>
           );
         return(
