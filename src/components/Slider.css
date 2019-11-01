@@ -1,0 +1,9 @@
+.row {
+    display: inline-block;
+    width: 100%;
+    padding: 30px;
+}
+
+.container {
+    text-align: center;
+}

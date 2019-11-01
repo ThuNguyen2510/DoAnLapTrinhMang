@@ -1,0 +1,26 @@
+.comicname {
+    color: rgb(43, 39, 39);
+    text-decoration: none;
+}
+
+.comicname:hover {
+    text-decoration: none;
+    color: rgb(87, 84, 84);
+}
+
+.info {
+    text-align: left;
+}
+
+.description {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 5px 5px 5px 5px;
+}
+
+.status {
+    background-color: rgb(29, 199, 80);
+    border: 1px solid rgb(29, 199, 80);
+    border-radius: 2px;
+    ;
+}
