@@ -12,6 +12,7 @@ import Admin_Comic from './components/Admin/Admin_Comic';
 import Update_Comic from './components/Admin/Update_Comic';
 import Chapter_detail from './components/Chapter_detail';
 import Hello from './components/Admin/Hello';
+import Admin_user from './components/Admin/Admin_user';
 const history = createBrowserHistory()
 class App extends React.Component {
   render(){
@@ -32,6 +33,7 @@ class App extends React.Component {
           <Route path='/Comic/:index/Edit' component={Update_Comic}/> 
           <Route path='/Comic/:index/Delete' component={Admin_Comic}/> 
           <Route path="/Comics/trang:index" component={Admin_Comic}/>
+          <Route path='/Admin/Users' exact component={Admin_user}/>
           <Route path='/Admin_User' exact component={index}/> 
           <Route path='/' component={Home} />
           
