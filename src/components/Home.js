@@ -25,8 +25,6 @@ class Home extends React.Component{
             <div className="container">
             <Slider/>
             </div>
-            
-            
             <div className="container" style={c}>
             <div className="row">
                 <div className="col-md-8">

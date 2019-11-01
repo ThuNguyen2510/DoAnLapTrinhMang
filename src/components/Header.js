@@ -1,7 +1,6 @@
 import React from 'react';
-import { Router } from 'react-router'
 import createBrowserHistory from 'history/createBrowserHistory'
-import { Link } from 'react-router-dom'
+import { Router, Route, Link,Switch, NavLink } from "react-router-dom";
 class Header extends React.Component{
     
     render()
@@ -21,12 +20,19 @@ class Header extends React.Component{
           }
           var d_style={
             width: "8000px",
-            marginLeft: "350px"
+            marginLeft: "300px",
+            marginTop:"20px"
+          }
+          var li={
+            color:"#e3538c",
+            fontSize:"17px",
+            textDecoration: "none",
+            
           }
         return(
             <header className="container mt-3 site-header">
                 <div className="d-flex">
-                    <a href="/" className="site-logo"><img src={require('../TVT.PNG')} alt="Logo" style={image_s} /></a>
+                <Link to="/" className="site-logo"><img src={require('../TVT.PNG')} alt="Logo" style={image_s} /></Link>
                     <div id="react-root_desktop-search" className="search" style={d1_S}>
                     <form action="/tim-kiem/nang-cao/">
                         <div className="input-group" style={input_s} >
@@ -40,18 +46,8 @@ class Header extends React.Component{
                     </form>
                 </div>
                 <div style={d_style}>
-                    <ul>
-                        <li style={li_style}>
-                            <a  href="/"><i className="fas fa-sign-in-alt"></i></a>                        
-                        </li>
-                        <li style={li_style}>
-                        <a  href="/"><i className="fas fa-user-plus"></i></a>
-                        </li>
-                    </ul>                
-                
-                </div>
-                
-                
+                <Link style={li} to="/Signin"><i className="fas fa-sign-in-alt"></i>Sign in/Sign up</Link>             
+                </div>  
                 </div>
             </header>
         );

@@ -1,28 +1,41 @@
 import React from 'react';
+import {Link,Route} from 'react-router-dom';
 class Comic_mini extends React.Component{
     render()
     {
         var i_s={
             width: "40px",
-            float: "left"
+            float: "left",
+            textDecoration: "none",
         }
         var a_s={
             color:"#1b1e21",
-            fontSize:"14px"
+            fontSize:"16px",
+            textDecoration: "none",
+        }
+        var k={
+            
+                color: "#952121",fontSize:"14px"
+            
         }
         return(
             <>
-            <div>
-            <a className="book-img position-relative" href="/">
-            <img style={i_s} src="https://yycdn.truyenyy.com/media/novels/2019-04/b48f97e6b6.jpg" alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
-                </a>
-                <div className="flex-primary">
-                    <h4 className="book-title">
-                        <a style={a_s} href="/truyen/he-thong-game-tai-di-gioi/">Hệ Thống Game Tại Dị Giới</a>
+            <div className="popular-item-wrap">
+                <div className="popular-img widget-thumbnail c-image-hover">
+                    <Link className="book-img position-relative" to="/Comic_id" style={i_s}>
+                        <img style={i_s} src={this.props.src} alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
+                    </Link>
+                </div>
+           
+                <div className="popular-content">
+                    <h4 className="widget-title">
+                        <Link style={a_s} to="/Comic_id">{this.props.name}</Link>
                     </h4>
-                    
+                    <span className="post-on font-meta" style={k}>Cập nhật :{this.props.datetime} </span>                    
+                </div>
+           
             </div>
-            </div>
+            <hr></hr>
             </>
         );
     }

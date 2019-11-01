@@ -7,6 +7,7 @@ import Detail from './Detail';
 import Detail_R from './Detail_R';
 import ListChap from './ListChap';
 import './Comic_detail.css';
+
 class Comic_detail extends React.Component{
     render()
     {
@@ -47,9 +48,7 @@ class Comic_detail extends React.Component{
                 <div className="row">   
                     <Footer/>                
                 </div>
-            </div>
-            
-           
+            </div>   
             </>
         )
     }
