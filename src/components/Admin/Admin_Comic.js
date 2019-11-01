@@ -3,68 +3,27 @@ import {Link,Route} from 'react-router-dom';
 import Nav from './Nav';
 import Content from './Content';
 import './Admin_Comic.css';
+import {connect} from 'react-redux';
 import Breadcrumb from './Breadcrumb';
 class Admin_Comic extends React.Component{
-    constructor(props)
-    {
-        super(props);
-        this.state={
-            list:[
-                {
-                    name:"Airi Satou",
-                    author:"Chief Executive Officer (CEO)",
-                    genre:"Manga"
-                },
-                {
-                    name:"One piece",
-                    author:"Oda Eiichiro",
-                    genre:"Shoune"
-                },
-                {
-                    name:"Naruto",
-                    author:"Kishimoto Masashi",
-                    genre:"Manga"
-                },
-                {
-                    name:"One piece",
-                    author:"Oda Eiichiro",
-                    genre:"Shoune"
-                },
-                {
-                    name:"Naruto",
-                    author:"Kishimoto Masashi",
-                    genre:"Manga"
-                },
-                {
-                    name:"One piece",
-                    author:"Oda Eiichiro",
-                    genre:"Shoune"
-                },
-                {
-                    name:"Naruto",
-                    author:"Kishimoto Masashi",
-                    genre:"Manga"
-                }               
-
-            ]
-        }
-    }
+    show(){
+        return this.props.list.map((a,index)=>
+        <tr>
+        <td> <Link to={"/Comic/"+index+"/Edit"}>{a.Name}</Link></td>
+        <td>{a.Author}</td>
+        <td>{a.Genre_id}</td>     
+        <td>
+         <ul>
+         <li id="but" key={index}><Link to={"/Comic/"+index+"/Edit"}><i class="far fa-edit"></i></Link></li>            
+         <li id="but" key={index}><Link to={"/Comic/" +index+"/Delete"}><i id="del" class="far fa-minus-square"></i></Link></li>
+         </ul>
+        </td>           
+        </tr>
+        
+        )
+      }
     render() 
     {
-        const list=this.state.list.map((a,index)=>
-            <tr>
-            <td> <Link to={"/Comics/Update/"+index}>{a.name}</Link></td>
-            <td>{a.author}</td>
-            <td>{a.genre}</td>     
-            <td>
-             <ul>
-             <li id="but" key={index}><Link to={"/Comic/"+index+"/Edit"}><i class="far fa-edit"></i></Link></li>
-            
-             <li id="but" key={index}><Link to={"/Comic/" +index+"/Delete"}><i id="del" class="far fa-minus-square"></i></Link></li>
-             </ul>
-            </td>           
-            </tr>
-        );
         var a={
             float:"left"
         }
@@ -108,14 +67,15 @@ class Admin_Comic extends React.Component{
                                                     <th>Thể loại</th>
                                                     <th>Action</th>
                                                 </tr>
-                                                    {list}                                                 
+                                                {this.show()}
+                                                   
                                             </table>
 
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-sm-12 col-md-5">
-                                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">THỐNG KÊ:{list.length} cuốn truyện</div>
+                                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">THỐNG KÊ:{this.props.list.length} cuốn truyện</div>
                                         </div>
                                         <div className="col-sm-12 col-md-7">
                                             <div className="dataTables_paginate paging_simple_numbers">
@@ -136,11 +96,7 @@ class Admin_Comic extends React.Component{
                     </div>
                 </div>
             </div>
-                       </div>            
-                             
-               
-               {/* </div>               */}
-               
+                       </div>                           
             </body>
             </>
                      
@@ -148,4 +104,10 @@ class Admin_Comic extends React.Component{
         );
     }
 }
-export default Admin_Comic;
+function mapStateToProps (state)
+{
+  return{
+    list: state.comic
+  }
+}
+export default connect(mapStateToProps)(Admin_Comic);  

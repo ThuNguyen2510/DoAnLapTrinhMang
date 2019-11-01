@@ -1,9 +1,10 @@
 .footer {
-    position: inherit;
+    position: relative;
     bottom: 0;
     display: table;
     width: 100%;
     line-height: 1.4;
+    margin-top: auto;
     background: lavender;
 }
 

@@ -225,5 +225,38 @@
             "Number_of_Like": 22,
             "Number_of_Read": 29
           }
+    ],
+    "genre":[
+      {
+        "genre_id": 1,
+        "genre_name": "Ngôn tình"
+      }, {
+        "genre_id": 2,
+        "genre_name": "Kiếm hiệp"
+      }, {
+        "genre_id": 3,
+        "genre_name": "Dị giới"
+      }, {
+        "genre_id": 4,
+        "genre_name": "Quân sự"
+      }, {
+        "genre_id": 5,
+        "genre_name": "Lịch sử"
+      }, {
+        "genre_id": 6,
+        "genre_name": "Xuyên không"
+      }, {
+        "genre_id": 7,
+        "genre_name": "Trinh Thám"
+      }, {
+        "genre_id": 8,
+        "genre_name": "Đam mĩ"
+      }, {
+        "genre_id": 9,
+        "genre_name": "Bách hợp"
+      }, {
+        "genre_id": 10,
+        "genre_name": "Cung đấu"
+      }
     ]
 }
