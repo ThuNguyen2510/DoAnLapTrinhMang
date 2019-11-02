@@ -6,6 +6,7 @@ import RightBody from './RightBody';
 import Slider from './Slider';
 import routes from '../routes';
 import Footer from './Footer';
+import './Home.css'
 class Home extends React.Component{
     
     render()
@@ -17,11 +18,13 @@ class Home extends React.Component{
             <>           
             <div>
              <div className="container">
-             <Header/>
+                <Header/>  
             </div> 
             <Nav/>
             <hr></hr> 
+            <div className="container">
             <Slider/>
+            </div>
             <div className="container" style={c}>
             <div className="row">
                 <div className="col-md-8">

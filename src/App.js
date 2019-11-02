@@ -12,6 +12,8 @@ import Admin_Comic from './components/Admin/Admin_Comic';
 import Update_Comic from './components/Admin/Update_Comic';
 import AddComic from './components/Admin/AddComic';
 import Chapter_detail from './components/Chapter_detail';
+import Filter from './components/Filter';
+import Author from './components/Author_comic';
 import Hello from './components/Admin/Hello';
 import Admin_user from './components/Admin/Admin_user';
 const history = createBrowserHistory()
@@ -21,7 +23,9 @@ class App extends React.Component {
     return (
       <div className="App">        
         <Router history={history}>
-          <Switch>         
+          <Switch> 
+          <Route path='/Search' exact component={Filter}/>  
+          <Route path='/Author' exact component={Author}/>      
           <Route path='/Signin' exact component={Login}/>   
           <Route path='/Signup' exact component={Signup}/>   
           <Route path='/Comic/:index' exact component={Comic_detail}/>   
