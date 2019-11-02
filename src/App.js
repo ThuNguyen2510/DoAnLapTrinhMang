@@ -36,7 +36,7 @@ class App extends React.Component {
           <Route path='/Comic/:index/Delete' component={Admin_Comic}/> 
           <Route path="/Comics/trang:index" component={Admin_Comic}/>
           <Route path='/Admin/Users' exact component={Admin_user}/>
-          <Route path='/Admin_User' exact component={index}/> 
+          <Route path='/Users/Add' exact component={Admin_user}/>
           <Route path='/' component={Home} />
           
           </Switch>        

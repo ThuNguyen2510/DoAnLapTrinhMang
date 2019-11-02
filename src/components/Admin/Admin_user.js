@@ -20,7 +20,7 @@ class Admin_user extends React.Component{
                                 <i class="fas fa-table"></i>
                                 Danh sách user
                             </div>
-                        <div id="k"> <Link to="/Add_Comic"><i class="fas fa-plus"></i>Thêm truyện </Link></div>
+                        <div id="k"> <Link to="/Users/Add"><i class="fas fa-plus"></i>Thêm user </Link></div>
                     <div className="card-body">
                         <div className="table-responsive">
                             <div className="dataTables_wrapper dt-bootstrap4" id="dataTable_wrapper">
