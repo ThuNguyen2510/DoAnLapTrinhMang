@@ -21,35 +21,31 @@ class AddComic extends React.Component{
                             <form className="needs-validation">
                            
                                 <div className="mb-3">
-                                <label for="username">Tên truyện</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        </div>
+                                    <label for="username">Tên truyện</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"></div>
                                         <input type="text" class="form-control" id="username" required=""></input>
-                                        
                                     </div>
                                 </div>
                                 <div className="mb-3">
-                                <label for="username">Tác giả</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        </div>
+                                    <label for="username">Tác giả</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"> </div>
                                         <input type="text" class="form-control" id="username" required=""></input>
-                                        
                                     </div>
                                 </div>
                                
                                 <div className="mb-3">
-                                <label for="username">Thể loại</label>
-                                <select className="custom-select d-block w-100" id="country" required="">
-                                    <option value="">Kiếm hiệp</option>
-                                    <option>Ngôn tình</option>
-                                    </select>
+                                    <label for="username">Thể loại</label>
+                                        <select className="custom-select d-block w-100" id="country" required="">
+                                            <option value="">Kiếm hiệp</option>
+                                            <option>Ngôn tình</option>
+                                        </select>
                                 </div>
                                 <div className="mb-3">
-                                <label for="username">Mô tả</label>
+                                    <label for="username">Mô tả</label>
                                     <div className="form-group">
-                                    <textarea className="form-control" id="exampleFormControlTextarea3" rows="4"></textarea>
+                                        <textarea className="form-control" id="exampleFormControlTextarea3" rows="4"></textarea>
                                     </div>
                                 </div>
                                 
@@ -74,19 +70,15 @@ class AddComic extends React.Component{
                        
                     </div>
                     <div className="row">
-                        <div className="col-md-7">
-
-                        </div>
+                        <div className="col-md-7"></div>
                         <div className="col-md-5">
-                        <button type="button" class="btn btn-pill btn-warning">Lưu</button>
-                        <button type="button" class="btn btn-square btn-secondary">Cancel</button>
+                            <button type="button" class="btn btn-pill btn-warning">Lưu</button>
+                            <button type="button" class="btn btn-square btn-secondary">Cancel</button>
                         </div>
                         
-                        </div>
+                    </div>
                 </div>               
                 </div>
-                
-                
             </body></>
         )
     }

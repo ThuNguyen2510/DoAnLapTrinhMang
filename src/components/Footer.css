@@ -1,11 +1,5 @@
 .footer {
     position: relative;
-    bottom: 0;
-    display: table;
-    width: 100%;
-    line-height: 1.4;
-    margin-top: auto;
-    background: lavender;
 }
 
 section {
@@ -21,8 +15,8 @@ section .section-title {
 }
 
 #footer {
-    margin-left: 10%;
-    margin-right: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 #footer a {
