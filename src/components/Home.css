@@ -5,3 +5,8 @@
 .slide {
     display: inline-block;
 }
+
+.container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

@@ -4,6 +4,7 @@ import Header from './Header';
 import Nav from './Nav';
 import Footer from './Footer';
 import Comic_inSlider from './Comic_inSlider';
+import {Link} from 'react-router-dom';
 class Author_comic extends React.Component
 {
     render()
@@ -16,7 +17,14 @@ class Author_comic extends React.Component
             <Nav/>
             <hr></hr>
             <div className="container">
+
                 <div className="row">
+                <div className="col-md-12 nex"> 
+                    <i className="fas fa-home"></i><Link to="/">Trang chủ</Link><i className="fas fa-angle-right"></i>
+                    <Link to="/Comic/:index">Tái sinh để theo đuổi anh</Link><i className="fas fa-angle-right"></i>
+                    <Link to="/cm/">Chap 1</Link>
+                    <hr/>
+                </div>
                     <div className="col-md-2">
                         <Comic_inSlider/>
                     </div>

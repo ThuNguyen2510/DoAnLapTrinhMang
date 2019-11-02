@@ -23,12 +23,14 @@ class Comic_detail extends React.Component{
             
             <div className="container">
                 <div className="row">
-                    <div className="col-md-12 col-lg-9">
-                        <div className="nav-content"> 
+                    <div className="col-md-12 nav-content">
+                    <div className="nav-content-details"> 
                         <i className="fas fa-home"></i><Link to="/">Trang chủ</Link><i className="fas fa-angle-right"></i>
                         <Link to="/Comic/:index">Tái sinh để theo đuổi anh</Link><i className="fas fa-angle-right"></i>
                         <hr/>
                         </div>
+                    </div>
+                    <div className="col-md-12 col-lg-9">
                         <div className="row wrap-detail">
                             <div className="col-md-4">
                                 <img src="https://sstruyen.com/assets/img/story//tai-sinh-e-theo-uoi-anh.jpg" alt="Tái sinh để theo đuổi anh">
