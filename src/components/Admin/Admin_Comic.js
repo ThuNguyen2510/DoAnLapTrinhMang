@@ -43,7 +43,7 @@ class Admin_Comic extends React.Component{
                         </i>
                         Danh sách truyện
                     </div>
-                    <div id="k"> <Link to="/Add_Comic"><i class="fas fa-plus"></i>Thêm truyện </Link></div>
+                    <div id="k"> <Link to="/Comics/Add"><i class="fas fa-plus"></i>Thêm truyện </Link></div>
                     <div className="card-body">
                         <div className="table-responsive">
                             <div className="dataTables_wrapper dt-bootstrap4" id="dataTable_wrapper">
