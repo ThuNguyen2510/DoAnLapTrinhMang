@@ -22,46 +22,46 @@ class Slider extends React.Component{
             <AwesomeSlider style={style}>
             <div style={s} className="row"> 
               <div className="col-md-3">
-              <Comic_inSlider id="1"/> 
+              <Comic_inSlider/> 
               </div>
               <div className="col-md-3">
-              <Comic_inSlider id="2"/> 
+              <Comic_inSlider/> 
               </div>
               <div className="col-md-3">
-              <Comic_inSlider id="3"/> 
+              <Comic_inSlider/> 
               </div>
               <div className="col-md-3">
-              <Comic_inSlider id="4"/> 
+              <Comic_inSlider/> 
               </div>
               </div> 
               
               <div style={s} className="row"> 
               <div className="col-md-3">
-              <Comic_inSlider id="5"/> 
+              <Comic_inSlider/> 
               </div>
               <div className="col-md-3">
-              <Comic_inSlider id="6"/> 
+              <Comic_inSlider/> 
               </div>
               <div className="col-md-3">
-              <Comic_inSlider id="7"/> 
+              <Comic_inSlider/> 
               </div>
               <div className="col-md-3">
-              <Comic_inSlider id="8"/> 
+              <Comic_inSlider/> 
               </div>
 
               </div>
               <div style={s} className="row"> 
               <div className="col-md-3">
-              <Comic_inSlider id="9"/> 
+              <Comic_inSlider/> 
               </div>
               <div className="col-md-3">
-              <Comic_inSlider id="10"/> 
+              <Comic_inSlider/> 
               </div>
               <div className="col-md-3">
-              <Comic_inSlider id="11"/> 
+              <Comic_inSlider/> 
               </div>
               <div className="col-md-3">
-              <Comic_inSlider id="12"/> 
+              <Comic_inSlider/> 
               </div>
               </div>
                   

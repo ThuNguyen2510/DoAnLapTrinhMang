@@ -5,8 +5,14 @@
 .title {
     margin: 10px;
 }
-#x{
-    list-style: none;
-    float: none;
-    text-align: left;
+
+#tenchuong {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+#tenchuong:hover {
+    text-decoration: none;
+    color: rgb(107, 109, 109);
 }

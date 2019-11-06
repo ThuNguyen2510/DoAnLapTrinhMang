@@ -19,7 +19,6 @@ class Home extends React.Component{
             <div>
              <div className="container">
                 <Header/>  
-                <Nav/>
             </div> 
            
             <hr></hr> 
