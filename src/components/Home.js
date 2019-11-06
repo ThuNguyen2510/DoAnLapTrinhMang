@@ -12,15 +12,16 @@ class Home extends React.Component{
     render()
     {
         var c={
-            marginTop:"80px"
+           marginTop:"80px"
         }
         return(
             <>           
             <div>
              <div className="container">
                 <Header/>  
+                <Nav/>
             </div> 
-            <Nav/>
+           
             <hr></hr> 
             <div className="container">
             <Slider/>
@@ -31,7 +32,7 @@ class Home extends React.Component{
                 <LeftBody/>
                 </div>
                 <div className="col-md-4">
-                <RightBody/>
+                {/* <RightBody/> */}
                 </div>
             </div>
             <hr/>

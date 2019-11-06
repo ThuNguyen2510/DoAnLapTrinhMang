@@ -13,11 +13,11 @@ class Filter extends React.Component
             <>
             <div>
                 <div className="container">
-                    <Header/>
+                    <Header/><Nav/>
                 </div>
-                <Nav/>
+                
                 <hr/>
-                <hr/>
+        
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 col-lg-9">

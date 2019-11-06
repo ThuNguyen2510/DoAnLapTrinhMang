@@ -49,7 +49,7 @@ class Update_Comic extends React.Component{
     {
         const list= this.state.list.map((a,index)=>           
                 <tr>
-                    <td ><Link to="/">Chương số {a.id} : {a.name}</Link></td>
+                    <td ><Link to="/" id="li">Chương số {a.id} : {a.name}</Link></td>
                     <td >
                     <ul>
                         <li id="but" key={index}><Link to={"/Comic/id/Chapters/Update/"+index}><i class="far fa-edit"></i></Link></li>

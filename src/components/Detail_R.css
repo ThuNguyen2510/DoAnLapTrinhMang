@@ -14,3 +14,8 @@
     text-decoration: none;
     color: rgb(119, 116, 116);
 }
+#e {
+    list-style: none;
+     float: none;
+    text-align: left;
+}

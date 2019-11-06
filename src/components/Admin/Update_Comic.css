@@ -37,3 +37,8 @@ button.btn.btn-pill.btn-warning {
     margin-right: 10px;
     width: 80px;
 }
+#li {
+    font-size: 20px;
+    color: seagreen;
+    font-family: cursive;
+}

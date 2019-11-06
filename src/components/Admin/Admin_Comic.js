@@ -6,8 +6,15 @@ import './Admin_Comic.css';
 import {connect} from 'react-redux';
 import Breadcrumb from './Breadcrumb';
 class Admin_Comic extends React.Component{
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            list:[]
+        }
+    }
     show(){
-        return this.props.list.map((a,index)=>
+        return this.state.list.map((a,index)=>
         <tr>
             <td> <Link to={"/Comic/"+index+"/Edit"}>{a.Name}</Link></td>
             <td>{a.Author}</td>
@@ -104,10 +111,11 @@ class Admin_Comic extends React.Component{
         );
     }
 }
-function mapStateToProps (state)
-{
-  return{
-    list: state.comic
-  }
-}
-export default connect(mapStateToProps)(Admin_Comic);  
+export default Admin_Comic;
+// function mapStateToProps (state)
+// {
+//   return{
+//     list: state.comic
+//   }
+// }
+// export default connect(mapStateToProps)(Admin_Comic);  

@@ -7,13 +7,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.scss';
 import 'font-awesome/css/font-awesome.min.css';
 import {createStore,applyMiddleware} from 'redux';
-import  appReducers from './reducers/index';
+import  appReducers from './reducers/index_reducer';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+import {listcomic} from '../src/actions/ComicActions';
 const store=createStore(
     appReducers,{}, applyMiddleware(thunk, logger)
 );
+
 ReactDOM.render(
         <Provider store={store}>
             <App />

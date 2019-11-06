@@ -18,7 +18,7 @@ class Chapter_detail extends React.Component{
                 <Nav_chap/>
                 <hr/>
                 
-                <div className="nav-content"> 
+             <div className="nav-content"> 
                     <i className="fas fa-home"></i><Link to="/">Trang chủ</Link><i className="fas fa-angle-right"></i>
                     <Link to="/Comic/:index">Tái sinh để theo đuổi anh</Link><i className="fas fa-angle-right"></i>
                     <Link to="/cm/">Chap 1</Link>

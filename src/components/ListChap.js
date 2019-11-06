@@ -7,11 +7,11 @@ class ListChap extends React.Component
     {
         var ndc=["Trùng sinh", "Phỏng vấn", "Xem mặt", "Liên hoan", "Tỉnh rượu", "Gặp mặt", "Tin đồn", "Ăn cơm", "Vu oan hãm hại", "Bạn gái của tôi"];
         var list= ndc.map((value_,index)=>{
-            return <> <li key={index}> Chương {index +1}: {value_}</li>
+            return <> <li key={index} id="x"> Chương {index +1}: {value_}</li>
             <hr/> </>
         })
         var list2=ndc.map((value_,index)=>{
-            return <> <li key={index}> Chương {index +11}: {value_}</li>
+            return <> <li key={index} id="x"> Chương {index +11}: {value_}</li>
             <hr/> </>
         })
         return(

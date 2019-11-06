@@ -4,7 +4,7 @@ import Signup from './Signup';
 import Home from './Home';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import { login } from './../reducers/login';
+import { login } from './../reducers/login_reducer';
 class Login extends React.Component{
     constructor(props) {
         super(props);

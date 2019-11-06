@@ -22,14 +22,14 @@ class Comic_mini extends React.Component{
             <>
             <div className="popular-item-wrap">
                 <div className="popular-img widget-thumbnail c-image-hover">
-                    <Link className="book-img position-relative" to="/Comic_id" style={i_s}>
+                    <Link className="book-img position-relative" to={"/Comic/"+this.props.id }style={i_s}>
                         <img style={i_s} src={this.props.src} alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
                     </Link>
                 </div>
            
                 <div className="popular-content">
                     <h4 className="widget-title">
-                        <Link style={a_s} to="/Comic_id">{this.props.name}</Link>
+                        <Link style={a_s} to={"/Comic/"+this.props.id}>{this.props.name}</Link>
                     </h4>
                     <span className="post-on font-meta" style={k}>Cập nhật :{this.props.datetime} </span>                    
                 </div>

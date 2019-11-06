@@ -7,10 +7,10 @@ class Comic_inSlider extends React.Component{
         return (
             <>
             
-            <Link className="book-img position-relative" to="/Comic_id" >
+            <Link className="book-img position-relative" to={"/Comic/"+this.props.id} >
             <img  src="https://yycdn.truyenyy.com/media/novels/2019-04/b48f97e6b6.jpg" alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
             </Link>
-            <Link to="/Comic_id"> <h6 >
+            <Link to={"/Comic/"+this.props.id}> <h6 >
             <div className="name-book">Hệ Thống Game Tại Dị Giới</div></h6></Link>                
             
             </>

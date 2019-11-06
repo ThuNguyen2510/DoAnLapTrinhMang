@@ -5,3 +5,8 @@
 .title {
     margin: 10px;
 }
+#x{
+    list-style: none;
+    float: none;
+    text-align: left;
+}
