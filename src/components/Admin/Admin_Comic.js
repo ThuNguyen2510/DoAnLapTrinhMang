@@ -18,7 +18,7 @@ class Admin_Comic extends React.Component{
         <tr>
             <td> <Link to={"/Comic/"+index+"/Edit"}>{a.Name}</Link></td>
             <td>{a.Author}</td>
-            <td>{a.Genre_id}</td>     
+            <td>{a.id}</td>     
             <td>
             <ul>
                 <li id="but" key={index}><Link to={"/Comic/"+index+"/Edit"}><i class="far fa-edit"></i></Link></li>            

@@ -15,7 +15,7 @@ class Detail extends React.Component
             <div className="contend">
                 <div className="info">
                     <p>Tác giả: <Link to="/Author">{this.props.Author}</Link></p>
-                    <p>Thể loại: {this.props.Genre_id} </p>
+                    <p>Thể loại: {this.props.id} </p>
                     <p>Trạng thái: <span className="status">{this.props.status}</span> </p>
                     <p></p>
                     <i className="fas fa-heart">{this.props.like}</i>

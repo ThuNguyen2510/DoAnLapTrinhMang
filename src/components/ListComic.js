@@ -14,7 +14,7 @@ class ListComic extends React.Component{
     show(){
       var result= [];
 
-        for(var i = 0; i < this.props.list.length; i++)
+        for(var i = 1; i < this.props.list.length; i++)
         {
           result.push(<Comic  id={i} Src={this.props.list[i].Image} name={this.props.list[i].Name} descrip={this.props.list[i].Description} author={this.props.list[i].Author}/>)
         }

@@ -5,42 +5,79 @@ import Footer from './Footer';
 import Chap_content from './Chap_content';
 import {Link} from 'react-router-dom';
 import './Chapter_detail.css';
+import {fetchChapter,fetchChapters} from '../actions/ChapterAction'
+import {fetchComicName} from '../actions/ComicActions'
+import {connect} from 'react-redux'
 class Chapter_detail extends React.Component{
+    componentDidMount()
+    {
+        this.props.fetchChapter(this.props.match.params.id,this.props.match.params.index)
+        this.props.fetchComicName(this.props.match.params.index)
+        //this.props.fetchChapters(this.props.match.params.index);
+    }
+    show()
+    {
+        var name=""
+        var content=""
+        for(var i=0;i<this.props.chap.length;i++)
+        {
+            name=this.props.chap[i].chapter_name
+            content=this.props.chap[i].content
+        }
+       
+        var chaps=[]
+        return <>
+         <div className="nav-content"> 
+                    <i className="fas fa-home"></i><Link to="/">Trang chủ</Link><i className="fas fa-angle-right"></i>
+                    <Link to={"/Comic/"+this.props.match.params.index}>{this.props.comic.Name}</Link><i className="fas fa-angle-right"></i>
+                    <Link to={"/Comic/"+this.props.match.params.index+"/Chapter/"+this.props.match.params.id}>Chap {this.props.match.params.id}</Link>
+                    <hr/>
+                </div>
+                <div className="list-chap">
+                    <Link to="/Comic/:index/Chapter/:id">{name}</Link><br/> 
+                    
+                    <select className="chapter" >
+                        {/* {chap} */}
+                    </select>
+                </div>
+                <Chap_content content={content}/>
+                <select className="chapter" >
+                    {/* {chap} */}
+                </select>
+                {/* <Chap_content chapptername={} content={} /> */}
+                <hr/>
+                <Footer/>
+            
+        </>
+    }
     render(){
-        var list = ["Trùng sinh","Phỏng vấn","Xem mặt","Liên hoan","Gặp mặt","Ăn cơm","Công việc","Quá khứ","Liên hoan hằng năm",
-        "Cậu không sai","Hiện trường"];
-        var chap = list.map((value,index)=>{
-            return <option id="opt" key={index}> Chương {index+1}: {value}</option>
-        })
         return(
             <div>
                 <Header/>
                 <Nav_chap/>
                 <hr/>
-                
-             <div className="nav-content"> 
-                    <i className="fas fa-home"></i><Link to="/">Trang chủ</Link><i className="fas fa-angle-right"></i>
-                    <Link to="/Comic/:index">Tái sinh để theo đuổi anh</Link><i className="fas fa-angle-right"></i>
-                    <Link to="/cm/">Chap 1</Link>
-                    <hr/>
-                </div>
-                <div className="list-chap">
-                    <Link to="/cm/Chapter">Trùng sinh</Link><br/>
-                    <select className="chapter" >
-                        {chap}
-                    </select>
-                </div>
-                <Chap_content/>
-                <select className="chapter" >
-                    {chap}
-                </select>
-                {/* <Chap_content chapptername={} content={} /> */}
-                <hr/>
-                <Footer/>
-            </div>
+                {this.show()}
+            </div>   
+            
         );
 
     }
 }
-
-export default Chapter_detail;
+const mapStateToProps = (state) => {
+    return {
+     chap: state.chapters,  
+     comic: state.comics,
+     chaps:state.chapters
+    
+  }
+}
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchChapter: (chap_id,comic_id)=> dispatch(fetchChapter(chap_id,comic_id)),
+        fetchComicName: (id) => dispatch(fetchComicName(id)),
+        fetchChapters: (id) => dispatch(fetchChapters(id))
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Chapter_detail);

@@ -1,31 +1,74 @@
 import React from 'react';
 import './ListChap.css';
 import {Link} from 'react-router-dom';
-
+import {connect} from 'react-redux'
+import {fetchChapters} from '../actions/ChapterAction'
 class ListChap extends React.Component
 {
+    componentDidMount()
+    {
+        this.props.fetchChapters(this.props.comic_id);
+    }
+    show1()
+    {
+        var r=[];
+        for(var i=0;i<this.props.chaps.length;i++)
+        {
+            r.push(<li><Link to={"/Comic/"+this.props.comic_id+"/Chapter/"+i}id="tenchuong">Chương {i +1}: {this.props.chaps[i].chapter_name}</Link></li>)
+        }
+        return r;
+    }
+    show2(r)
+    {
+        var x=[]
+        for(var i=0;i<r.length/2;i++)
+        {
+            x.push(r[i])
+        }
+        return x;
+    }
+    show3(r)
+    {
+        var e=[]
+        const s=parseInt(r.length/2)+1
+        for(var i=s;i<r.length;i++)
+        {
+            e.push(r[i])
+        }
+        return e;
+    }
+    
     render()
     {
-        var ndc=["Trùng sinh", "Phỏng vấn", "Xem mặt", "Liên hoan", "Tỉnh rượu", "Gặp mặt", "Tin đồn", "Ăn cơm", "Vu oan hãm hại", "Bạn gái của tôi"];
-        var list= ndc.map((value_,index)=>{
-            return <> <li key={index} ><Link to="/cm/Chapter" id="tenchuong">Chương {index +1}: {value_}</Link></li>
-            <hr/> </>
-        })
-        var list2=ndc.map((value_,index)=>{
-            return <> <li key={index} ><Link to="/cm/Chapter" id="tenchuong">Chương {index +11}: {value_}</Link></li>
-            <hr/> </>
-        })
         return(
             <>
             <div className="row list-chap">
                 <div className="col-xs-12">
                     <h4 className="title">Danh sách chương</h4>
                 </div>
-                <div className="col-sm-6">{list}</div>
-                <div className="col-sm-6">{list2}</div>
-            </div>
+                <div className="col-sm-6">
+                    {this.show2(this.show1())}
+                </div>
+                <div className="col-sm-6">
+                    {this.show3(this.show1())}
+                </div>
+                </div>
             </>
         );
     }
 }
-export default ListChap;
+const mapStateToProps = (state) => {
+    return {
+     chaps: state.chapters,  
+
+    };
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchChapters: (id) => dispatch(fetchChapters(id)),
+     
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(ListChap);

@@ -45,7 +45,7 @@ class Comic extends React.Component{
                 <div className="page-item-detail manga">
                     <div className="item-thumb hover-details c-image-hover">
                         <Link className="book-img position-relative" to={"/Comic/"+this.props.id}>
-                            <img style={i_s} src={this.props.Src} alt="Hệ Thống Game Tại Dị Giới" className="zoom-me" />
+                            <img style={i_s} src={this.props.Src} className="zoom-me" />
                         </Link>
                     </div>
                 </div>

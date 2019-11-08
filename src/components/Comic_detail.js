@@ -8,51 +8,109 @@ import Detail_R from './Detail_R';
 import ListChap from './ListChap';
 import './Comic_detail.css';
 import {fetchOneComic} from '../actions/ComicActions';
-import { fetchGenre} from '../actions/GenreAction';
 class Comic_detail extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {  
-            id:this.props.match.params.index
-          };
-      }
-      componentDidMount()
-      {
-            this.props.fetchOneComic(this.props.match.params.index);  
-      }
-      show(){
-        var result= [];
+    constructor(props)
+    {
+        super(props)
+        this.props.fetchOneComic(this.props.match.params.index);  
+    }
+
+    Name(){
+        var result=[];
         for(var i = 0; i < this.props.comic.length-1; i++)
         {
-             var tus=""
-         if(this.props.comic[i].Status===0) tus=  "Còn tiếp"; else tus = "Full";
-
-            result=<Detail Name={this.props.comic[i].Name} Author={this.props.comic[i].Author} 
-            Genre_id={this.props.comic[i+1]} like={this.props.comic[i].Number_of_Like} read={this.props.comic[i].Number_of_Read}
-            status={tus} description={this.props.comic[i].Description} />
+            result=this.props.comic[i].Name     
         }
-        return result;
+        return <> {result}</>;        
     }
+    Author(){
+        var result=[];
+        for(var i = 0; i < this.props.comic.length-1; i++)
+        {
+            result=this.props.comic[i].Author     
+        }
+        return <> {result}</>;
+        
+    }
+    Gen(){
+        var result=[];
+        for(var i = 0; i < this.props.comic.length-1; i++)
+        {
+            result=this.props.comic[i+1]  
+        }
+        return <> {result}</>;
+        
+    }
+    Like(){
+        var result=[];
+        for(var i = 0; i < this.props.comic.length-1; i++)
+        {
+            result=this.props.comic[i].Number_of_Like     
+        }
+        return <> {result}</>;
+        
+    }
+    Read()
+    {
+        
+            var result=[];
+            for(var i = 0; i < this.props.comic.length-1; i++)
+            {
+                result=this.props.comic[i].Number_of_Read    
+            }
+            return <> {result}</>;
+            
+        
+    }
+    Status(){
+        var result=[];
+        for(var i = 0; i < this.props.comic.length-1; i++)
+        {
+            var s=this.props.comic[i].Status
+            if(s==0)
+            {
+                result="Còn tiếp"
+            }
+            else if(s==2)
+            {
+                result="Full"
+            }
+
+        }
+        return <> {result}</>
+    }
+    Description()
+    {
+        
+            var result=[];
+            for(var i = 0; i < this.props.comic.length-1; i++)
+            {
+                result=this.props.comic[i].Description  
+            }
+            return <> {result}</>;
+            
+        
+    } 
     image()
     {
-        var im=[];
+        var im;
         for(var i=0;i<this.props.comic.length-1;i++)
         {
-          im=  <img src={this.props.comic[i].Image} >
-            </img>
+          im=<img src={this.props.comic[i].Image}></img>
         }
-        return im;
+        return <>{im}</>
     }
-    render()
+    
+    show()
     {
        
-        return(
-            <>
-            <div className="container">    
+        return <>
+         
+        <div className="container">    
             <Header/>
             <Nav/>
 
-            </div>      <hr/>              
+            </div>  <hr/>              
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 col-lg-9">
@@ -61,12 +119,12 @@ class Comic_detail extends React.Component{
                                {this.image()}
                             </div>
                             <div className="col-md-8 details">
-                                 {this.show()}
+                            <Detail Name={this.Name()} Author={this.Author()} id={this.Gen()} like={this.Like()} read={this.Read()} status={this.Status()} description={this.Description()} />
                             </div>
                         </div>
                         <hr/>
                         <div className="col-md-12">
-                        <ListChap/>
+                        <ListChap comic_id={this.props.match.params.index} />
                         </div>
                     </div>
                     <hr/>
@@ -82,22 +140,29 @@ class Comic_detail extends React.Component{
                     <Footer/>                
                 </div>
             </div>   
-            </>
+        </>
+    }
+    render()
+    {
+       
+        return(
+            <>
+           {this.show()}
+           </>
         )
     }
 }
 const mapStateToProps = (state) => {
     return {
      comic: state.comics, 
-  //gen:state.comics.gen    
-
     };
   }
   
   const mapDispatchToProps = (dispatch) => {
     return {
       fetchOneComic: (id) => dispatch(fetchOneComic(id)),
-     // fetchGenre:(gen_id) => dispatch(fetchGenre(gen_id))
+     
+     
     };
   }
   

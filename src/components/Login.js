@@ -80,7 +80,7 @@ class Login extends React.Component{
                 <span><Link to="/"><i className="far fa-arrow-alt-circle-left"></i>Back to Homepage </Link></span>
                 <div className="message">
                
-                { isLoginSuccess && <Redirect  to="/" />}
+                { isLoginSuccess && this.LoginSuccess() }
                
                 </div>
                 </div>
@@ -89,6 +89,12 @@ class Login extends React.Component{
 
          
         )
+    }
+    LoginSuccess()
+    {
+      localStorage.setItem('login','success')
+      return <Redirect  to="/"/>
+     
     }
     onSubmit(e) {
         e.preventDefault();

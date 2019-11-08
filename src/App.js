@@ -32,7 +32,7 @@ class App extends React.Component {
           <Route path='/TruyenMoi' exact component={Filter}/>   
           <Route path='/TruyenHot' exact component={Filter}/>   
           <Route path='/Category' exact component={Filter}/>
-          <Route path='/cm/Chapter' exact component={Chapter_detail}/>   
+          <Route path='/Comic/:index/Chapter/:id' exact component={Chapter_detail}/>   
           <Route path='/Admin' exact component={index}/> 
           <Route path='/Admin/Comics' exact component={Admin_Comic}/> 
           <Route path='/Comics/Add' exact component={AddComic}/> 

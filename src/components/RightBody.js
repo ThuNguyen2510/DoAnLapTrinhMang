@@ -12,9 +12,9 @@ import {connect} from 'react-redux'
    }
     show()
     {
-      return this.props.list.map((a,index)=>
-      <Comic_mini id={index} src={a.Image} name={a.Name} datetime={a.Post_DateTime}/>
-      )
+      // return this.props.list.map((a,index)=>
+      // <Comic_mini id={index} src={a.Image} name={a.Name} datetime={a.Post_DateTime}/>
+      // )
     }
      render()
      {

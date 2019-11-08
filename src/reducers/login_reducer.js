@@ -43,12 +43,13 @@ function setLoginError(loginError) {
 
 function callLoginApi(username, password, callback) {
     
+   console.log(username+""+password)
     axios.get('http://127.0.0.1:3000/users?username='+username )
     .then(
         data =>
       {         
           const user=data.data;
-          console.log(user);
+          console.log(data.data)
             setTimeout(() => {
                 if (password === user[0].password) {
                 return callback(null);

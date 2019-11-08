@@ -1,13 +1,38 @@
 import React from 'react';
-import Header from './Header';
-import Nav from './Nav';
-import LeftBody from './LeftBody';
-import RightBody from './RightBody';
-import routes from '../routes';
-import { Router, Route, Link,Switch, NavLink } from "react-router-dom";
+import {Link} from "react-router-dom";
 import './Signup.css';
+import {signup} from '../actions/SignupAction';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
+
 class Signup extends React.Component{
-    
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.onSubmit = this.onSubmit.bind(this);
+      }
+      onSubmit(e) 
+ {
+        e.preventDefault();
+        let {username, email, password ,repass} = this.state;
+        if(password===repass)
+        {
+            this.props.signup(username,email, password,0);
+            localStorage.setItem('signup','success');
+            return <Redirect to ='/Signin' />
+        }
+        else{
+            
+        }
+        
+      } 
+      Routing()
+      {
+        if(localStorage.getItem('signup')==='success')
+        {
+            return <Redirect to='/Signin' />  
+        }
+      }
     render()
     {
         var image_s={
@@ -35,6 +60,8 @@ class Signup extends React.Component{
             width: "400px",
             marginLeft:" 40px"
         }
+        let {username,email, password,repass} = this.state;
+
         return(
             <>           
              <div className="relative z-1 mw6-l center-l">
@@ -50,19 +77,24 @@ class Signup extends React.Component{
                     <div className="form-group">
                         <p style={p} ><i className="far fa-user"></i> User Name</p>
                         <input style={input} type="text" className="form-control" 
-                        placeholder="MuGiWara" />
+                        placeholder="MuGiWara"  onChange={e => this.setState({username: e.target.value})} value={username} />
                     </div>
                     <div className="form-group">
                         <p style={p} ><i className="fas fa-at"></i> Email</p>
                         <input style={input} type="text" className="form-control" 
-                        placeholder="abcdef@gmail.com"  />
+                        placeholder="abcdef@gmail.com"  onChange={e => this.setState({email: e.target.value})} value={email} />
                     </div>
                     <div className="form-group">
                         <p style={p}><i className="fas fa-lock"></i> PassWord</p>
                         <input style={input}type="password" className="form-control"
-                        placeholder="***********"  />
+                        placeholder="***********"  onChange={e => this.setState({password: e.target.value})} value={password} />
                     </div>
-                    <button type="submit" className="btn btn-primary">Sign up</button>
+                    <div className="form-group">
+                        <p style={p}><i className="fas fa-lock"></i>Confirm PassWord</p>
+                        <input style={input} type="password" className="form-control"
+                        placeholder="***********"  onChange={e => this.setState({repass: e.target.value})} value={repass} />
+                    </div>
+                    <button type="submit" onClick={this.onSubmit} className="btn btn-primary">Sign up</button>
                     <br>
                     </br><br></br>
                     <span><Link to="/Signin"><i className="fas fa-sign-in-alt"></i>Have account </Link></span>
@@ -79,4 +111,17 @@ class Signup extends React.Component{
         )
     }
 }
-export default Signup;
+
+const mapStateToProps = (state) => {
+    return {
+      isSignup: state.signup
+    };
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        signup: (username,email, password,role) => dispatch(signup(username,email, password,role))
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Signup);
