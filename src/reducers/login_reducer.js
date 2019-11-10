@@ -8,7 +8,7 @@ export function login(email, password) {
     dispatch(setLoginPending(true));
     dispatch(setLoginSuccess(false));
     dispatch(setLoginError(null));
-
+    
     callLoginApi(email, password, error => {
       dispatch(setLoginPending(false));
       if (!error) {
@@ -31,6 +31,7 @@ function setLoginSuccess(isLoginSuccess) {
   return {
     type: SET_LOGIN_SUCCESS,
     isLoginSuccess
+    
   };
 }
 

@@ -120,7 +120,7 @@ const mapStateToProps = (state) => {
   
   const mapDispatchToProps = (dispatch) => {
     return {
-      login: (email, password) => dispatch(login(email, password))
+      login: (email, password) => dispatch(login(email, password)),
     };
   }
   

@@ -6,16 +6,14 @@ class Footer extends React.Component{
         return (
     
           <div>
-          <footer className="page-footer font-small mdb-color lighten-3 pt-4">
+          <footer className="page-footer font-small mdb-color lighten-3 pt-2">
             <div className="container text-center text-md-left">
               <div className="row">
                 <div className="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
                   {/* Content */}
                   <h5 className="font-weight-bold text-uppercase mb-4">TVT COMICS</h5>
                   <p>Here you can use rows and columns to organize your footer content.</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate
-                    esse
-                    quasi, veritatis totam voluptas nostrum.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate</p>
                 </div>
                 <hr className="clearfix w-100 d-md-none" />
                 <div className="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
@@ -97,8 +95,8 @@ class Footer extends React.Component{
                 </div>
               </div>
             </div>
-            <div className="footer-copyright text-center py-2">© 2018 Copyright:
-              <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+            <div className="footer-design by text-center py-2">@Design by:
+              <a href="/"> TVTComic</a>
             </div>
           </footer>
           </div>
