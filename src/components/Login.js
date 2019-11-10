@@ -9,6 +9,7 @@ class Login extends React.Component{
     constructor(props) {
         super(props);
         this.state = {};
+        if(localStorage.getItem('signup')!=null)localStorage.removeItem('signup')
         this.onSubmit = this.onSubmit.bind(this);
       }
     render()

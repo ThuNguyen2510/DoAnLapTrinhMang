@@ -5,16 +5,22 @@ import {connect} from 'react-redux'
 import {fetchChapters} from '../actions/ChapterAction'
 class ListChap extends React.Component
 {
+    constructor(props)
+    {
+        super(props)
+    }
     componentDidMount()
     {
+        
         this.props.fetchChapters(this.props.comic_id);
     }
     show1()
     {
         var r=[];
+        console.log(this.props.comic_id.parseInt)
         for(var i=0;i<this.props.chaps.length;i++)
         {
-            r.push(<li><Link to={"/Comic/"+this.props.comic_id+"/Chapter/"+i}id="tenchuong">Chương {i +1}: {this.props.chaps[i].chapter_name}</Link></li>)
+            r.push(<li><Link  to={"/Comic/"+this.props.comic_id+"/Chapter/"+(i+1)} id="tenchuong">Chương {(i+1)}: {this.props.chaps[i].chapter_name}</Link></li>)
         }
         return r;
     }
@@ -39,7 +45,8 @@ class ListChap extends React.Component
     }
     
     render()
-    {
+    {  let {chaps} =this.props;
+    console.log(this.props);
         return(
             <>
             <div className="row list-chap">
@@ -66,8 +73,7 @@ const mapStateToProps = (state) => {
   
   const mapDispatchToProps = (dispatch) => {
     return {
-        fetchChapters: (id) => dispatch(fetchChapters(id)),
-     
+        fetchChapters: (id) => dispatch(fetchChapters(id)),     
     };
   }
   

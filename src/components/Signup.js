@@ -12,27 +12,20 @@ class Signup extends React.Component{
         this.onSubmit = this.onSubmit.bind(this);
       }
       onSubmit(e) 
- {
+     {
         e.preventDefault();
         let {username, email, password ,repass} = this.state;
         if(password===repass)
         {
             this.props.signup(username,email, password,0);
             localStorage.setItem('signup','success');
-            return <Redirect to ='/Signin' />
         }
-        else{
-            
+        else{            
         }
         
       } 
-      Routing()
-      {
-        if(localStorage.getItem('signup')==='success')
-        {
-            return <Redirect to='/Signin' />  
-        }
-      }
+
+     
     render()
     {
         var image_s={
@@ -61,9 +54,10 @@ class Signup extends React.Component{
             marginLeft:" 40px"
         }
         let {username,email, password,repass} = this.state;
-
+        let {isSignup}= this.props
         return(
             <>           
+             <form onSubmit={this.onSubmit}>
              <div className="relative z-1 mw6-l center-l">
                  <div className="box">
                     <div className="row">
@@ -76,39 +70,47 @@ class Signup extends React.Component{
                     <form className="thi">
                     <div className="form-group">
                         <p style={p} ><i className="far fa-user"></i> User Name</p>
-                        <input style={input} type="text" className="form-control" 
+                        <input style={input} type="text" required className="form-control" 
                         placeholder="MuGiWara"  onChange={e => this.setState({username: e.target.value})} value={username} />
                     </div>
                     <div className="form-group">
                         <p style={p} ><i className="fas fa-at"></i> Email</p>
-                        <input style={input} type="text" className="form-control" 
-                        placeholder="abcdef@gmail.com"  onChange={e => this.setState({email: e.target.value})} value={email} />
+                        <input style={input} type="text"  className="form-control" 
+                        placeholder="abcdef@gmail.com"  onChange={e => this.setState({email: e.target.value})} value={email} required />
                     </div>
                     <div className="form-group">
                         <p style={p}><i className="fas fa-lock"></i> PassWord</p>
-                        <input style={input}type="password" className="form-control"
-                        placeholder="***********"  onChange={e => this.setState({password: e.target.value})} value={password} />
+                        <input style={input}type="password"  className="form-control"
+                        placeholder="***********"  onChange={e => this.setState({password: e.target.value})} value={password} required />
                     </div>
                     <div className="form-group">
                         <p style={p}><i className="fas fa-lock"></i>Confirm PassWord</p>
-                        <input style={input} type="password" className="form-control"
-                        placeholder="***********"  onChange={e => this.setState({repass: e.target.value})} value={repass} />
+                        <input style={input} type="password"  className="form-control"
+                        placeholder="***********"  onChange={e => this.setState({repass: e.target.value})} value={repass} required/>
                     </div>
-                    <button type="submit" onClick={this.onSubmit} className="btn btn-primary">Sign up</button>
+                    <button type="submit" className="btn btn-primary">Sign up</button>
+                    {this.Routing()}
+                    </form>
                     <br>
                     </br><br></br>
                     <span><Link to="/Signin"><i className="fas fa-sign-in-alt"></i>Have account </Link></span>
                     <br></br><br></br>
                     <span><Link to="/"><i className="far fa-arrow-alt-circle-left"></i>Back to Homepage </Link></span>
-                    </form>
+                    
+                   
                 </div>
                         </div>
                     </div>
                  </div>
                                    
-                </div>                
+                </div>   
+                </form>             
             </>
         )
+    }
+    Routing()
+    {
+       if(localStorage.getItem('signup')=='success') return <Redirect to='/Signin' />  
     }
 }
 

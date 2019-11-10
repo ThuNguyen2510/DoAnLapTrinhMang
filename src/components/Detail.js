@@ -1,8 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Detail.css';
+import {likeComic} from '../actions/ComicActions';
+import {connect} from 'react-redux'
 class Detail extends React.Component
 {
+    Like()
+    {
+       // console.log("dnja")
+    }
     render()
     {
         return(
@@ -18,8 +24,8 @@ class Detail extends React.Component
                     <p>Thể loại: {this.props.id} </p>
                     <p>Trạng thái: <span className="status">{this.props.status}</span> </p>
                     <p></p>
-                    <i className="fas fa-heart">{this.props.like}</i>
-                    <i className="far fa-eye">{this.props.read}</i>
+                   <button onClick={this.Like()}> <i className="fas fa-heart">{this.props.like}</i></button>
+                   <button> <i className="far fa-eye">{this.props.read}</i></button>
                 </div>
                 <div className="description">
                     <p>
@@ -33,4 +39,17 @@ class Detail extends React.Component
     }
 
 }
-export default Detail;
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+     comic: state.comic, 
+    };
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      likeComic: (id) => dispatch(likeComic(id)),        
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps) (Detail);

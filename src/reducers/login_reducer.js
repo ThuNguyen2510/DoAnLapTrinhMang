@@ -82,7 +82,6 @@ export default function reducer(state = {
       return Object.assign({}, state, {
         loginError: action.loginError
       });
-
     default:
       return state;
   }

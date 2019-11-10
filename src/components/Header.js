@@ -1,39 +1,44 @@
 import React from 'react';
 import createBrowserHistory from 'history/createBrowserHistory'
-import { Router, Route, Link,Switch, NavLink } from "react-router-dom";
+import {Link } from "react-router-dom";
+import {connect} from 'react-redux'
 class Header extends React.Component{
   Login_Signup()
   {
+    
     var check=localStorage.getItem('login')
     var span='Sign in/Sign up'
     if(check=='success') span= 'Log out';
     return span
   } 
-  delete()
-  {
-    if(localStorage.getItem('login')=='success')
-    {  
-      document.getElementById('login_s').setAttribute='Signin/Signup'
-      localStorage.clear()
-    }
-  }
+ 
   getLink()
   {
      var i=this.Login_Signup()
       var link="/Signin"
      if(i==='Log out')
      {
-        link=''
+   //   alert("Log")
+       link='/'
      }
      else if (i==='Sign in/Sign up')
      {
-       link='Signin'
+    //   alert("Signin")
+       link='/Signin'
      }
-    
-     return <Link onClick={this.delete} to={"/"+link}><i className="fas fa-sign-in-alt" id="login_s">{this.Login_Signup()}</i></Link>
+     
+     return <Link  id="login_s" onClick={this.delete}  to={link}><i className="fas fa-sign-in-alt">{this.Login_Signup()}</i></Link>
 
   }
- 
+  delete()
+  {
+    // if(this.Login_Signup()==='Log out')
+    // {    
+         localStorage.clear()
+    //     document.getElementById('login_s').setAttribute='Sign in/Sign up';       
+    // }
+     
+  }
     render()
     {
         var image_s={
@@ -60,7 +65,6 @@ class Header extends React.Component{
             textDecoration: "none",
             
           }
-
         return(
             <header className="container mt-3 site-header">
                 <div className="d-flex">
@@ -78,7 +82,6 @@ class Header extends React.Component{
                     </form>
                 </div>
                 <div style={d_style}>
-                {/* <Link onClick={this.count} to={"/Signup"}><i className="fas fa-sign-in-alt" id="login_s">{this.Login_Signup()}</i></Link> */}
                 {this.getLink()}
                 </div>  
                 </div>
@@ -86,5 +89,17 @@ class Header extends React.Component{
         );
     }
 }
+// const mapStateToProps = (state) => {
+//   return {
+//     //isLoginSuccess: state.login.isLoginSuccess,
+//   };
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     //logout: () => dispatch(logout())
+//   };
+// }
+
 export default Header;
       

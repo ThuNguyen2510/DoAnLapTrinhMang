@@ -7,90 +7,17 @@ import Detail from './Detail';
 import Detail_R from './Detail_R';
 import ListChap from './ListChap';
 import './Comic_detail.css';
+import {Link} from 'react-router-dom'
 import {fetchOneComic} from '../actions/ComicActions';
+import {fetchChapters} from '../actions/ChapterAction'
 class Comic_detail extends React.Component{
-    constructor(props)
+
+    componentDidMount()
     {
-        super(props)
         this.props.fetchOneComic(this.props.match.params.index);  
     }
-
-    Name(){
-        var result=[];
-        for(var i = 0; i < this.props.comic.length-1; i++)
-        {
-            result=this.props.comic[i].Name     
-        }
-        return <> {result}</>;        
-    }
-    Author(){
-        var result=[];
-        for(var i = 0; i < this.props.comic.length-1; i++)
-        {
-            result=this.props.comic[i].Author     
-        }
-        return <> {result}</>;
-        
-    }
-    Gen(){
-        var result=[];
-        for(var i = 0; i < this.props.comic.length-1; i++)
-        {
-            result=this.props.comic[i+1]  
-        }
-        return <> {result}</>;
-        
-    }
-    Like(){
-        var result=[];
-        for(var i = 0; i < this.props.comic.length-1; i++)
-        {
-            result=this.props.comic[i].Number_of_Like     
-        }
-        return <> {result}</>;
-        
-    }
-    Read()
-    {
-        
-            var result=[];
-            for(var i = 0; i < this.props.comic.length-1; i++)
-            {
-                result=this.props.comic[i].Number_of_Read    
-            }
-            return <> {result}</>;
-            
-        
-    }
-    Status(){
-        var result=[];
-        for(var i = 0; i < this.props.comic.length-1; i++)
-        {
-            var s=this.props.comic[i].Status
-            if(s==0)
-            {
-                result="Còn tiếp"
-            }
-            else if(s==2)
-            {
-                result="Full"
-            }
-
-        }
-        return <> {result}</>
-    }
-    Description()
-    {
-        
-            var result=[];
-            for(var i = 0; i < this.props.comic.length-1; i++)
-            {
-                result=this.props.comic[i].Description  
-            }
-            return <> {result}</>;
-            
-        
-    } 
+    componentWillMount()
+    {}
     image()
     {
         var im;
@@ -100,16 +27,38 @@ class Comic_detail extends React.Component{
         }
         return <>{im}</>
     }
-    
+    Detail()
+    {
+        var result=[];
+            for(var i = 0; i < this.props.comic.length-1; i++)
+            {
+                var s=this.props.comic[i].Status
+                var tus=""
+                if(s==0)
+                {
+                    tus="Còn tiếp"
+                }
+                else if(s==1)
+                {
+                    tus="Full"
+                }
+                localStorage.setItem('comic_name',this.props.comic[i].Name)
+                result.push(<Detail Name={this.props.comic[i].Name} 
+                    Author={this.props.comic[i].Author} id={this.props.comic[i+1]} 
+                    like={this.props.comic[i].Number_of_Like} 
+                    read={this.props.comic[i].Number_of_Read} status={tus} description={this.props.comic[i].Description}/>)
+            }
+           
+            return result;
+            
+    }
     show()
     {
        
-        return <>
-         
+        return <>         
         <div className="container">    
             <Header/>
             <Nav/>
-
             </div>  <hr/>              
             <div className="container">
                 <div className="row">
@@ -119,7 +68,8 @@ class Comic_detail extends React.Component{
                                {this.image()}
                             </div>
                             <div className="col-md-8 details">
-                            <Detail Name={this.Name()} Author={this.Author()} id={this.Gen()} like={this.Like()} read={this.Read()} status={this.Status()} description={this.Description()} />
+                            {this.Detail()}
+                           
                             </div>
                         </div>
                         <hr/>
@@ -127,8 +77,7 @@ class Comic_detail extends React.Component{
                         <ListChap comic_id={this.props.match.params.index} />
                         </div>
                     </div>
-                    <hr/>
-                    
+                    <hr/>                    
                     <div className="col-md-12 col-lg-3">
                         <Detail_R/>
                     </div>
@@ -153,16 +102,17 @@ class Comic_detail extends React.Component{
     }
 }
 const mapStateToProps = (state) => {
+    console.log("map")
+    console.log(state)
     return {
-     comic: state.comics, 
+     comic: state.comic, 
+     chaps: state.chapters
     };
   }
   
   const mapDispatchToProps = (dispatch) => {
     return {
-      fetchOneComic: (id) => dispatch(fetchOneComic(id)),
-     
-     
+      fetchOneComic: (id) => dispatch(fetchOneComic(id)),        
     };
   }
   

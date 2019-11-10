@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link,Route} from 'react-router-dom';
-import Comic_detail from './Comic_detail';
+import {connect} from 'react-redux'
+import {fetchChapters} from '../actions/ChapterAction'
 class Comic extends React.Component{
+
     render()
     {
         var i_s={
@@ -52,7 +54,7 @@ class Comic extends React.Component{
                 <div className="item-summary">
                     <div className="post-title font-title">
                         <h4 className="title">
-                            <Link  style={a_s} to={"/Comic/"+this.props.id}>{this.props.name}</Link>
+                            <Link style={a_s} to={"/Comic/"+this.props.id}>{this.props.name}</Link>
                         </h4>
                     </div>
                     <div style={x}>
@@ -66,6 +68,8 @@ class Comic extends React.Component{
             
             </>
         );
+        
     }
 }
-export default Comic;
+
+  export default Comic;

@@ -5,16 +5,20 @@ import {fetchListComic} from '../actions/ComicActions';
 import axios from 'axios';
 class ListComic extends React.Component{
 
-  componentDidMount()
-  {
+    constructor(props)
+    {
+      super(props)
+    }
+    componentDidMount()
+    {
 
-        this.props.fetchListComic();
+          this.props.fetchListComic();
 
-  }
+    }
     show(){
       var result= [];
 
-        for(var i = 1; i < this.props.list.length; i++)
+        for(var i = 0; i < this.props.list.length; i++)
         {
           result.push(<Comic  id={i} Src={this.props.list[i].Image} name={this.props.list[i].Name} descrip={this.props.list[i].Description} author={this.props.list[i].Author}/>)
         }

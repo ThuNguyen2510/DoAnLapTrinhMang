@@ -13,7 +13,7 @@ export const fetchOneComic=(Id) =>{
             data=>
             {   
                 const c=data.data[0]
-              
+               
                 axios.get('http://127.0.0.1:3000/genres?id='+c.Genre_id).then
                 (
                     g => {
@@ -25,25 +25,16 @@ export const fetchOneComic=(Id) =>{
             }
         )
     }
-
 }
-export const fetchComicName = (Id) =>{
-    return dispatch=>{
-        return axios.get('http://127.0.0.1:3000/comics?Id='+Id).then(
-            data=>
-            {   
-                const c=data.data[0]
-                 dispatch(returnComicName(c))              
-                }
-                )            
-            }
-        
+export const likeComic = (comic_id,Number_of_Like) => {
+    return dispatch => {
+        return axios.patch('http://127.0.0.1:3000/comics?id='+comic_id,Number_of_Like).then(
+            (data)=>{               
+                console.log(data.data) 
+                dispatch(likeComic(data.data))
+            })
     }
-
-const returnComicName = (name) => ({
-    type: 'GET_COMIC_NAME',
-    name: name
-})
+}
 const returnList = (comics) => ({
     type: 'SHOW_LIST',
     list: comics
@@ -53,6 +44,10 @@ const returnOneComic = (comic,gen) =>({
     type:'SHOW_A_COMIC',
     comic: comic,
     gen: gen
+})
+const like =(comic) =>({
+    type: 'LIKE',
+    comic :comic
 })
 
 

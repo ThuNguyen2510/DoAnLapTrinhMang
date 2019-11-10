@@ -31,8 +31,8 @@ class Nav_chap extends React.Component{
                   <Link className="nav-link" to="/TruyenHot" ><i className="fab fa-hotjar"></i>Truyện Hot</Link>
                 </li> 
                 <li className="nav-item subnav" style={li_style}>
-                  <button class="subnavbtn"><Link>Màu nền</Link> <i class="fas fa-caret-down"></i></button>
-                  <div class="subnav-content">
+                  <button className="subnavbtn"><Link>Màu nền</Link> <i class="fas fa-caret-down"></i></button>
+                  <div className="subnav-content">
                     <option value="#F4F4F4">Xám nhạt</option>
                     <option value="#DFDFE3">Xám Đậm</option>
                     <option value="#E9EBEE">Xanh nhạt</option>
