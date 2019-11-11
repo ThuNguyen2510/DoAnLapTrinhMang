@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav_chap from './Nav_chap';
+import Nav from './Nav';
 import Header from './Header';
 import Footer from './Footer';
 import Chap_content from './Chap_content';
@@ -72,7 +72,6 @@ class Chapter_detail extends React.Component{
         return(
             <div>
                 <Header/>
-                <Nav_chap/>
                 <hr/>
                 {this.show()}
             </div>   

@@ -58,7 +58,6 @@ class Comic_detail extends React.Component{
         return <>         
         <div className="container">    
             <Header/>
-            <Nav/>
             </div>  <hr/>              
             <div className="container">
                 <div className="row">

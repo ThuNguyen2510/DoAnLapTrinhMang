@@ -13,7 +13,7 @@ class Filter extends React.Component
             <>
             <div>
                 <div className="container">
-                    <Header/><Nav/>
+                    <Header/>
                 </div>
                 
                 <hr/>

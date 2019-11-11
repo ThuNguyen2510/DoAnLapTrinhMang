@@ -1,47 +1,29 @@
 import React from 'react';
-import Header from './Header';
-import Nav from './Nav';
-import LeftBody from './LeftBody';
-import RightBody from './RightBody';
+// import './Home.css';
+import Header from './Header.js';
 import Slider from './Slider';
-import routes from '../routes';
-import Footer from './Footer';
-import './Home.css'
+import LeftBody from './LeftBody';
+import Footer from './Footer.js';
 class Home extends React.Component{
-    
-    render()
-    {
-        var c={
-           marginTop:"80px"
-        }
+    render(){
         return(
-            <>           
-            <div>
-             <div className="container">
-                <Header/>  
-                <Nav/>
-            </div> 
-           
-            <hr></hr> 
-            <div className="container">
-            <Slider/>
-            </div>
-            <div className="container" style={c}>
-            <div className="row">
-                <div className="col-md-8">
-                <LeftBody/>
-                </div>
-                <div className="col-md-4">
-                {/* <RightBody/> */}
-                </div>
-            </div>
-            <hr/>
-            <div className="row">
-                <Footer/>
-            </div>
-            </div>              
-            </div>
-            
+            <>
+                <Header/>
+                <div className="container_s">
+                    <div className="row_s">
+                        <div className="col-md-12 lg-col-12" id="_s">
+                            <Slider/>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-8">
+                            <LeftBody/>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <Footer/>
+                    </div>
+                </div> 
             </>
         )
     }

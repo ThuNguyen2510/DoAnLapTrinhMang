@@ -1,8 +1,6 @@
 import React from 'react';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
-import routes from '../routes';
-import Comic from './Comic';
 import './Slider.css';
 import Comic_inSlider from './Comic_inSlider';
 class Slider extends React.Component{
@@ -15,52 +13,72 @@ class Slider extends React.Component{
 
         }
         var s={
-            backgroundColor:"#f0f0f0",
-            float:"left",           
+            //backgroundImage:"url(http://hinhnenppt.com/uploads/images/hinh-nen-powerpoint-don-sac-23-hinh-nen-powerpoint-mau-vang-pastel-1491892714-1.jpg)",
+            backgroundColor: "#fffffc",
+            float:"left",
+            backroundSize: "cover"
         }
         const slider = (
             <AwesomeSlider style={style}>
-            <div style={s} className="row"> 
-              <div className="col-md-3">
+            <div className="row " style={s}> 
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
+              <Comic_inSlider/> 
+              </div>
+              <div className="col-md-2">
+              <Comic_inSlider/> 
+              </div>
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
               </div> 
               
               <div style={s} className="row"> 
-              <div className="col-md-3">
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
+              <Comic_inSlider/> 
+              </div>
+              <div className="col-md-2">
+              <Comic_inSlider/> 
+              </div>
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
 
               </div>
               <div style={s} className="row"> 
-              <div className="col-md-3">
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
+              <Comic_inSlider/> 
+              </div>
+              <div className="col-md-2">
+              <Comic_inSlider/> 
+              </div>
+              <div className="col-md-2">
               <Comic_inSlider/> 
               </div>
               </div>
@@ -69,7 +87,7 @@ class Slider extends React.Component{
           );
         return(
             <>
-            {slider}
+                {slider}
             </>
         )
     }

@@ -14,7 +14,6 @@ class Author_comic extends React.Component
             <div className="container">
                 <Header/>
             </div>
-            <Nav/>
             <hr></hr>
             <div className="container">
 

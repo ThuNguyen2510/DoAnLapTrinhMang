@@ -16,6 +16,9 @@ import Filter from './components/Filter';
 import Author from './components/Author_comic';
 import Hello from './components/Admin/Hello';
 import Admin_user from './components/Admin/Admin_user';
+import User_page from './components/User/User_page';
+import User_book from './components/User/User_book';
+import Read from './components/User/ReadBook';
 const history = createBrowserHistory()
 class App extends React.Component {
   render(){
@@ -41,6 +44,9 @@ class App extends React.Component {
           <Route path="/Comics/trang:index" component={Admin_Comic}/>
           <Route path='/Admin/Users' exact component={Admin_user}/>
           <Route path='/Users/Add' exact component={Admin_user}/>
+          <Route path='/User/page' exact component={User_page}/> 
+          <Route path='/User/book' exact component={User_book}/> 
+          <Route path='/User/readbook' exact component={Read}/> 
           <Route path='/' component={Home} />
           
           </Switch>        
