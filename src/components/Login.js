@@ -45,47 +45,52 @@ class Login extends React.Component{
         }
         let {email, password} = this.state;
         let {isLoginPending, isLoginSuccess, loginError} = this.props;
-        return(
-                  
-             <>
-             <form name="loginForm" onSubmit={this.onSubmit}>
-            <div className="relative z-1 mw6-l center-l">
-                <div className="box">
-                  <div className="row">
-                  <div className="col-md-12 imeji" >
-                  <Link to="/" className="site-logo"><img src={require('../TVT.PNG')} alt="Logo" style={image_s}  /></Link>
-                  </div>
-                  <div className="col-md-12">
-                  <div className="bg-white br2 ba bw1 b--gray1 shadow-1 pa4 pa5-l mb5 ba bw1 b--gray2" id="bran" style={d_s}>
-                  <h1 style={sign}>SIGN IN</h1>
-                    <form>
-                    <div className="form-group">
-                        <p style={p} ><i className="far fa-user"></i> User Name</p>
-                        <input style={input} type="text" className="form-control" id="userName"
-                        placeholder="Mugiwara" onChange={e => this.setState({email: e.target.value})} value={email} required/>
+        return( 
+             <> 
+              <div className="containers h-100">
+                <div className="row h-100 justify-content-center align-items-center">
+                  <Link to="/"><img src={require('../TVT.PNG')} style={{width:'250px'}} alt="Logo"/></Link>
+                </div>
+              </div>
+              <form name="loginForm" className="row h-100 justify-content-center align-items-center" onSubmit={this.onSubmit}>
+                <div className="position-relative ">
+                  <div className="box">
+                    <div className="row">
+                      <div className="col-md-12">
+                        <div className="bg-white" id="bran" style={d_s}>
+                          <h1 style={sign}>SIGN IN</h1>
+                          <form action="">
+                            <div className="form-group">
+                              <p style={p} ><i className="far fa-user"></i> User Name</p>
+                              <input style={input} type="text" className="form-control" id="userName"
+                              placeholder="User name" onChange={e => this.setState({email: e.target.value})} value={email} required/>
+                            </div>
+                            <div className="form-group">
+                            <p style={p}><i className="fas fa-lock"></i> PassWord</p>
+                              <input style={input}type="password" className="form-control" id="passWord"
+                              placeholder="***********" onChange={e => this.setState({password: e.target.value})} value={password} required />
+                            </div>
+                          </form>
+                        </div>
+                      </div>
                     </div>
-                    <div className="form-group">
-                        <p style={p}><i className="fas fa-lock"></i> PassWord</p>
-                        <input style={input}type="password" className="form-control" id="passWord"
-                        placeholder="***********" onChange={e => this.setState({password: e.target.value})} value={password} required />
+                    <div className="row  justify-content-center " >
+                      <ul>
+                      <li style={{listStyle:"none"}}>
+                        <div>Not have Account <Link to="/Signup" >Signup</Link></div>
+                      </li>
+                      <br/>
+                      <li style={{listStyle:"none"}}>
+                        <span><Link to="/"><i className="far fa-arrow-alt-circle-left"></i>Back to Homepage </Link></span>
+                      </li>
+                      </ul>
+                      <div className="message">  
+                        { isLoginSuccess && this.LoginSuccess() }
+                      </div>
                     </div>
-                    <button type="submit" className="btn btn-primary" >Sign in</button>
-                    </form>
-                  </div>
                   </div>
                 </div>
-                  
-                </div>
-                <div>Not have Account <Link to="/Signup" >Signup</Link></div>
-                <br></br>
-                <span><Link to="/"><i className="far fa-arrow-alt-circle-left"></i>Back to Homepage </Link></span>
-                <div className="message">
-               
-                { isLoginSuccess && this.LoginSuccess() }
-               
-                </div>
-                </div>
-                </form>  
+              </form>
              </>
 
          

@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Detail from './Detail';
 import Detail_R from './Detail_R';
 import ListChap from './ListChap';
+import Comment from './Comment';
 import './Comic_detail.css';
 import {Link} from 'react-router-dom'
 import {fetchOneComic} from '../actions/ComicActions';
@@ -56,7 +57,7 @@ class Comic_detail extends React.Component{
     {
        
         return <>         
-        <div className="container">    
+        <div className="containers">    
             <Header/>
             </div>  <hr/>              
             <div className="container">
@@ -82,6 +83,9 @@ class Comic_detail extends React.Component{
                     </div>
                     <div className="col-md-2">
                     </div>
+                </div>
+                <div className="row">   
+                    <Comment/>                
                 </div>
                 <hr/>
                 <div className="row">   
