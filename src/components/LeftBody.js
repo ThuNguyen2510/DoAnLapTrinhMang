@@ -60,10 +60,8 @@ class LeftBody extends React.Component{
                             </td>
                             <td>
                             <button type="submit" className="btn btn-search"><i class="fa fa-search fa-fw"></i>Tìm truyện</button>
-                            
                                </td>
-                            </tr>                     
-                                                      
+                            </tr>                                                
                         </table>
                     </form>
                 </div>
