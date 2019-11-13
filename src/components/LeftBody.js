@@ -89,6 +89,7 @@ class LeftBody extends React.Component{
                     </ul>
                 </nav>
                 </div>
+<<<<<<< Updated upstream
                <ul className="books-list list-unstyled large-items">
                    <li class="with-border" style={li}><Comic/></li>
                    <li class="with-border" style={li}><Comic/></li>
@@ -99,6 +100,11 @@ class LeftBody extends React.Component{
                    <li class="with-border" style={li}><Comic/></li>
                    <li class="with-border" style={li}><Comic/></li>
                    </ul> 
+=======
+               <div className="row">
+                   <ListComic/>
+                   </div> 
+>>>>>>> Stashed changes
             </div>
         );
 
