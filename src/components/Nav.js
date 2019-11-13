@@ -4,19 +4,27 @@ import { Router, Link, NavLink } from "react-router-dom";
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import {connect} from 'react-redux';
-import {logout} from '../reducers/login_reducer'
-class Nav extends React.Component{
+import {logout} from '../reducers/login_reducer';
+import {fetchGenres} from '../actions/GenreAction'
 
+class Nav extends React.Component{
     constructor(props)
     {
       super(props)
+      this.state={}
+    }
+    componentDidMount()
+    {
+      this.props.fetchGenres()
     }
     
     render(){
       var li_style={
         listStyle: "none"
     }
-   
+    var option=this.props.list.map((a,index)=>{
+    return <><option id={index}>{a.genre_name}</option></>
+    })
         return(
           <>
               <nav className="navbar navbar-expand-lg navbar-light bg-color">
@@ -37,12 +45,7 @@ class Nav extends React.Component{
                     <li className="nav-item subnav" >
                       <Link className="name" to="/Category">Thể loại</Link><i class="fas fa-caret-down"></i>
                       <div class="subnav-content">
-                        <option value="#F4F4F4">Xám nhạt</option>
-                        <option value="#DFDFE3">Xám Đậm</option>
-                        <option value="#E9EBEE">Xanh nhạt</option>
-                        <option value="#F4F4E4">Vàng nhạt</option>
-                        <option value="#EAE4D3">Màu sepia</option>
-                        <option value="#D5D8DC">Xanh đậm</option>
+                        {option}
                       </div>
                     </li> 
                     <li className="nav-item">
@@ -81,7 +84,7 @@ class Nav extends React.Component{
     logoutf()
     {
       localStorage.removeItem('login')
-      this.props.logout()
+     // this.props.logout()
       return <>
        <Link className="link" to='/Signin'><i className="fas fa-sign-in-alt link" >Signin/Signup</i></Link> 
        </>  
@@ -110,12 +113,15 @@ class Nav extends React.Component{
 }
 const mapStateToProps = (state) => {
   return {
-  };
+   list: state.genre
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch(logout())
+   // logout: () => dispatch(logout()),
+    fetchGenres:() =>dispatch(fetchGenres())
+
   };
 }
 

@@ -11,7 +11,7 @@ class Login extends React.Component{
         this.state = {};
         if(localStorage.getItem('signup')!=null)localStorage.removeItem('signup')
         this.onSubmit = this.onSubmit.bind(this);
-      }
+    }
     render()
     {
         var image_s={

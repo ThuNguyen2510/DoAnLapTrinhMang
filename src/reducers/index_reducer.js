@@ -19,6 +19,7 @@ const appReducers= combineReducers({
     login,
     logout,
     signup,
+    genre
 
 });
 export default appReducers;

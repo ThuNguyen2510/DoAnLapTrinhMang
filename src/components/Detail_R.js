@@ -1,14 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Detail_R.css';
+import { fetchGenres } from '../actions/GenreAction';
+import {connect} from 'react-redux'
 class Detail_R extends React.Component
 {
+    componentDidMount()
+    {
+        this.props.fetchGenres()
+    }
     render()
     {
-        var m=["Ngôn tình", "Huyền huyễn", "Đô thị", "Kiếm hiệp", "Cung đấu", "Trọng sinh", "Võng du", "Quân sự","Bách hợp", "Đam mĩ"];
-        var list=m.map((value_,index)=>
+        console.log(this.props.list)
+        var list=this.props.list.map((value,index)=>
         {
-            return <><li key={index}><Link to="/Search"  className="theloai">{value_}</Link></li></>  
+            return <><p key={index}><Link to="/Search"  className="theloai">{value.genre_name}</Link></p></>  
         })
         return(
             <>
@@ -22,4 +28,20 @@ class Detail_R extends React.Component
         );
     }
 }
-export default Detail_R;
+const mapStateToProps = (state) =>{
+    return{
+      list: state.genre
+    }
+  }
+  
+  
+  
+  const mapDispatchToProps =(dispatch, props)=>
+  {
+    return {
+        fetchGenres : ()=>{  dispatch(fetchGenres())
+  
+    }
+  }
+  }
+  export default connect(mapStateToProps,mapDispatchToProps) (Detail_R);
