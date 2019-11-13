@@ -5,18 +5,19 @@
 .img {
     width: 125px;
 }
-.inline{
-    padding-top: 0%;
-}
+
 .container {
     background-color: #f8f9fa!important;
 }
-.cont{
+
+.cont {
     margin-top: 0%;
 }
+
 .link {
     color: brown;
 }
-#head{
+
+#head {
     padding: 0;
 }

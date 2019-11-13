@@ -24,9 +24,7 @@ class Comic extends React.Component{
         }
         var i_k={
             float:"left",
-           
-                padding: "10px"
-            
+            padding: "10px"
 
         }
         var x={
@@ -43,7 +41,7 @@ class Comic extends React.Component{
         }
         return(
             <>
-            <div className="col-12 col-md-6 badge-pos-1" style={i_k}>
+            <div className="col-12 col-md-3 badge-pos-1" style={i_k}>
                 <div className="page-item-detail manga">
                     <div className="item-thumb hover-details c-image-hover">
                         <Link className="book-img position-relative" to={"/Comic/"+this.props.id}>
