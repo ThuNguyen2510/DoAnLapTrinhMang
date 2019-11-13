@@ -2,19 +2,21 @@ import React from 'react';
 import Comic_mini from './Comic_mini';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
+import { fetchComicUpdateNew } from '../actions/ComicActions';
  class RightBody extends React.Component{
    constructor(props)
    {
      super(props)
-     this.state={
-       list:[]
-     }
+   }
+   componentDidMount()
+   {
+     this.props.fetchComicUpdateNew()
    }
     show()
     {
-      // return this.props.list.map((a,index)=>
-      // <Comic_mini id={index} src={a.Image} name={a.Name} datetime={a.Post_DateTime}/>
-      // )
+       return this.props.list.map((a,index)=>
+      <Comic_mini id={a.id} src={a.Image} name={a.Name} datetime={a.Post_DateTime}/>
+      )
     }
      render()
      {
@@ -69,11 +71,17 @@ import {connect} from 'react-redux'
 
      }
  }
- export default RightBody;
-//  function mapStateToProps (state)
-// {
-//   return{
-//     list: state.comic
-//   }
-// }
-// export default connect(mapStateToProps)(RightBody);   
+
+ function mapStateToProps (state)
+{
+  return{
+    list: state.comicnew
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchComicUpdateNew: () => dispatch(fetchComicUpdateNew()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RightBody);   

@@ -26,11 +26,28 @@ export const fetchOneComic=(Id) =>{
         )
     }
 }
+export const fetchComicHot=()=>{
+    return dispatch => {
+        return axios.get('http://127.0.0.1:3000/comics?_sort=Number_of_Like&_order=desc?_start=0&_end=12').then(data=>
+        {
+            dispatch(returnComicHot(data.data))
+        })
+    }
+}
+export const fetchComicUpdateNew=()=>{
+    return dispatch => {
+        return axios.get('http://127.0.0.1:3000/comics?_sort=Post_DateTime&_order=desc?_start=0&_end=5').then(data=>
+        {
+            dispatch(returnComicUpdateNew(data.data))
+        })
+    }
+}
+
 export const likeComic = (comic_id,Number_of_Like) => {
     return dispatch => {
         return axios.patch('http://127.0.0.1:3000/comics?id='+comic_id,Number_of_Like).then(
             (data)=>{               
-                console.log(data.data) 
+               
                 dispatch(likeComic(data.data))
             })
     }
@@ -49,5 +66,11 @@ const like =(comic) =>({
     type: 'LIKE',
     comic :comic
 })
-
-
+const returnComicHot=(comics) =>({
+    type:'COMIC_HOT',
+    comics:comics
+})
+const returnComicUpdateNew=(comics) =>({
+    type:'COMIC_UPDATE_NEW',
+    comics:comics
+})

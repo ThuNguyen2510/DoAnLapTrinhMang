@@ -71,7 +71,7 @@ class Signup extends React.Component{
                     <div className="form-group">
                         <p style={p} ><i className="far fa-user"></i> User Name</p>
                         <input style={input} type="text" required className="form-control" 
-                        placeholder="MuGiWara"  onChange={e => this.setState({username: e.target.value})} value={username} />
+                        placeholder="MuGiWara"  onChange={e => this.setState({username: e.target.value})} value={username} required />
                     </div>
                     <div className="form-group">
                         <p style={p} ><i className="fas fa-at"></i> Email</p>

@@ -3,12 +3,20 @@ import './Nav.css';
 import { Router, Link, NavLink } from "react-router-dom";
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
-
+import {connect} from 'react-redux';
+import {logout} from '../reducers/login_reducer'
 class Nav extends React.Component{
+
+    constructor(props)
+    {
+      super(props)
+    }
+    
     render(){
       var li_style={
         listStyle: "none"
     }
+   
         return(
           <>
               <nav className="navbar navbar-expand-lg navbar-light bg-color">
@@ -43,16 +51,72 @@ class Nav extends React.Component{
                   </ul>
                   <form className="form-inline my-2 my-lg-0 form">
                     <input className="input" type="search" placeholder="Tìm truyện..." aria-label="Search" />
-                    <button className="btn btn-primary" id="btnsearch" type="submit"><i className="fas fa-search btnsearch"></i></button>
+                   <Link className="btn btn-primary" id="btnsearch" to="/Search"><i className="fas fa-search btnsearch"></i></Link>
                   </form>
                 </div>
                 <div className ="sign">
-                        <Link className="link" to="/Signin"><i className="fas fa-sign-in-alt link"></i>  Sign in/Sign up</Link>             
+                  {this.login_logout()}                  
                     </div>
               </nav>
         </>
 
         )
     }
+    login_logout()
+    {
+      if(localStorage.getItem('logninning')==='run')
+      {
+       
+        return this.logoutf()
+      }
+      else  if(localStorage.getItem('login')==='success')
+      {
+        return this.login()
+      }
+      else{
+        return this.logoutf()
+      }
+     
+    }
+    logoutf()
+    {
+      localStorage.removeItem('login')
+      this.props.logout()
+      return <>
+       <Link className="link" to='/Signin'><i className="fas fa-sign-in-alt link" >Signin/Signup</i></Link> 
+       </>  
+    }
+    login()
+    {
+      var span
+      var link
+      var i
+      var user    
+        console.log('2')
+        span='Logout'
+        link='/'
+        i="fas fa-sign-out-alt"
+        user=<Link to="User/page" >{JSON.parse(localStorage.getItem('logined_user')).username}</Link>       
+        localStorage.setItem('loginning','run') 
+      return <>
+        {user}
+       <Link className="link" to={link}><i className={i} >{span}</i></Link> 
+       </>          
+
+    }
+
+   
+
 }
-export default Nav;
+const mapStateToProps = (state) => {
+  return {
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(logout())
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

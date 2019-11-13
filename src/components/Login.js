@@ -62,12 +62,12 @@ class Login extends React.Component{
                     <div className="form-group">
                         <p style={p} ><i className="far fa-user"></i> User Name</p>
                         <input style={input} type="text" className="form-control" id="userName"
-                        placeholder="Mugiwara" onChange={e => this.setState({email: e.target.value})} value={email}/>
+                        placeholder="Mugiwara" onChange={e => this.setState({email: e.target.value})} value={email} required/>
                     </div>
                     <div className="form-group">
                         <p style={p}><i className="fas fa-lock"></i> PassWord</p>
                         <input style={input}type="password" className="form-control" id="passWord"
-                        placeholder="***********" onChange={e => this.setState({password: e.target.value})} value={password} />
+                        placeholder="***********" onChange={e => this.setState({password: e.target.value})} value={password} required />
                     </div>
                     <button type="submit" className="btn btn-primary" >Sign in</button>
                     </form>
@@ -93,8 +93,19 @@ class Login extends React.Component{
     }
     LoginSuccess()
     {
+      console.log('login')
       localStorage.setItem('login','success')
-      return <Redirect  to="/"/>
+      let user =JSON.parse(localStorage.getItem('logined_user'))
+      if(user.role===0)      
+      { 
+        return <Redirect  to="/"/>
+        
+      }
+      else if(user.role==1)
+      {
+        
+        return  <Redirect to="/Admin" />
+      }
      
     }
     onSubmit(e) {

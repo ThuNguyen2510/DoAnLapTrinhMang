@@ -19,7 +19,11 @@ export function login(email, password) {
     });
   }
 }
-
+export function logout(){
+  return dispatch=>{
+    dispatch(setLoginSuccess(false));
+  }
+}
 function setLoginPending(isLoginPending) {
   return {
     type: SET_LOGIN_PENDING,
@@ -53,6 +57,8 @@ function callLoginApi(username, password, callback) {
           console.log(data.data)
             setTimeout(() => {
                 if (password === user[0].password) {
+                  localStorage.clear()
+                  localStorage.setItem('logined_user', JSON.stringify(user[0]))
                 return callback(null);
                 } else {
                 return callback(new Error('Invalid email and password'));

@@ -4,8 +4,10 @@ import Header from './Header.js';
 import Slider from './Slider';
 import LeftBody from './LeftBody';
 import Footer from './Footer.js';
+import RightBody from './RightBody'
 class Home extends React.Component{
     render(){
+      
         return(
             <>
                 <Header/>
@@ -18,6 +20,9 @@ class Home extends React.Component{
                     <div className="row">
                         <div className="col-md-8">
                             <LeftBody/>
+                        </div>
+                        <div className="col-md-4">
+                            <RightBody/>
                         </div>
                     </div>
                     <div className="row">
