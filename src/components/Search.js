@@ -9,9 +9,24 @@ import {connect} from 'react-redux';
 import {SearchByName} from '../actions/SearchAction'
 class Search extends React.Component
 {
+    constructor(props)
+    {
+        super(props)
+
+    }
+    componentDidMount()
+    {
+        console.log("COMP "+ localStorage.getItem('searchByName'))
+        this.props.SearchByName(localStorage.getItem('searchByName'))
+    }
+    componentWillMount()
+    {
+        this.props.SearchByName(localStorage.getItem('searchByName'))
+
+    }
     render()
     { 
-        console.log("MSF")
+        
         return(
             <>
           
@@ -45,10 +60,10 @@ const mapStateToProps = (state) => {
   
   const mapDispatchToProps = (dispatch) => {
     return {
-      searchByName:(keyword) =>dispatch(SearchByName(keyword))
+      SearchByName:(keyword) =>dispatch(SearchByName(keyword))
   
     };
   }
   
-  export default Search;
+  export default connect(mapStateToProps, mapDispatchToProps)(Search);
   

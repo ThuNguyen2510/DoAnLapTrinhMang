@@ -9,6 +9,7 @@ import {fetchGenres} from '../actions/GenreAction'
 import LeftBody from './LeftBody';
 import Search from './Search';
 import Home from './Home';
+import {SearchByName} from '../actions/SearchAction'
 class Nav extends React.Component{
     
       constructor(props)
@@ -16,7 +17,6 @@ class Nav extends React.Component{
         super(props)
         this.state={
           flag:false,
-          search:''
         }
         this.handleClick=this.handleClick.bind(this)
       }
@@ -33,7 +33,8 @@ class Nav extends React.Component{
     var option=this.props.list.map((a,index)=>{
     return <><option id={index}>{a.genre_name}</option></>
     });
-    let {search}=this.state.search
+    let {search}=this.state
+    console.log(search)
         return(
           <>
               <nav className="navbar navbar-expand-lg navbar-light bg-color">
@@ -64,7 +65,7 @@ class Nav extends React.Component{
                   <form className="form-inline my-2 my-lg-0 form" >
                     <input  value={search} onChange={e => this.setState({search: e.target.value}) }
                      className="input" id='search' type="search" placeholder="Tìm truyện..." aria-label="Search" />
-                   <Link  onClick={this.handleClick} to="search" className="btn" id="btnsearch" ><i className="fas fa-search btnsearch"></i></Link>
+                   <Link  onClick={this.handleClick} to={"/search/"+search} className="btn btn-danger" id="btnsearch" ><i className="fas fa-search btnsearch"></i></Link>
                   </form>
                 </div>
                 <div className ="sign">
@@ -85,14 +86,11 @@ class Nav extends React.Component{
     
     handleClick()
       {
-        
-        console.log("vsdvv")
         this.setState({
           flag:true
         });
-        let{value}=this.state.search
-        localStorage.setItem('searchByName',value)
-        console.log(value)
+        this.props.SearchByName(this.state.search)
+        
       }
     login_logout()
     {
@@ -124,7 +122,7 @@ class Nav extends React.Component{
       var link
       var i
       var user    
-        console.log('2')
+        
         span='Logout'
         link='/'
         i="fas fa-sign-out-alt"
@@ -149,7 +147,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
    // logout: () => dispatch(logout()),
-    fetchGenres:() =>dispatch(fetchGenres())
+    fetchGenres:() =>dispatch(fetchGenres()),
+    SearchByName:(keyword) =>dispatch(SearchByName(keyword))
 
   };
 }

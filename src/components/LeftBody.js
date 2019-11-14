@@ -9,6 +9,11 @@ class LeftBody extends React.Component{
     {
         this.props.fetchGenres()
     }
+    componentWillMount()
+    {
+        this.props.fetchGenres()
+
+    }
     render(){
         var con_m21={
             backgroundColor: "#fff",
@@ -92,7 +97,7 @@ class LeftBody extends React.Component{
                 </nav>
                 </div>
                <div className="row ">
-                   <ListComic/>
+                   <ListComic />
                 </div> 
             </div>
         );

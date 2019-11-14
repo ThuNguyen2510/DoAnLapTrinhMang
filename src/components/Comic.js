@@ -42,7 +42,7 @@ class Comic extends React.Component{
         }
         return(
             <>
-            <div className="col-12 col-md-3" style={i_k}>
+             <div className="col-12 col-md-3" style={i_k}>
                     <div className="detail">
                         <Link className="img" to={"/Comic/"+this.props.id}>
                             <img style={i_s} src={this.props.Src}  />
@@ -56,20 +56,7 @@ class Comic extends React.Component{
                             <i className="fa fa-heart">{this.props.like}</i>
                         </div>
                     </div>
-                </div>
-                <div className="item-summary">
-                    <div className="post-title font-title">
-                        <h4 className="title">
-                            <Link style={a_s} to={"/Comic/"+this.props.id}>{this.props.name}</Link>
-                        </h4>
-                    </div>
-                    <div style={x}>
-                        {this.props.descrip}
-                    </div>
-                    <span className="chapter font-meta" style={sp}>
-                        <Link to={"/Author/"+this.props.author} className="btn-link" style={sp}>Tác giả: {this.props.author}</Link>
-                    </span>                    
-                </div>
+            </div>
            
             </>
         );

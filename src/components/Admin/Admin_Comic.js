@@ -82,7 +82,7 @@ class Admin_Comic extends React.Component{
                                     </div>
                                     <div className="row">
                                         <div className="col-sm-12 col-md-5">
-                                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">THỐNG KÊ:{this.props.list.length} cuốn truyện</div>
+                                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">THỐNG KÊ: cuốn truyện</div>
                                         </div>
                                         <div className="col-sm-12 col-md-7">
                                             <div className="dataTables_paginate paging_simple_numbers">

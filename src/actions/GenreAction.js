@@ -26,5 +26,5 @@ const returnGenre = (Genre) => ({
 })
 const returnGenres = (Genre) => ({
     type : 'GET_GENRES',
-    gen: Genre
+    gens: Genre
 })

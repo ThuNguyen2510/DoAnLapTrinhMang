@@ -4,7 +4,7 @@ export default function genre(state = initialState, action) {
     case 'GET_GENRE':
       return action.gen    
     case 'GET_GENRES':
-      return [...action.gen]    
+      return [...action.gens]    
     default:   return [...state]
   }
   }

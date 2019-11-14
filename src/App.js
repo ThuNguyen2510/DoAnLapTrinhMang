@@ -29,7 +29,8 @@ class App extends React.Component {
         <Router history={history}>
           <Switch> 
           <Route path='/Search' exact component={Filter}/>  
-          <Route path="/search" exact component ={Search}/>
+          <Route path="/search/:string" exact component ={Filter}/>
+          <Route path="Comic/search" exact component ={Filter}/>
           <Route path='/Author/' component={Author}/>      
           <Route path='/Signin' exact component={Login}/>   
           <Route path='/Signup' exact component={Signup}/>   

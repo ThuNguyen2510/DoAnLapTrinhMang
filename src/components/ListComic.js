@@ -10,7 +10,6 @@ class ListComic extends React.Component{
     }
     componentDidMount()
     {
-
           this.props.fetchListComic();
 
     }
