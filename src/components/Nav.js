@@ -48,12 +48,7 @@ class Nav extends React.Component{
                       <li className="nav-link subnav" >
                         <Link className="name" to="/Category">Thể loại</Link><i class="fas fa-caret-down"></i>
                         <div class="subnav-content">
-                          <option value="#F4F4F4">Xám nhạt</option>
-                          <option value="#DFDFE3">Xám Đậm</option>
-                          <option value="#E9EBEE">Xanh nhạt</option>
-                          <option value="#F4F4E4">Vàng nhạt</option>
-                          <option value="#EAE4D3">Màu sepia</option>
-                          <option value="#D5D8DC">Xanh đậm</option>
+                          {option}
                         </div>
                       </li> 
                       <li className="nav-link">
