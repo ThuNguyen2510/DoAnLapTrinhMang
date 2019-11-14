@@ -4,19 +4,27 @@ import { Router, Link, NavLink } from "react-router-dom";
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import {connect} from 'react-redux';
-import {logout} from '../reducers/login_reducer'
-class Nav extends React.Component{
+import {logout} from '../reducers/login_reducer';
+import {fetchGenres} from '../actions/GenreAction'
 
+class Nav extends React.Component{
     constructor(props)
     {
       super(props)
+      this.state={}
+    }
+    componentDidMount()
+    {
+      this.props.fetchGenres()
     }
     
     render(){
       var li_style={
         listStyle: "none"
     }
-   
+    var option=this.props.list.map((a,index)=>{
+    return <><option id={index}>{a.genre_name}</option></>
+    })
         return(
           <>
           <div className="row">
@@ -89,7 +97,7 @@ class Nav extends React.Component{
     logoutf()
     {
       localStorage.removeItem('login')
-      this.props.logout()
+     // this.props.logout()
       return <>
        <Link className="link" to='/Signin'><i className="fas fa-sign-in-alt link" >Signin/Signup</i></Link> 
        </>  
@@ -118,12 +126,15 @@ class Nav extends React.Component{
 }
 const mapStateToProps = (state) => {
   return {
-  };
+   list: state.genre
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch(logout())
+   // logout: () => dispatch(logout()),
+    fetchGenres:() =>dispatch(fetchGenres())
+
   };
 }
 

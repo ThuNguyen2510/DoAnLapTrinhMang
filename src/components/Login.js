@@ -70,6 +70,7 @@ class Login extends React.Component{
                               <input style={input}type="password" className="form-control" id="passWord"
                               placeholder="***********" onChange={e => this.setState({password: e.target.value})} value={password} required />
                             </div>
+                            <button type="submit" className="btn btn-primary" >Sign in</button>
                           </form>
                         </div>
                       </div>
