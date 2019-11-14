@@ -35,11 +35,11 @@ class Comic_detail extends React.Component{
             {
                 var s=this.props.comic[i].Status
                 var tus=""
-                if(s==0)
+                if(s===0)
                 {
                     tus="Còn tiếp"
                 }
-                else if(s==1)
+                else if(s===1)
                 {
                     tus="Full"
                 }
