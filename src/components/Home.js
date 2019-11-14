@@ -11,17 +11,18 @@ class Home extends React.Component{
         return(
             <div className="container-fluid">
                 <Header/>
-                <div className="container bg-navy">
-                    <div className="row">
+                <div className="row">
                         <div className="col-md-12 lg-col-12" id="_s">
                             <Slider/>
                         </div>
                     </div>
+                <div className="container bg-navy">
+                    
                     <div className="row">
                         <div className="col-md-8 ">
                             <LeftBody/>
                         </div>
-                        <div className="col-md-3 ml-4">
+                        <div className="col-md-4">
                             <RightBody/>
                         </div>
                     </div>
