@@ -18,7 +18,6 @@ class Nav extends React.Component{
           flag:false,
           search:''
         }
-       
         this.handleClick=this.handleClick.bind(this)
       }
      
@@ -39,7 +38,7 @@ class Nav extends React.Component{
           <>
               <nav className="navbar navbar-expand-lg navbar-light bg-color">
                 <div className="logo">
-                  <img className="img" src = {require('D:/Giao Trinh/Nam4/Ki1/REACT_JS/new/src/TVT.PNG')} alt = "logo"></img>
+                  <img className="img" src = {require('../TVT.PNG')} alt = "logo"></img>
                 </div>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon" />

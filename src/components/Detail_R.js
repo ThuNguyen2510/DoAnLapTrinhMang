@@ -1,20 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Detail_R.css';
-import { fetchGenres } from '../actions/GenreAction';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {fetchGenres} from '../actions/GenreAction';
 class Detail_R extends React.Component
 {
+    constructor(props){
+        super(props)
+    }
     componentDidMount()
     {
-        this.props.fetchGenres()
+        this.props.fetchGenres();
     }
     render()
     {
-        console.log(this.props.list)
-        var list=this.props.list.map((value,index)=>
+        
+        var list=this.props.gens.map((value_,index)=>
         {
-            return <><p key={index}><Link to="/Search"  className="theloai">{value.genre_name}</Link></p></>  
+            return   <><Link to="/Search"  className="theloai">{value_.genre_name}</Link><br></br></>
         })
         return(
             <>
@@ -29,19 +32,13 @@ class Detail_R extends React.Component
     }
 }
 const mapStateToProps = (state) =>{
-    return{
-      list: state.genre
-    }
-  }
-  
-  
-  
-  const mapDispatchToProps =(dispatch, props)=>
-  {
     return {
-        fetchGenres : ()=>{  dispatch(fetchGenres())
-  
+        gens: state.genre,
+    };
+}
+const mapDispatchToProps = (dispatch)=>{
+    return{
+        fetchGenres: () => dispatch(fetchGenres()),
     }
-  }
-  }
-  export default connect(mapStateToProps,mapDispatchToProps) (Detail_R);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Detail_R);

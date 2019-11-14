@@ -18,7 +18,7 @@ class Filter extends React.Component
                 <hr/>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-12 col-lg-9">
+                        <div className="col-md-12 col-lg-9 mb-4">
                             <LeftBody/>
                         </div>
                         <div className="col-md-12 col-lg-3">
@@ -26,7 +26,7 @@ class Filter extends React.Component
                         </div>
                     </div>
                     <hr/>
-                    <div className="row">
+                    <div className="row mt-2">
                         <Footer/>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import comics from './comic_reducer';
 import login from './login_reducer';
 import logout from './login_reducer';
@@ -9,7 +9,7 @@ import comic from './a_comic_reducer';
 import chapter from './a_chapter_reducer';
 import comichot from './comic_hot_reducer';
 import comicnew from './comic_update_new_reducer'
-const appReducers= combineReducers({
+const appReducers = combineReducers({
     comics,
     comic,
     comichot,
@@ -20,6 +20,5 @@ const appReducers= combineReducers({
     logout,
     signup,
     genre
-
 });
 export default appReducers;

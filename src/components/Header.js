@@ -19,8 +19,8 @@ class Header extends React.Component{
       }
       return(
         <>
-          <div className="cont">
-            <div className="row inline" id="head"> 
+          <div className="containers">
+            <div className="row" id="head"> 
                 <div className =" col-md-12 col-lg-12">
                     <Nav/>
                 </div>

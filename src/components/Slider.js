@@ -19,7 +19,7 @@ class Slider extends React.Component{
         {
             result.push(
             <div className="col-md-2">
-            <Comic_inSlider id={this.props.listhot[i].id} Image={this.props.listhot[i].Image} />
+                <Comic_inSlider id={this.props.listhot[i].id} Image={this.props.listhot[i].Image} />
             </div>)
         }
         return result;
@@ -77,7 +77,7 @@ class Slider extends React.Component{
     render()
     {
         var style={
-            height:"420px",
+            height:"350px",
             width:"100%",
             marginLeft:"0%"
 

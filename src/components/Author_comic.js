@@ -1,7 +1,6 @@
 import React from 'react';
 import './Author_comic.css';
 import Header from './Header';
-import Nav from './Nav';
 import Footer from './Footer';
 import Comic_inSlider from './Comic_inSlider';
 import {Link} from 'react-router-dom';
