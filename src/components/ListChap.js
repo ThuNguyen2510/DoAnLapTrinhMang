@@ -20,12 +20,7 @@ class ListChap extends React.Component
         console.log(this.props.comic_id.parseInt)
         for(var i=0;i<this.props.chaps.length;i++)
         {
-            r.push(
-                <li className="ml-2">
-                    <Link  to={"/Comic/"+this.props.comic_id+"/Chapter/"+(i+1)} id="tenchuong">Chương {(i+1)}: {this.props.chaps[i].chapter_name}</Link>
-                    <hr/>
-                </li>
-                )
+            r.push(<><Link  to={"/Comic/"+this.props.comic_id+"/Chapter/"+(i+1)} id="tenchuong">Chương {(i+1)}: {this.props.chaps[i].chapter_name}</Link><br></br></>)
         }
         return r;
     }

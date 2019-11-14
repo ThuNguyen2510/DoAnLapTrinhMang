@@ -87,9 +87,9 @@ class LeftBody extends React.Component{
                     </ul>
                 </nav>
                 </div>
-               <div className="row ">
+               <div className="row">
                    <ListComic/>
-                </div> 
+                   </div> 
             </div>
         );
 

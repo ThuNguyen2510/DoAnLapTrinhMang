@@ -9,21 +9,22 @@ export const fetchGenre = (id) => {
         )
     }
 }
-const returnGenre = (Genre) => ({
-    type: 'GET_GENRE',
-    gen: Genre
-})
 export const fetchGenres = () => {
     return dispatch => {
         return axios.get('http://127.0.0.1:3000/genres').then(
             data => {
-                const gen = data.data
-                dispatch(returnGenres(gen))
+                const listGenre = data.data
+                console.log(listGenre)
+                dispatch(returnListGenre(listGenre));
             }
         )
     }
 }
-const returnGenres = (Genre) => ({
+const returnGenre = (Genre) => ({
+    type: 'GET_GENRE',
+    gen: Genre
+})
+const returnListGenre = (Genres) => ({
     type: 'GET_GENRES',
-    gens: Genre
+    gens: Genres
 })

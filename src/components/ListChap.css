@@ -10,6 +10,7 @@
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
+    float: left;
 }
 
 #tenchuong:hover {
