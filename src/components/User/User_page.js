@@ -2,7 +2,6 @@ import React from 'react';
 import './User_page.css';
 import Sidebar from './Sidebar';
 import Nav from './Nav';
-import Footer from './Footer';
 import Info from './Info';
 import Book from './Book';
 import {Link,Route} from 'react-router-dom';

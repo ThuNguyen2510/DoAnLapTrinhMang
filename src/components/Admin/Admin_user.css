@@ -72,6 +72,24 @@ div.dataTables_paginate ul.pagination {
     justify-content: flex-end;
 }
 
+#adsearch {
+    width: 200px;
+    height: 35px;
+    border: 1px solid teal;
+    border-right: none;
+}
+
+#adbut {
+    height: 35px;
+    border-radius: 0 25px 25px 0;
+}
+
+.dataTables_info span {
+    color: teal;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
 .pagination {
     display: -webkit-box;
     display: -ms-flexbox;

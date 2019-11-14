@@ -5,9 +5,10 @@ import Footer from './Footer';
 import Chap_content from './Chap_content';
 import {Link} from 'react-router-dom';
 import './Chapter_detail.css';
-import {fetchChapter,fetchChapters} from '../actions/ChapterAction'
-import {fetchComicName} from '../actions/ComicActions'
-import {connect} from 'react-redux'
+import {fetchChapter,fetchChapters} from '../actions/ChapterAction';
+import {fetchComicName} from '../actions/ComicActions';
+import {connect} from 'react-redux';
+import Comment from './Comment';
 class Chapter_detail extends React.Component{
     constructor(props)
     {
@@ -62,10 +63,6 @@ class Chapter_detail extends React.Component{
                 <select className="chapter" >
                 {this.option()}
                 </select>
-               
-                <hr/>
-                <Footer/>
-            
         </>
     }
     render(){
@@ -74,6 +71,8 @@ class Chapter_detail extends React.Component{
                 <Header/>
                 <hr/>
                 {this.show()}
+                <hr/>
+                <Footer/>
             </div>   
             
         );

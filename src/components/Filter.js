@@ -14,13 +14,15 @@ class Filter extends React.Component
             <div>
                 <Header/>            
                 <hr/>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12 col-lg-9 mb-4">
-                            <LeftBody/>
-                        </div>
-                        <div className="col-md-12 col-lg-3">
-                            <RightBody/>
+                <div className="container-fluid">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12 col-lg-9 mb-4">
+                                <LeftBody/>
+                            </div>
+                            <div className="col-md-12 col-lg-3">
+                                <RightBody/>
+                            </div>
                         </div>
                     </div>
                     <hr/>

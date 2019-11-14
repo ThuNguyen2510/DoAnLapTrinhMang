@@ -7,7 +7,7 @@ class Footer extends React.Component{
     
           <div>
           <footer className="page-footer font-small mdb-color lighten-3 pt-2">
-            <div className="container text-center text-md-left">
+            <div className="container-fluid text-center text-md-left">
               <div className="row">
                 <div className="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
                   {/* Content */}
@@ -18,25 +18,25 @@ class Footer extends React.Component{
                 <hr className="clearfix w-100 d-md-none" />
                 <div className="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
                   <h5 className="font-weight-bold text-uppercase mb-4">About</h5>
-                  <ul className="list-unstyled">
+                  <ul>
                     <li>
                       <p>
-                        <Link> PROJECTS</Link>
+                        <Link> PROJECTS</Link><br/>
                       </p>
                     </li>
                     <li>
                       <p>
-                        <Link>ABOUT US</Link>
+                        <Link>ABOUT US</Link><br/>
                       </p>
                     </li>
                     <li>
                       <p>
-                        <Link>BLOG</Link>
+                        <Link>BLOG</Link><br/>
                       </p>
                     </li>
                     <li>
                       <p>
-                        <Link>AWARDS</Link>
+                        <Link>AWARDS</Link><br/>
                       </p>
                     </li>
                   </ul>
@@ -63,7 +63,7 @@ class Footer extends React.Component{
                   </ul>
                 </div>
                 <hr className="clearfix w-100 d-md-none" />
-                <div className="col-md-2 col-lg-2 text-center mx-auto my-4">
+                <div className="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
                   {/* Social buttons */}
                   <h5 className="font-weight-bold text-uppercase mb-4 ">Follow Us</h5>
                   <ul className="list-unstyled list-inline text-center">
