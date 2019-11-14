@@ -3,7 +3,8 @@ import ListComic from './ListComic';
 import {Link,Redirect} from 'react-router-dom';
 import './LeftBody.css';
 import {connect} from 'react-redux';
-import {fetchGenres} from '../actions/GenreAction'
+import {fetchGenres} from '../actions/GenreAction';
+import {fetchComicByCategory} from '../actions/ComicActions'
 class LeftBody extends React.Component{
     componentDidMount()
     {
@@ -13,6 +14,16 @@ class LeftBody extends React.Component{
     {
         this.props.fetchGenres()
 
+    }
+    filter()
+    {
+        var check=document.getElementById('check').checked
+        localStorage.setItem('checkbox',check)
+
+    }
+    change(e)
+    {
+        this.props.fetchComicByCategory(e.target.value)
     }
     render(){
         var con_m21={
@@ -40,7 +51,7 @@ class LeftBody extends React.Component{
             listStyle:"none"
         }
         var option=this.props.list.map((a,index)=>{
-            return <><option id={index}>{a.genre_name}</option></>
+            return <><option value={a.id} id={a.id}>{a.genre_name}</option></>
             })
         return(
             <div className="float-left" style={con_m21}>
@@ -50,24 +61,19 @@ class LeftBody extends React.Component{
                         <table style={table_s}>                          
                             <tr>
                             <td> 
-                                <select class="mdb-select md-form colorful-select dropdown-primary">
+                                <select className="mdb-select md-form colorful-select dropdown-primary" onChange={this.change} >
                                     <option >Thể Loại </option>
                                     {option}
                             </select>
                             </td>
                             <td>
-                                <select class="mdb-select md-form colorful-select dropdown-primary">
-                                    <option >Sắp xếp theo </option>
-                                    <option value="1">A-Z</option>
-                                    <option value="2">Mới update</option>
-                                    <option value="3">Like nhiều</option>
-                                </select>
+                                
                             </td>
                             <td>                            
-                                <input type="checkbox" />Truyện Full
+                                <input type="checkbox" id="check"/>Truyện Full
                             </td>
                             <td>
-                                <button type="submit" className="btn btn-search"><i class="fa fa-search fa-fw"></i>Tìm truyện</button>
+                                <button onClick={this.filter} type="submit" className="btn btn-search"><i class="fa fa-search fa-fw"></i>Tìm truyện</button>
                             </td>
                             </tr>                                                
                         </table>
@@ -113,7 +119,8 @@ const mapStateToProps = (state) => {
   
   const mapDispatchToProps = (dispatch) => {
     return {
-      fetchGenres:() =>dispatch(fetchGenres())
+      fetchGenres:() =>dispatch(fetchGenres()),
+      fetchComicByCategory:(id) => dispatch(fetchComicByCategory(id))
   
     };
   }

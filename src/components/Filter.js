@@ -9,31 +9,44 @@ import Footer from  './Footer';
 import Comic from './Comic'
 import {connect} from 'react-redux';
 import {SearchByName} from '../actions/SearchAction';
-import {fetchGenres} from '../actions/GenreAction'
+import {fetchGenres} from '../actions/GenreAction';
+import {fetchComicUpdateNew2,fetchComicHot} from '../actions/ComicActions'
 class Filter extends React.Component
 {
     constructor(props)
     {
         super(props)
-
+        
     }
     componentDidMount()
     {
-        console.log("COMP "+ localStorage.getItem('searchByName'))
+       
         this.props.fetchGenres()
-        this.props.SearchByName(localStorage.getItem('searchByName'))
+        
+        if(window.location.pathname=='/TruyenMoi')
+        {
+            this.props.fetchComicUpdateNew2()
+        }
+        if(window.location.pathname=='/truyenhot')
+        {
+            this.props.fetchComicHot()
+            
+        }else
+        {
+            this.props.SearchByName(localStorage.getItem('searchByName'))
+        }
+        
     }
     componentWillMount()
     {
         this.props.SearchByName(localStorage.getItem('searchByName'))
-
     }
 
     render()
     { 
-        // console.log(this.props.match.params.string)
+        console.log(window.location.pathname)
         localStorage.setItem('searchByName',this.props.match.params.string)
-      var con_m21={
+        var con_m21={
         backgroundColor: "#fff",
         height: "98%",
       
@@ -60,9 +73,24 @@ class Filter extends React.Component
     var option=this.props.list.map((a,index)=>{
         return <><option id={index}>{a.genre_name}</option></>
         })
-    var comics= this.props.result.map(a=>{
+    var comics=[]    
+    if((window.location.pathname!=='/TruyenMoi'||window.location.pathname!=='/truyenhot')&&this.props.result.length>0){
+    
+    comics=this.props.result.map(a=>{
         return <Comic  id={a.id} Src={a.Image} name={a.Name} author={a.Author} follow={a.Number_of_Read} like={a.Number_of_Like} />
-    })     
+    })  }
+     if(window.location.pathname=='/TruyenMoi'&&this.props.new.length>0){
+     
+        comics=this.props.new.map(a=>{
+        return <Comic  id={a.id} Src={a.Image} name={a.Name} author={a.Author} follow={a.Number_of_Read} like={a.Number_of_Like}/>})
+    }
+     if(window.location.pathname=='/truyenhot'&& this.props.hot.length>0)
+    {
+    
+        comics=this.props.hot.map(a=>{
+        return <Comic  id={a.id} Src={a.Image} name={a.Name} author={a.Author} follow={a.Number_of_Read} like={a.Number_of_Like}/>})
+    }
+    
         return(
             <>
             <Header/>
@@ -71,7 +99,7 @@ class Filter extends React.Component
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 col-lg-9 mb-4">
-                            {/* <LeftBody/> */}
+                           
                             <div className="float-left" style={con_m21}>
                 <div className="content m2l">
                 <div >
@@ -85,12 +113,7 @@ class Filter extends React.Component
                             </select>
                             </td>
                             <td>
-                                <select class="mdb-select md-form colorful-select dropdown-primary">
-                                    <option >Sắp xếp theo </option>
-                                    <option value="1">A-Z</option>
-                                    <option value="2">Mới update</option>
-                                    <option value="3">Like nhiều</option>
-                                </select>
+                              
                             </td>
                             <td>                            
                                 <input type="checkbox" />Truyện Full
@@ -126,7 +149,10 @@ class Filter extends React.Component
                 </nav>
                 </div>
                <div className="row ">
-                   {comics}
+                   { comics.length && comics }
+                </div> 
+                <div className="row ">
+                   { !comics.length && <p>NO RESULT</p> }
                 </div> 
             </div>
                         </div>
@@ -148,15 +174,18 @@ class Filter extends React.Component
 const mapStateToProps = (state) => {
     return {
      result:state.search,
-     list: state.genre
+     list: state.genre,
+     new: state.comicnew,
+     hot:state.comichot
     }
   }
   
-  const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
       SearchByName:(keyword) =>dispatch(SearchByName(keyword)),
-      fetchGenres:() =>dispatch(fetchGenres())
-  
+      fetchGenres:() =>dispatch(fetchGenres()),
+      fetchComicUpdateNew2:() => dispatch(fetchComicUpdateNew2()) ,
+      fetchComicHot:() => dispatch(fetchComicHot())
     };
   }
   

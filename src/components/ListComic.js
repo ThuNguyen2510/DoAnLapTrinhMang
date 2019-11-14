@@ -46,6 +46,7 @@ const mapDispatchToProps =(dispatch, props)=>
   return {
     fetchListComic : ()=>{
     dispatch(fetchListComic())
+    
 
   }
 }

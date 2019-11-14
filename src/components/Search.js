@@ -26,7 +26,7 @@ class Search extends React.Component
     }
     render()
     { 
-        
+        console.log("SEARCH")
         return(
             <>
           

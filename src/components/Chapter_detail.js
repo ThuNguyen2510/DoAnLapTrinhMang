@@ -98,7 +98,7 @@ SelectSync2(name)
                     <hr/>
                 </div>
                 <div className="list-chap">
-                    <Link to="/Comic/:index/Chapter/:id">{name}</Link><br/> 
+                    <Link to={"/Comic/"+this.props.match.params.index+"/Chapter/"+this.props.match.params.id}>{name}</Link><br/> 
                     {this.select1()}
                 </div>
                  <Chap_content content={content}/>

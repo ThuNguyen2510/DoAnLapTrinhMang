@@ -29,12 +29,10 @@ class Nav extends React.Component{
       var li_style={
         listStyle: "none"
     }
-  
     var option=this.props.list.map((a,index)=>{
     return <><option id={index}>{a.genre_name}</option></>
     });
     let {search}=this.state
-    console.log(search)
         return(
           <>
               <nav className="navbar navbar-expand-lg navbar-light bg-color">
@@ -59,7 +57,7 @@ class Nav extends React.Component{
                       </div>
                     </li> 
                     <li className="nav-item">
-                      <Link className="name" to="/truyenmoi" ><i className="fas fa-newspaper"></i> Truyện mới</Link>
+                      <Link className="name" to="/TruyenMoi" ><i className="fas fa-newspaper"></i> Truyện mới</Link>
                     </li>
                   </ul>
                   <form className="form-inline my-2 my-lg-0 form" >
@@ -71,13 +69,7 @@ class Nav extends React.Component{
                 <div className ="sign">
                   {this.login_logout()}                  
                     </div>
-              </nav>
-              <div className="container">
-              {
-                this.state.flag && <Search/>                
-              }
-              </div>
-             
+              </nav>           
              
         </>
 

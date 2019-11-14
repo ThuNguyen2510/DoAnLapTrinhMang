@@ -60,7 +60,7 @@ import { fetchComicUpdateNew } from '../actions/ComicActions';
                 {this.show()}
               </div> 
               <span class="c-wg-button-wrap">
-                  <Link style={a_style} className="widget-view-more" to="/TruyenHot">Xem thêm</Link>
+                  <Link style={a_style} className="widget-view-more" to="/TruyenMoi">Xem thêm</Link>
               </span>           
             </div>
             </div>            

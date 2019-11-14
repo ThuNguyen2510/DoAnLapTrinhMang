@@ -40,7 +40,7 @@ class Detail extends React.Component
             <>
             <div className="title">
                 <h3 className="title">
-                    <Link to="/Comic/:index" className="comicname">{this.props.Name}</Link>
+                    <Link to={"/Comic/"+this.props.id_comic} className="comicname">{this.props.Name}</Link>
                 </h3>
             </div>
             <div className="contend">
