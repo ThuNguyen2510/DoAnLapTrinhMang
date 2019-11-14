@@ -56,7 +56,7 @@ class Comic_detail extends React.Component{
     {
        
         return <>         
-        <div className="container">    
+        <div >    
             <Header/>
             </div>  <hr/>              
             <div className="container">

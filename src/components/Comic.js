@@ -61,7 +61,7 @@ class Comic extends React.Component{
                         {this.props.descrip}
                     </div>
                     <span className="chapter font-meta" style={sp}>
-                        <Link to="/Tacgia_id" className="btn-link" style={sp}>Tác giả: {this.props.author}</Link>
+                        <Link to={"/Author/"+this.props.author} className="btn-link" style={sp}>Tác giả: {this.props.author}</Link>
                     </span>                    
                 </div>
             </div>

@@ -20,7 +20,7 @@ class ListComic extends React.Component{
 
         for(var i = 0; i < this.props.list.length; i++)
         {
-          result.push(<Comic  id={i} Src={this.props.list[i].Image} name={this.props.list[i].Name} author={this.props.list[i].Author}/>)
+          result.push(<Comic author={this.props.list[i].Author} id={i} Src={this.props.list[i].Image} name={this.props.list[i].Name} author={this.props.list[i].Author}/>)
         }
       
       return result;

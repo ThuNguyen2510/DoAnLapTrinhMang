@@ -7,13 +7,14 @@ import RightBody from './RightBody';
 import Footer from  './Footer';
 import {connect} from 'react-redux';
 import {SearchByName} from '../actions/SearchAction'
-class Filter extends React.Component
+class Search extends React.Component
 {
     render()
     { 
+        console.log("MSF")
         return(
             <>
-            <Header/>
+          
             <div>
                 <hr/>
                 <div className="container">
@@ -49,5 +50,5 @@ const mapStateToProps = (state) => {
     };
   }
   
-  export default Filter;
+  export default Search;
   

@@ -6,25 +6,35 @@ import 'react-awesome-slider/dist/styles.css';
 import {connect} from 'react-redux';
 import {logout} from '../reducers/login_reducer';
 import {fetchGenres} from '../actions/GenreAction'
-
+import LeftBody from './LeftBody';
+import Search from './Search';
+import Home from './Home';
 class Nav extends React.Component{
-    constructor(props)
-    {
-      super(props)
-      this.state={}
-    }
+    
+      constructor(props)
+      {
+        super(props)
+        this.state={
+          flag:false,
+          search:''
+        }
+       
+        this.handleClick=this.handleClick.bind(this)
+      }
+     
     componentDidMount()
-    {
+    {   
       this.props.fetchGenres()
     }
-    
     render(){
       var li_style={
         listStyle: "none"
     }
+  
     var option=this.props.list.map((a,index)=>{
     return <><option id={index}>{a.genre_name}</option></>
-    })
+    });
+    let {search}=this.state.search
         return(
           <>
               <nav className="navbar navbar-expand-lg navbar-light bg-color">
@@ -52,24 +62,43 @@ class Nav extends React.Component{
                       <Link className="name" to="/truyenmoi" ><i className="fas fa-newspaper"></i> Truyện mới</Link>
                     </li>
                   </ul>
-                  <form className="form-inline my-2 my-lg-0 form">
-                    <input className="input" type="search" placeholder="Tìm truyện..." aria-label="Search" />
-                   <Link className="btn btn-primary" id="btnsearch" to="/Search"><i className="fas fa-search btnsearch"></i></Link>
+                  <form className="form-inline my-2 my-lg-0 form" >
+                    <input  value={search} onChange={e => this.setState({search: e.target.value}) }
+                     className="input" id='search' type="search" placeholder="Tìm truyện..." aria-label="Search" />
+                   <Link  onClick={this.handleClick} to="search" className="btn" id="btnsearch" ><i className="fas fa-search btnsearch"></i></Link>
                   </form>
                 </div>
                 <div className ="sign">
                   {this.login_logout()}                  
                     </div>
               </nav>
+              <div className="container">
+              {
+                this.state.flag && <Search/>                
+              }
+              </div>
+             
+             
         </>
 
         )
     }
+    
+    handleClick()
+      {
+        
+        console.log("vsdvv")
+        this.setState({
+          flag:true
+        });
+        let{value}=this.state.search
+        localStorage.setItem('searchByName',value)
+        console.log(value)
+      }
     login_logout()
     {
       if(localStorage.getItem('logninning')==='run')
       {
-       
         return this.logoutf()
       }
       else  if(localStorage.getItem('login')==='success')
@@ -84,6 +113,7 @@ class Nav extends React.Component{
     logoutf()
     {
       localStorage.removeItem('login')
+      localStorage.removeItem('logined_user')
      // this.props.logout()
       return <>
        <Link className="link" to='/Signin'><i className="fas fa-sign-in-alt link" >Signin/Signup</i></Link> 
@@ -124,5 +154,4 @@ const mapDispatchToProps = (dispatch) => {
 
   };
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

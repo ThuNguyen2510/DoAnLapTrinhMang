@@ -1,9 +1,14 @@
 import React from 'react';
 import ListComic from './ListComic';
 import {Link,Redirect} from 'react-router-dom';
-import './LeftBody.css'
+import './LeftBody.css';
+import {connect} from 'react-redux';
+import {fetchGenres} from '../actions/GenreAction'
 class LeftBody extends React.Component{
-    
+    componentDidMount()
+    {
+        this.props.fetchGenres()
+    }
     render(){
         var con_m21={
             backgroundColor: "#fff",
@@ -29,11 +34,12 @@ class LeftBody extends React.Component{
         var li={
             listStyle:"none"
         }
-        
+        var option=this.props.list.map((a,index)=>{
+            return <><option id={index}>{a.genre_name}</option></>
+            })
         return(
             <div className="float-left" style={con_m21}>
                 <div className="content m2l">
-                
                 <div >
                     <form>
                         <table style={table_s}>                          
@@ -41,10 +47,7 @@ class LeftBody extends React.Component{
                             <td> 
                             <select class="mdb-select md-form colorful-select dropdown-primary">
                                     <option >Thể Loại </option>
-                                    <option value="1">Ngôn tình</option>
-                                    <option value="2">Kiếm hiệp</option>
-                                    <option value="3">Xuyên không</option>
-                                    <option value="4">Dị giới</option>
+                                    {option}
                             </select>
                             </td>
                             <td>
@@ -99,4 +102,17 @@ class LeftBody extends React.Component{
         
     }
 }
-export default LeftBody;
+const mapStateToProps = (state) => {
+    return {
+     list: state.genre
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchGenres:() =>dispatch(fetchGenres())
+  
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(LeftBody);

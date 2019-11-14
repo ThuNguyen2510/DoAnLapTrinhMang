@@ -19,16 +19,18 @@ import Admin_user from './components/Admin/Admin_user';
 import User_page from './components/User/User_page';
 import User_book from './components/User/User_book';
 import Read from './components/User/ReadBook';
+import Search from './components/Search';
 const history = createBrowserHistory()
 class App extends React.Component {
   render(){
     
     return (
-      <div className="App">        
+      <div className="App">      
         <Router history={history}>
           <Switch> 
           <Route path='/Search' exact component={Filter}/>  
-          <Route path='/Author' exact component={Author}/>      
+          <Route path="/search" exact component ={Search}/>
+          <Route path='/Author/' component={Author}/>      
           <Route path='/Signin' exact component={Login}/>   
           <Route path='/Signup' exact component={Signup}/>   
           <Route path='/Comic/:index' exact component={Comic_detail}/>   
