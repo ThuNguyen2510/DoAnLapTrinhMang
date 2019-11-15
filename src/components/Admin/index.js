@@ -16,10 +16,9 @@ class index extends React.Component{
                     <div className="col-md-2 col-lg-2" >
                         <Content/>
                     </div>
-                    <div className="col-md-10 col-lg-10 content">
+                    <div className="col-md-10 col-lg-10 ">
                         <Nav/>
                         <Hello/>
-                       
                     </div>
                 </div>
             </div>
