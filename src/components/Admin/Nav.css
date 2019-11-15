@@ -3,15 +3,21 @@
     margin-left: -5px;
     margin-top: -5px;
     margin-right: -15px;
+    text-align: right;
+    float: left;
 }
 
 .navbar-dark .navbar-brand {
     color: #fff;
 }
 
+.nav-link {
+    float: right;
+}
+
 ul.sidebar.navbar-nav {
     background-color: #159cad;
-    /* float: left; */
+    float: right;
 }
 
 .breadcrumb {
