@@ -8,7 +8,7 @@ class Content extends React.Component{
             <div className="side-bar">
                 <ul className="side sidebar-color navbar-nav">
                     <li className="nav-item active">
-                        <Link className="navbar-brand" to="/Admin"><span className="mb-5" style={{fontSize:"25px"}} >TVT COMIC</span></Link>
+                        <Link className="navbar-link" to="/Admin"><span className="mb-5" style={{fontSize:"25px"}} >TVT COMIC</span></Link>
                     </li>
                     <li className="nav-item active">
                         <Link className="nav-link" to="/Admin/Comics">
