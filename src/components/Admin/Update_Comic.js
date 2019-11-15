@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link,Route} from 'react-router-dom';
 import './Update_Comic.css';
-import './index.css'
 import Nav from './Nav';
 import Content from './Content';
 import Breadcrumb from './Breadcrumb';

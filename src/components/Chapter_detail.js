@@ -115,6 +115,8 @@ SelectSync2(name)
                 <Header/>
                 <hr/>
                 {this.show()}
+                <hr/>
+                <Footer/>
             </div>   
             
         );

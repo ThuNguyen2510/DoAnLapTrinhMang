@@ -57,7 +57,7 @@ class Comic_detail extends React.Component{
     {
        
         return <>         
-        <div className="containers">    
+        <div className="container-fluid">    
             <Header/>
             </div> 
             
@@ -70,8 +70,7 @@ class Comic_detail extends React.Component{
                                {this.image()}
                             </div>
                             <div className="col-md-8 details">
-                            {this.Detail()}
-                           
+                            {this.Detail()}  
                             </div>
                         </div>
                         <hr/>
@@ -87,7 +86,9 @@ class Comic_detail extends React.Component{
                     </div>
                 </div>
                 <div className="row">   
-                    <Comment/>                
+                    <div className="col-md-12 col-lg-9">
+                        <Comment/>
+                    </div>                
                 </div>
                 <hr/>
                 <div className="row">   
