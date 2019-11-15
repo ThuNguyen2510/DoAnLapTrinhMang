@@ -56,7 +56,7 @@ ul.sidebar.navbar-nav {
 
 .side {
     height: 100%;
-    width: 16.7%;
+    width: 16%;
     position: fixed;
     text-align: left;
     min-height: calc(100vh - 56px);

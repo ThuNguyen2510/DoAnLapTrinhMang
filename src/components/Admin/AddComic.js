@@ -10,16 +10,16 @@ class AddComic extends React.Component{
     {
         return (
             <>
-            <body id="page-top">
-                <Nav/>
-                <div id="wrapper">
-                <Content/> 
-                <div id="content-wrapper">
-                    <Breadcrumb br="Quản lý truyện/ Airi Satou"/>
+            <div className="row ">
+                <div className="col-md-2">
+                    <Content/>
+                </div>
+                <div className="col-md-10">
+                    <Nav/>                    
+                    <Breadcrumb className="col-md-12" br="Quản lý truyện/ Airi Satou"/>
                     <div className="row" id="row">
-                        <div className="col-md-7 order-md-1">
+                        <div className="col-md-7 ml-3 order-md-1">
                             <form className="needs-validation">
-                           
                                 <div className="mb-3">
                                     <label for="username">Tên truyện</label>
                                     <div class="input-group">
@@ -34,7 +34,7 @@ class AddComic extends React.Component{
                                         <input type="text" class="form-control" id="username" required=""></input>
                                     </div>
                                 </div>
-                               
+                            
                                 <div className="mb-3">
                                     <label for="username">Thể loại</label>
                                         <select className="custom-select d-block w-100" id="country" required="">
@@ -59,27 +59,24 @@ class AddComic extends React.Component{
                                 
                                 </div>
                             </form>
-
                         </div>
-                        <div className="col-md-5 order-md-2 mb-4">
+                        <div className="col-md-4 order-md-2 ml-3 mb-4">
                             <div className="row">
                                 <img src="http://dummyimage.com/250x235.bmp/dddddd/000000"></img>
                             </div>
                             <input type="file" ></input>                            
-                        </div>
-                       
+                        </div>                    
                     </div>
-                    <div className="row">
-                        <div className="col-md-7"></div>
-                        <div className="col-md-5">
-                            <button type="button" class="btn btn-pill btn-warning">Lưu</button>
-                            <button type="button" class="btn btn-square btn-secondary">Cancel</button>
+                        <div className="row">
+                            <div className="col-md-7"></div>
+                            <div className="col-md-5">
+                                <button type="button" class="btn btn-pill btn-warning">Lưu</button>
+                                <button type="button" class="btn btn-square btn-secondary">Cancel</button>
+                            </div>
                         </div>
-                        
-                    </div>
-                </div>               
+                    </div>               
                 </div>
-            </body></>
+        </>
         )
     }
 }
