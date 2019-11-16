@@ -30,7 +30,7 @@ class Chapter_detail extends React.Component{
     for(var i=0;i<this.props.chaps.length;i++)
     {
         var select=false;
-        if((i+1)==this.props.match.params.id) select=true;
+        if((i+1)===this.props.match.params.id) select=true;
          chaps.push(<option id={i+1} selected={select}>Chương {this.props.chaps[i].id}: {this.props.chaps[i].chapter_name}</option>)
     }
     return chaps;

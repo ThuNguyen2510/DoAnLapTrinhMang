@@ -109,7 +109,7 @@ class Signup extends React.Component{
     }
     Routing()
     {
-       if(localStorage.getItem('signup')=='success') return <Redirect to='/Signin' />  
+       if(localStorage.getItem('signup')==='success') return <Redirect to='/Signin' />  
     }
 }
 
