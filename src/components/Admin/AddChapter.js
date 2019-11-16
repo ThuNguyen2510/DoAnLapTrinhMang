@@ -5,7 +5,7 @@ import Content from './Content';
 import './Admin_Comic.css';
 import {connect} from 'react-redux';
 import Breadcrumb from './Breadcrumb';
-class AddComic extends React.Component{
+class AddChapter extends React.Component{
     render()
     {
         return (
@@ -80,4 +80,4 @@ class AddComic extends React.Component{
         )
     }
 }
-export default AddComic;
+export default AddChapter;

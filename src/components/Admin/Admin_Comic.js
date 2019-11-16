@@ -79,7 +79,7 @@ class Admin_Comic extends React.Component{
                                             </div>
                                         </div>
                                         <div className="row">
-                                            <div className="dataTables_info ml-4" id="dataTable_info" role="status" aria-live="polite"><i class="fas fa-pencil-ruler mr-2"></i><span id="sp">THỐNG KÊ ... cuốn truyện</span></div>                                                                         
+                                            <div className="dataTables_info ml-4" id="dataTable_info" role="status" aria-live="polite"><i class="fas fa-pencil-ruler mr-2"></i>THỐNG KÊ ... cuốn truyện</div>                                                                         
                                         </div>
                                         <div className="row justify-content-center align-items-center">
                                             <div className="dataTables_paginate paging_simple_numbers ">

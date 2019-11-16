@@ -5,7 +5,7 @@
       "username": "ThuNguyen",
       "password": "12345",
       "email": "thunguyen@gmail.com",
-      "role": 0
+      "role": "1"
     },
     {
       "id": 2,
@@ -19,20 +19,13 @@
       "username": "NhutThuy",
       "password": "thuy911_",
       "email": "thuyln@gmail.com",
-      "role": 0
+      "role": "0"
     },
     {
       "id": 4,
       "username": "te9iOLExehup",
       "password": "2xmKnokb6oM",
       "email": "gtoppas3@wufoo.com",
-      "role": 0
-    },
-    {
-      "id": 5,
-      "username": "4urIAa0",
-      "password": "31BJp5YaD",
-      "email": "dstorcke4@sphinn.com",
       "role": 0
     },
     {
@@ -118,125 +111,6 @@
       "password": "V0tytq",
       "email": "amackenneyg@alibaba.com",
       "role": 0
-    },
-    {
-      "id": 18,
-      "username": "jiN7YC7",
-      "password": "wH7sbBodHR",
-      "email": "blegonh@ycombinator.com",
-      "role": 0
-    },
-    {
-      "id": 19,
-      "username": "M9boSKrqIQP",
-      "password": "W9SeApLph",
-      "email": "jcrumlyi@ucla.edu",
-      "role": 0
-    },
-    {
-      "id": 20,
-      "username": "eLIidfLo3l",
-      "password": "TOrjtx",
-      "email": "jgoldhillj@reuters.com",
-      "role": 0
-    },
-    {
-      "username": "Mugiwara",
-      "email": "mgelagk",
-      "password": "123",
-      "role": 0,
-      "id": 21
-    },
-    {
-      "username": "v fml",
-      "email": "nbklw",
-      "password": "1234",
-      "role": 0,
-      "id": 24
-    },
-    {
-      "username": "honw",
-      "email": "iphtw",
-      "password": "12345",
-      "role": 0,
-      "id": 25
-    },
-    {
-      "username": "klh",
-      "email": "nbls",
-      "password": "12345",
-      "role": 0,
-      "id": 26
-    },
-    {
-      "username": "glwj",
-      "email": "fnej",
-      "password": "123",
-      "role": 0,
-      "id": 27
-    },
-    {
-      "username": "njwbl",
-      "email": "gnqo",
-      "password": "123",
-      "role": 0,
-      "id": 28
-    },
-    {
-      "username": "bnjl",
-      "email": "njqrl",
-      "password": "123",
-      "role": 0,
-      "id": 29
-    },
-    {
-      "username": "mbfkl",
-      "email": "jlwb",
-      "password": "123",
-      "role": 0,
-      "id": 30
-    },
-    {
-      "username": "bgjl",
-      "email": "jngwl",
-      "password": "123",
-      "role": 0,
-      "id": 31
-    },
-    {
-      "username": "nbl",
-      "email": "nogi1",
-      "password": "123",
-      "role": 0,
-      "id": 32
-    },
-    {
-      "username": "AFF",
-      "email": "va",
-      "password": "123",
-      "role": 0,
-      "id": 33
-    },
-    {
-      "username": "ngj",
-      "email": "njkq",
-      "password": "123",
-      "role": 0,
-      "id": 34
-    },
-    {
-      "username": "thusie",
-      "email": "ngls",
-      "password": "123",
-      "role": 0,
-      "id": 35
-    },
-    {
-      "username": "gtnjl",
-      "email": "njwl",
-      "password": "123",
-      "role": 0,
-      "id": 36
     }
   ],
   "comics": [
