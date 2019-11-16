@@ -1,10 +1,10 @@
 import axios from 'axios';
-export const getUserName = (id) => {
+export const getUserName = () => {
     return dispatch => {
-        return axios.get('http://127.0.0.1:3000/users?id=' + id).then(
+        return axios.get('http://127.0.0.1:3000/users').then(
             data => {
 
-                const us = data.data[0].username
+                const us = data.data
 
                 dispatch(userInfo(us))
             }

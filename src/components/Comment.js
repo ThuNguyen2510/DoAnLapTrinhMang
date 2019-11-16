@@ -14,8 +14,7 @@ class Comment extends React.Component{
 
   componentDidMount(){
     this.props.fetchComt(this.props.comic_id);
-    console.log("COM")
-    
+    this.props.user();
   }
   componentWillMount()
   {
@@ -28,6 +27,19 @@ class Comment extends React.Component{
     var user=JSON.parse(localStorage.getItem('logined_user'));
     this.props.addComt(user.id,this.props.comic_id,content,"7:05 AM"); 
     this.setState({content: " " })
+  }
+  findusername(userid)
+  {
+    var ten=""
+    for(var i=0;i<this.props.getUserName.length;i++)
+    {
+      if(this.props.getUserName[i].id===userid)
+      {
+        ten=this.props.getUserName[i].username;
+        break;
+      }
+    }
+    return ten;
   }
  show()
  {  
@@ -42,7 +54,7 @@ class Comment extends React.Component{
        </Link>
         <div className="row media-body">
           {/* <strong className="text-success">{this.props.user(cmt.user_id)}</strong><br/> */}
-          <strong className="text-success">User{cmt.user_id}</strong><br/>
+          <strong className="text-success">{this.findusername(cmt.user_id)}</strong><br/>
           <p className="text-muted pull-right">
             <small className="text-muted ml-2" style={{fontSize:'10px'}}>{cmt.time}</small>
           </p>
@@ -98,7 +110,7 @@ const mapDispatchtoProps =(dispatch)=>{
   return {
     fetchComt: (id) => dispatch(fetchComt(id)),
     addComt: (user_id,comic_id,contend,time) => dispatch(addComt(user_id,comic_id,contend,time)),
-    user: (user_id) => dispatch(getUserName(user_id))
+    user: () => dispatch(getUserName())
   }
 }
 export default connect(mapStatetoProps,mapDispatchtoProps)(Comment);
