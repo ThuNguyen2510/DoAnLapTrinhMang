@@ -19,7 +19,9 @@ import Admin_user from './components/Admin/Admin_user';
 import User_page from './components/User/User_page';
 import User_book from './components/User/User_book';
 import Read from './components/User/ReadBook';
-import Search from './components/Search';
+import AddChapter from './components/Admin/AddChapter';
+import UpdateChapter from './components/Admin/UpdateChapter';
+import ShowChapter from './components/Admin/ShowChapter'
 const history = createBrowserHistory()
 class App extends React.Component {
   render(){
@@ -39,11 +41,15 @@ class App extends React.Component {
           <Route path='/TruyenHot' exact component={Filter}/>   
           <Route path='/Category' exact component={Filter}/>
           <Route path='/Comic/:index/Chapter/:id' exact component={Chapter_detail}/>   
+          <Route path='/Comic/:index/Chapter/:id/Update' exact component={UpdateChapter}/>  
+          <Route path='/Comic/:index/Chapter/:id/Show' exact component={ShowChapter}/> 
+          <Route path='/Comic/:index/Chap' exact component={AddChapter}/> 
           <Route path='/Admin' exact component={index}/> 
           <Route path='/Admin/Comics' exact component={Admin_Comic}/> 
           <Route path='/Comics/Add' exact component={AddComic}/> 
           <Route path='/Comic/:index/Edit' component={Update_Comic}/> 
           <Route path='/Comic/:index/Delete' component={Admin_Comic}/> 
+          <Route path='/Comic/:index/Chap/:id' component={AddChapter}/> 
           <Route path="/Comics/trang:index" component={Admin_Comic}/>
           <Route path='/Admin/Users' exact component={Admin_user}/>
           <Route path='/Users/Add' exact component={Admin_user}/>

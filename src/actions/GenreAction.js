@@ -9,7 +9,7 @@ export const fetchGenre = (id) => {
         )
     }
 }
-export const fetchGenres = (id) =>
+export const fetchGenres = () =>
 {
     return dispatch=>{
         return axios.get('http://127.0.0.1:3000/genres').then(

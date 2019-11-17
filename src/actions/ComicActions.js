@@ -68,6 +68,32 @@ export const likeComic = (comic_id,Number_of_Like) => {
             })
     }
 }
+export const addComic=(name,genre_id,author,chap_number,des,date,img)=>{
+    return dispatch => {
+        
+
+        return axios.post('http://127.0.0.1:3000/comics/',{'Name':name,'Author':author,
+        'Genre_id':genre_id,'Description':des,'Chapter_number_of':chap_number,
+        'Status':0,'Number_of_Like':'0','Number_of_Read':'0','Post_DateTime':date,'Image':img}).then(
+        
+            dispatch(addcomic())
+        )
+    }
+}
+export const deleteComic=(id) =>{
+    return dispatch =>{
+        return axios.delete('http://127.0.0.1:3000/comics/'+id).then(
+            (data)=>{
+            dispatch(delComic())
+            return axios.get('http://127.0.0.1:3000/comics').then(data=>
+                {
+                    dispatch(returnList(data.data))
+                })
+        }
+        )
+    }
+
+}
 const returnList = (comics) => ({
     type: 'SHOW_LIST',
     list: comics
@@ -97,4 +123,12 @@ const returnComicUpdateNew2=(comics) =>({
 const returnComicByCategory =(comics)=>({
     type:'LIST_COMIC_BY_CATEGORY',
     comics
+})
+const addcomic =()=>({
+    type:'ADD_COMIC',
+    
+})
+const delComic =()=>({
+    type:'DELETE_COMIC',
+    
 })

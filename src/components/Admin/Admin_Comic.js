@@ -5,24 +5,44 @@ import Content from './Content';
 import './Admin_Comic.css';
 import {connect} from 'react-redux';
 import Breadcrumb from './Breadcrumb';
+import {fetchListComic,deleteComic} from '../../actions/ComicActions';
+import {fetchGenres} from '../../actions/GenreAction'
 class Admin_Comic extends React.Component{
     constructor(props)
     {
         super(props);
-        this.state={
-            list:[]
+    }
+    componentDidMount()
+    {
+        this.props.fetchListComic()
+        this.props.fetchGenres()
+    }
+    findGenre(id)
+    {
+        var gen=""
+        console.log(this.props.gens.length)
+        for(var i=0;i<this.props.gens.length;i++)
+        {
+            
+            if(this.props.gens[i].id ===id)
+            {
+                gen=this.props.gens[i].genre_name
+                
+                break;
+            }
         }
+        return gen;
     }
     show(){
-        return this.state.list.map((a,index)=>
+        return this.props.list.map((a)=>
         <tr>
-            <td> <Link to={"/Comic/"+index+"/Edit"}>{a.Name}</Link></td>
+            <td> <Link to={"/Comic/"+a.id+"/Edit"}>{a.Name}</Link></td>
             <td>{a.Author}</td>
-            <td>{a.id}</td>     
+            <td>{this.findGenre(a.Genre_id)}</td>     
             <td>
             <ul>
-                <li id="but" key={index}><Link to={"/Comic/"+index+"/Edit"}><i class="far fa-edit"></i></Link></li>            
-                <li id="but" key={index}><Link to={"/Comic/" +index+"/Delete"}><i id="del" class="far fa-minus-square"></i></Link></li>
+                <li id="but" ><Link to={"/Comic/"+a.id+"/Edit"}><i class="far fa-eye"></i></Link></li>            
+                <li id="but" ><button onClick={e=>{if(window.confirm("Are you sure??")) this.props.deleteComic(a.id)}} ><i id="del" class="far fa-minus-square"></i></button></li>
             </ul>
             </td>           
         </tr>
@@ -70,6 +90,7 @@ class Admin_Comic extends React.Component{
                                                 <table className="table table-bordered dataTable" id="dataTable">
                                                     <tr role="row">
                                                         <th>Tên truyện</th>
+                                                       
                                                         <th>Tác giả</th>
                                                         <th>Thể loại</th>
                                                         <th>Action</th>
@@ -79,7 +100,7 @@ class Admin_Comic extends React.Component{
                                             </div>
                                         </div>
                                         <div className="row">
-                                            <div className="dataTables_info ml-4" id="dataTable_info" role="status" aria-live="polite"><i class="fas fa-pencil-ruler mr-2"></i>THỐNG KÊ ... cuốn truyện</div>                                                                         
+                                            <div className="dataTables_info ml-4" id="dataTable_info" role="status" aria-live="polite"><i class="fas fa-pencil-ruler mr-2"></i>THỐNG KÊ {this.props.list.length} cuốn truyện</div>                                                                         
                                         </div>
                                         <div className="row justify-content-center align-items-center">
                                             <div className="dataTables_paginate paging_simple_numbers ">
@@ -105,11 +126,20 @@ class Admin_Comic extends React.Component{
         );
     }
 }
-export default Admin_Comic;
-// function mapStateToProps (state)
-// {
-//   return{
-//     list: state.comic
-//   }
-// }
-// export default connect(mapStateToProps)(Admin_Comic);  
+
+const mapStateToProps =(state)=>
+{
+  return{
+    list: state.comics,
+    gens:state.genre
+  };
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchListComic : ()=> dispatch(fetchListComic()),
+        fetchGenres :()=> dispatch(fetchGenres()),
+        deleteComic:(id) => dispatch(deleteComic(id))
+       
+  };
+}
+  export default connect(mapStateToProps, mapDispatchToProps)(Admin_Comic);  

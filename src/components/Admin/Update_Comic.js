@@ -4,160 +4,159 @@ import './Update_Comic.css';
 import Nav from './Nav';
 import Content from './Content';
 import Breadcrumb from './Breadcrumb';
+import {fetchGenres} from '../../actions/GenreAction';
+import {fetchOneComic} from '../../actions/ComicActions';
+import {fetchChapters} from '../../actions/ChapterAction';
+import {deleteChapter,fetchChapter} from '../../actions/ChapterAction'
+import {connect} from 'react-redux'
 class Update_Comic extends React.Component{
     constructor(props)
     {
         super(props);
-        this.state={
-            list:[
-                {
-                    "id": 1,
-                    "name": "Calystegia collina (Greene) Brummitt ssp. collina"
-                  }, {
-                    "id": 2,
-                    "name": "Korthalsella cylindrica (v. Tiegh.) Engl."
-                  }, {
-                    "id": 3,
-                    "name": "Paspalum wrightii Hitchc. & Chase"
-                  }, {
-                    "id": 4,
-                    "name": "Viola ×consocia House"
-                  }, {
-                    "id": 5,
-                    "name": "Carex lasiocarpa Ehrh."
-                  }, {
-                    "id": 6,
-                    "name": "Acer circinatum Pursh"
-                  }, {
-                    "id": 7,
-                    "name": "Draba nivalis Lilj."
-                  }, {
-                    "id": 8,
-                    "name": "Anemone edwardsiana Tharp var. petraea Correll"
-                  }, {
-                    "id": 9,
-                    "name": "Desmodium cuspidatum (Muhl. ex Willd.) DC. ex D. Don var. cuspidatum"
-                  }, {
-                    "id": 10,
-                    "name": "Erigeron elmeri (Greene) Greene"
-                  }
-            ]
-        }
+        this.state={}
+        this.fetchAchap=this.fetchAchap.bind(this)
     }
-    render()
+    componentDidMount()
     {
-        const list= this.state.list.map((a,index)=>           
-                <tr>
-                    <td ><Link to="/" id="li">Chương số {a.id} : {a.name}</Link></td>
-                    <td >
-                    <ul>
-                        <li id="but" key={index}><Link to={"/Comic/id/Chapters/Update/"+index}><i class="far fa-edit"></i></Link></li>
-                        <li id="but" key={index}><Link to={"/Comic/id/Chapters/Delete/" +index}><i id="del" class="far fa-minus-square"></i></Link></li>
-                    </ul>
-                    </td>
-                </tr>
-            
-        )
-        return(
-            <>
-            <body id="page-top">
-                <Nav/>
-                <div id="wrapper">
-                <Content/> 
-                <div id="content-wrapper">
-                    <Breadcrumb br="Quản lý truyện/ Airi Satou"/>
-                    <div className="row" id="row">
-                        <div className="col-md-7 order-md-1">
+        this.props.fetchGenres()
+        this.props.fetchOneComic(this.props.match.params.index)
+        this.props.fetchChapters(this.props.match.params.index)
+    }
+    select()
+    {
+        var s=[]
+      
+        s=this.props.gens.map(a=>{
+            var check=false;
+            if(this.props.comic[1]==a.genre_name) check=true;
+        return   <option selected={check}value={a.id}>{a.genre_name}</option>
+        })
+        return s;
+    }
+    show()
+    {   
+        var s=[]
+        if(this.props.comic.length>0)
+         for(var i=0;i<this.props.comic.length-1;i++)
+            s.push(  <>
+            <div className="row" id="row">
+                        <div className="col-md-7 ml-3 order-md-1">
                             <form className="needs-validation">
-                            <div className="mb-3">
-                                <label><Link to="/Comic/"><i class="fas fa-plus"></i>Thêm chương </Link></label>
-                                
+                <div className="mb-3">
+                            <label for="username">Tên truyện</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"></div>
+                        <input type="text" class="form-control" id="username" value={this.props.comic[i].Name} required=""></input>
+                            </div>
+                        </div>
+                        <div className="mb-3">
+                            <label for="username">Tác giả</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"> </div>
+                                <input type="text" class="form-control" id="username" value={this.props.comic[i].Author} required=""></input>
+                            </div>
+                        </div>
+                        <div className="mb-3">
+                                    <label for="username">Thể loại</label>
+                                        <select className="custom-select d-block w-100" id="country" required="">
+                                            {this.select()}
+                                        </select>
                                 </div>
                                 <div className="mb-3">
-                                <label for="username">Tên truyện</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        </div>
-                                        <input type="text" class="form-control" id="username" required=""></input>
-                                        
-                                    </div>
-                                </div>
-                                <div className="mb-3">
-                                <label for="username">Tác giả</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        </div>
-                                        <input type="text" class="form-control" id="username" required=""></input>
-                                        
-                                    </div>
-                                </div>
-                               
-                                <div className="mb-3">
-                                <label for="username">Thể loại</label>
-                                <select className="custom-select d-block w-100" id="country" required="">
-                                    <option value="">Kiếm hiệp</option>
-                                    <option>Ngôn tình</option>
-                                    </select>
-                                </div>
-                                <div className="mb-3">
-                                <label for="username">Mô tả</label>
+                                    <label for="username">Mô tả</label>
                                     <div className="form-group">
-                                    <textarea className="form-control" id="exampleFormControlTextarea3" rows="4"></textarea>
+                         <textarea className="form-control" id="exampleFormControlTextarea3" value={this.props.comic[i].Description} rows="4"></textarea>
                                     </div>
                                 </div>
                                 
                                 <div className=" mb-3">
                                     <label for="cc-expiration">Số chương</label>
-                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required=""></input>
+                            <label type="text" class="form-control" id="cc-expiration" placeholder="" value={this.props.chaps.length} required="">{this.props.chaps.length}</label>
             
+                                </div> 
+                                <div className="mb-3">
+                                <label><Link to={"/Comic/"+this.props.match.params.index+"/Chap"}><i class="fas fa-plus"></i>Thêm chương </Link></label>
+                                
                                 </div>
-                
-                              <div className="row list-chap">
-                                    <div className="col-xs-12">
-                                        <h3 className="title">Danh sách chương</h3>
-                                    </div>
-                                    <div className="col-xs-12">
-                                       <table>{list}</table>
-                                       <div className="dataTables_paginate paging_simple_numbers">
-                                                <ul className="pagination">
-                                                <li className="paginate_button page-item previous disabled" id="dataTable_previous"><Link to="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" className="page-link">Previous</Link></li>
-                                                <li className="paginate_button page-item active"><Link to={"/Comic/trang"+1} aria-controls="dataTable" data-dt-idx="1" tabindex="0" className="page-link">1</Link></li>
-                                                <li className="paginate_button page-item "><Link to={"/Comic/trang"+2} aria-controls="dataTable" data-dt-idx="1" tabindex="0" className="page-link">2</Link></li>
-                                                <li className="paginate_button page-item "><Link to={"/Comic/trang"+3} aria-controls="dataTable" data-dt-idx="1" tabindex="0" className="page-link">3</Link></li>
-                                                <li className="paginate_button page-item next" ><Link to="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" className="page-link">Next</Link></li>
-
-                                                </ul>
-                                            </div>
-                                    </div>
-                                  </div>  
                             </form>
-
                         </div>
-                        <div className="col-md-5 order-md-2 mb-4">
+                        <div className="col-md-4 order-md-2 ml-3 mb-4">
                             <div className="row">
-                                <img src="http://dummyimage.com/250x235.bmp/dddddd/000000"></img>
+                                <img  src={this.props.comic[i].Image}></img>
                             </div>
-                            <input type="file" ></input>                            
-                        </div>
-                       
-                    </div>
-                    <div className="row">
-                        <div className="col-md-7">
+                            {/* <input type="text" ></input> 
+                            <input type="file" ></input>                            */}
+                        </div>                    
+                    </div>        
+</>
+            )
+           return s;
 
-                        </div>
-                        <div className="col-md-5">
-                        <button type="button" class="btn btn-pill btn-warning">Lưu</button>
-                        <button type="button" class="btn btn-square btn-secondary">Cancel</button>
-                        </div>
-                        
-                        </div>
-                </div>               
+    }
+    fetchAchap = (id) =>
+     {
+        
+        this.props.fetchChapter(id,this.props.match.params.index)
+    }
+    render()
+    {
+        var image={
+            width: "210px",
+            height: "240px"
+        }
+        var list= this.props.chaps.map((a)=>           
+                <tr>
+                    <td ><p id="li">Chương số {a.id} : {a.chapter_name}</p></td>
+                    <td >
+                    <ul>
+                        <li id="but" ><Link  to={"/Comic/"+this.props.match.params.index+"/Chapter/"+a.id+"/Show"} onClick={()=> this.fetchAchap(a.id)}><button ><i class="far fa-eye"></i></button></Link></li>
+                        <li id="but" ><button id={a.id} onClick={e=>{if(window.confirm("Are you sure??")) this.props.deleteChapter(a.id,this.props.match.params.index)}} ><i id="del" class="far fa-minus-square"></i></button></li>
+                    </ul>
+                    </td>
+                </tr>
+            
+        )
+        
+        return(
+            
+            <>
+            <div className="row ">
+                <div className="col-md-2">
+                    <Content/>
                 </div>
-                
-                
-            </body>
-            </>
+                <div className="col-md-10">
+                    <Nav/>                    
+                    <Breadcrumb className="col-md-12" br="Quản lý truyện"/>
+                                {this.show()}
+                                {list}
+                        <div className="row">
+                            <div className="col-md-7"></div>
+                            <div className="col-md-5">
+                                <button type="button" class="btn btn-pill btn-warning">Lưu</button>
+                                <button type="button" onClick={e=>this.props.history.push('/Admin/Comics')} class="btn btn-square btn-secondary">Cancel</button>
+                            </div>
+                        </div>
+                    </div>               
+                </div>
+        </>
         );
     }
 }
-export default Update_Comic;
+const mapStateToProps =(state)=>
+{
+  return{
+    gens:state.genre,
+    comic: state.comic,
+    chaps: state.chapters
+  };
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchGenres :()=> dispatch(fetchGenres()),
+        fetchOneComic:(comic_id) => dispatch(fetchOneComic(comic_id)),
+        fetchChapters: (id) => dispatch(fetchChapters(id)),  
+        fetchChapter:(id1,id) => dispatch(fetchChapter(id1,id)) ,  
+        deleteChapter:(id,com) =>dispatch(deleteChapter(id,com))
+  };
+}
+  export default connect(mapStateToProps, mapDispatchToProps)(Update_Comic);

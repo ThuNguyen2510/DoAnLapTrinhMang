@@ -34,7 +34,6 @@ const listlimit = (users) => ({
 export const ChangeRole =(role,user_id) =>
 {
     return dispatch=>{
-       
         return axios.patch('http://127.0.0.1:3000/users/'+user_id,{'role':role}).then( 
             (data)=>
                 dispatch(changerole())

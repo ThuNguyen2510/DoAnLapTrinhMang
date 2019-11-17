@@ -3,7 +3,6 @@ import React from 'react';
 import Nav from './Nav'
 import Content from './Content';
 import Breadcrumb from './Breadcrumb';
-import {Link} from 'react-router-dom';
 import {getListUserFull,getListUserLimit,ChangeRole,deleteUser,Search} from './../../actions/ManagerUserAction';
 import {connect} from 'react-redux'
 class Admin_user extends React.Component{
@@ -29,13 +28,13 @@ class Admin_user extends React.Component{
                      <td>{a.username}</td>
                     <td>{a.email}</td>                   
                     <td>
-                       <select onChange= {(e) =>{if(window.confirm("Are you sure!!")) this.props.ChangeRole(e.target.value,a.id)}}>
+                       <select onChange= {(e) =>{if(window.confirm("Are you sure!!")) {this.props.ChangeRole(e.target.value,a.id)}}}>
                           <option value={1} selected={a.role==1}>Admin</option>
                           <option value={0} selected={a.role==0} >Viewer</option>
                        </select>
                         </td>
                     <td>
-                        <button id={a.id} onClick={e=>{if(window.confirm("Are you sure!!")) this.props.deleteUser(a.id)} }><i class="fas fa-user-minus"></i></button>
+                        <button id={a.id} onClick={e=>{if(window.confirm("Are you sure!!")){ this.props.deleteUser(a.id) }} }><i class="fas fa-user-minus"></i></button>
                     </td>
                 </tr>
             })
@@ -46,13 +45,13 @@ class Admin_user extends React.Component{
                      <td>{a.username}</td>
                     <td>{a.email}</td>                   
                     <td>
-                       <select onChange= {(e) =>{if(window.confirm("Are you sure!!")) this.props.ChangeRole(e.target.value,a.id)}}>
+                       <select onChange= {(e) =>{if(window.confirm("Are you sure!!")) {this.props.ChangeRole(e.target.value,a.id) }}}>
                           <option value={a.role} selected={a.role==1}>Admin</option>
                           <option value={a.role} selected={a.role==0} >Viewer</option>
                        </select>
                         </td>
                     <td>
-                        <button onClick={e=> {if(window.confirm("Are you sure!!"))this.props.deleteUser(a.id)}} id={a.id}><i class="fas fa-user-minus"></i></button>
+                        <button onClick={e=> {if(window.confirm("Are you sure!!")){this.props.deleteUser(a.id) }}} id={a.id}><i class="fas fa-user-minus"></i></button>
                     </td>
                 </tr>
             })
@@ -105,7 +104,7 @@ class Admin_user extends React.Component{
                                             </div>
                                             <div className="col-sm-12 col-md-6">
                                                 Show
-                                            <select  onChange= {(e) => this.props.getListUserLimit(e.target.value)} >
+                                            <select className="custom-select d-block w-50"  onChange= {(e) => this.props.getListUserLimit(e.target.value)} >
                                                 {this.option()}
                                             </select>
                                                 entries
