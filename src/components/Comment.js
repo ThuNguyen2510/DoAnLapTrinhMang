@@ -1,51 +1,77 @@
 import React from 'react';
 import './Comment.css';
-import {Link,Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {fetchComt} from '../actions/CommentAction';
+import {addComt} from '../actions/CommentAction';
+import {getUserName} from '../actions/LoadUserAction';
 class Comment extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={}
+    this.handleOnClick =this.handleOnClick.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.fetchComt(this.props.comic_id);
+    this.props.user();
+  }
+  componentWillMount()
+  {
+  }
+  
+  handleOnClick(e)
+  {
+    e.preventDefault();
+    let {content} =this.state;
+    var user=JSON.parse(localStorage.getItem('logined_user'));
+    this.props.addComt(user.id,this.props.comic_id,content,"7:05 AM"); 
+    this.setState({content: " " })
+  }
+  findusername(userid)
+  {
+    var ten=""
+    for(var i=0;i<this.props.getUserName.length;i++)
+    {
+      if(this.props.getUserName[i].id===userid)
+      {
+        ten=this.props.getUserName[i].username;
+        break;
+      }
+    }
+    return ten;
+  }
+ show()
+ {  
+  console.log("REN")
+   var cm = this.props.comt.map((cmt)=>{
+     console.log(cmt.user_id)
+    return(
+     <>
+      <li className=" media">
+        <Link href="#" className="pull-left">
+          <img src="https://bootdey.com/img/Content/user_1.jpg" alt="avatar" className="img-circle mr-3" />
+       </Link>
+        <div className="row media-body">
+          {/* <strong className="text-success">{this.props.user(cmt.user_id)}</strong><br/> */}
+          <strong className="text-success">{this.findusername(cmt.user_id)}</strong><br/>
+          <p className="text-muted pull-right">
+            <small className="text-muted ml-2" style={{fontSize:'10px'}}>{cmt.time}</small>
+          </p>
+          <p>
+            {cmt.content}
+          </p>
+        </div>
+      </li>
+      </>
+    )
+  })
+  return cm;
+ }
     render(){
-      var comment =  [{
-        "id": 1,
-        "user_name": 'abc',
-        "comic_id": 1,
-        "content": "Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
-        "time": "3:02 PM"
-    }, {
-        "id": 2,
-        "user_name": "mnbcas",
-        "comic_id": 8,
-        "content": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
-        "time": "4:53 AM"
-    }, {
-        "id": 3,
-        "user_name": "ncjas",
-        "comic_id": 4,
-        "content": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
-        "time": "10:36 AM"
-    }, {
-        "id": 4,
-        "user_name": "dajsdnjaskfn",
-        "comic_id": 4,
-        "content": "Ut tellus. Nulla ut erat id mauris vulputate elementum.",
-        "time": "2:43 PM"
-    }]
-    var cm = comment.map((cmt, index)=>{
-      return(
-        <li className=" media">
-          <Link href="#" className="pull-left">
-            <img src="https://bootdey.com/img/Content/user_1.jpg" alt="avatar" className="img-circle mr-3" />
-          </Link>
-          <div className="row media-body">
-            <strong className="text-success">@{cmt.user_name}</strong><br/>
-            <p className="text-muted pull-right">
-              <small className="text-muted ml-2" style={{fontSize:'10px'}}>{cmt.time}</small>
-            </p>
-            <p>
-              {cmt.content}
-            </p>
-          </div>
-        </li>
-      )
-    })
+     
+    let {content}= this.state
+   
         return(
             <>
             <hr/>
@@ -57,13 +83,13 @@ class Comment extends React.Component{
                       Comment panel
                     </div>
                     <div className="panel-body">
-                      <textarea className="form-control" placeholder="write a comment..." rows={3} defaultValue={""} />
+                      <textarea className="form-control" placeholder="write a comment..." rows={3} defaultValue={""} onChange={e=> this.setState({content: e.target.value})} value={content} required />
                       <br />
-                      <button type="button" className="btn btn-info pull-right">Post</button>
+                      <button type="button" className="btn btn-info pull-right" onClick={this.handleOnClick}>Post</button>
                       <div className="clearfix" />
                       <hr />
                       <ul className="media-list">
-                        {cm}
+                        {this.show()}
                       </ul>
                     </div>
                   </div>
@@ -74,4 +100,17 @@ class Comment extends React.Component{
         )
     }
 }
-export default Comment;
+const mapStatetoProps = (state) =>{
+  return {
+    comt: state.comt,
+    getUserName : state.user,
+  };
+}
+const mapDispatchtoProps =(dispatch)=>{
+  return {
+    fetchComt: (id) => dispatch(fetchComt(id)),
+    addComt: (user_id,comic_id,contend,time) => dispatch(addComt(user_id,comic_id,contend,time)),
+    user: () => dispatch(getUserName())
+  }
+}
+export default connect(mapStatetoProps,mapDispatchtoProps)(Comment);

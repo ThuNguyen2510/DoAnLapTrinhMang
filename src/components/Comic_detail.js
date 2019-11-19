@@ -86,9 +86,7 @@ class Comic_detail extends React.Component{
                     </div>
                 </div>
                 <div className="row">   
-                    <div className="col-md-12 col-lg-9">
-                        <Comment/>
-                    </div>                
+                    <Comment comic_id={this.props.match.params.index}/>                
                 </div>
                 <hr/>
                 <div className="row">   

@@ -2,40 +2,52 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './Detail.css';
 import {likeComic} from '../actions/ComicActions';
+import {fetchLike} from '../actions/LikeComicAction';
+import {getLike} from '../actions/LikeComicAction';
 import {connect} from 'react-redux'
 class Detail extends React.Component
 {
     constructor(props)
     {
         super(props)
-        this.state={
-            btnText: 'Like',
-            className: 'but-like',
-        }
+        this.state={}
     }
+    componentDidMount(){
+        var user=JSON.parse(localStorage.getItem('logined_user'))
+        this.props.getLike(user.id,this.props.id_comic)
+    }
+    
     btnClick()
     {
-        if(this.state.btnText==='Like')
+        
+        if(this.props.liked==false)
         {
-            this.setState({
-                btnText: 'Unlike',
-                className: 'liked'
-            })
+            var user=JSON.parse(localStorage.getItem('logined_user'))
+            this.props.fetchLike(user.id,this.props.id_comic)
             
         }else{
-            this.setState({
-                btnText:'Like',
-                className: 'but-like'
-            })
+            
         }
     }
     Like()
     {
        // console.log("dnja")
     }
-
+    daLike(){
+        return(<><button className="liked" onClick={this.btnClick.bind(this)}> 
+        <i className="fa fa-heart"></i>
+        </button>
+        <span className="like">{this.props.like}</span></>);
+    }
+    chuaLike(){
+        return(<><button className="but-like" onClick={this.btnClick.bind(this)}> 
+        <i className="fa fa-heart"></i>
+        </button>
+        <span className="like">{this.props.like}</span></>);
+    }
     render()
     {
+    
         return(
             <>
             <div className="title">
@@ -50,10 +62,13 @@ class Detail extends React.Component
                     <p>Trạng thái: <span className="status">{this.props.status}</span> </p>
                     <p></p>
                     <div className="view">
-                        <button className={this.state.className} onClick={this.btnClick.bind(this)}> 
+                        {console.log(this.props.liked)}
+                        {this.props.liked && this.daLike()}
+                        {!this.props.liked && this.chuaLike()}
+                        {/* <button className={this.state.className} onClick={this.btnClick.bind(this)}> 
                         <i className="fa fa-heart"></i>
-                        </button>
-                        <span className="like">{this.props.like}</span>
+                        </button> */}
+                        {/* <span className="like">{this.props.like}</span> */}
                         <button className="but-dt"> <i className="fa fa-eye">{this.props.read}</i></button>
                     </div>
                    
@@ -74,13 +89,16 @@ const mapStateToProps = (state) => {
     console.log(state)
     return {
      comic: state.comic, 
+     liked: state.like
     };
   }
   
   const mapDispatchToProps = (dispatch) => {
     return {
-      likeComic: (id) => dispatch(likeComic(id)),        
+      likeComic: (id) => dispatch(likeComic(id)),    
+      fetchLike: (user_id,comic_id)=> dispatch(fetchLike(user_id,comic_id)),
+      getLike: (user_id,comic_id) => dispatch(getLike(user_id,comic_id))
     };
   }
-  
+ 
   export default connect(mapStateToProps, mapDispatchToProps) (Detail);

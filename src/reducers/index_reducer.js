@@ -11,6 +11,9 @@ import comichot from './comic_hot_reducer';
 import comicnew from './comic_update_new_reducer';
 import search from './Search_reducer';
 import users from './user_reducer';
+import like from './like_reducer';
+import comt from './comt_reducer';
+import user from './LoadUserReducer';
 const appReducers = combineReducers({
     comics,
     comic,
@@ -23,5 +26,8 @@ const appReducers = combineReducers({
     genre,
     search,
     users,
+    like,
+    comt,
+    user
 });
 export default appReducers;
