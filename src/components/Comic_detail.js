@@ -24,7 +24,7 @@ class Comic_detail extends React.Component{
         var im;
         for(var i=0;i<this.props.comic.length-1;i++)
         {
-          im=<img src={this.props.comic[i].Image}></img>
+          im=<img id="s" src={this.props.comic[i].Image}></img>
         }
         return <>{im}</>
     }

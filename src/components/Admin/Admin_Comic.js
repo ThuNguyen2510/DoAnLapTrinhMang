@@ -20,7 +20,6 @@ class Admin_Comic extends React.Component{
     findGenre(id)
     {
         var gen=""
-        console.log(this.props.gens.length)
         for(var i=0;i<this.props.gens.length;i++)
         {
             
@@ -36,12 +35,12 @@ class Admin_Comic extends React.Component{
     show(){
         return this.props.list.map((a)=>
         <tr>
-            <td> <Link to={"/Comic/"+a.id+"/Edit"}>{a.Name}</Link></td>
+            <td> <Link to={"/Comic/"+a.id+"/Show"}>{a.Name}</Link></td>
             <td>{a.Author}</td>
             <td>{this.findGenre(a.Genre_id)}</td>     
             <td>
             <ul>
-                <li id="but" ><Link to={"/Comic/"+a.id+"/Edit"}><i class="far fa-eye"></i></Link></li>            
+                <li id="but" ><Link to={"/Comic/"+a.id+"/Show"}><i class="far fa-eye"></i></Link></li>            
                 <li id="but" ><button onClick={e=>{if(window.confirm("Are you sure??")) this.props.deleteComic(a.id)}} ><i id="del" class="far fa-minus-square"></i></button></li>
             </ul>
             </td>           

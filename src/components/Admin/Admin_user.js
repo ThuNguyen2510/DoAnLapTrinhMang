@@ -85,8 +85,8 @@ class Admin_user extends React.Component{
                 
                         <div className="card mb-3">
                             <div className="card-header">
-                                <i class="fas fa-table"></i>
-                                Danh sách user
+                               
+                               <p> <i class="fas fa-table"></i> Danh sách user</p>
                             </div>
                             <div className="card-body">
                                 <div className="table-responsive">

@@ -33,12 +33,12 @@ class AddComic extends React.Component{
         e.preventDefault();
         var temp= new Date
         var date=temp.getMonth()+"/"+temp.getDate()+"/"+temp.getFullYear()
-        let {name,genre_id,author,chap_number,des} = this.state;
+        let {name,genre_id,author,des} = this.state;
         var img=localStorage.getItem('image_url')
         var id=parseInt(genre_id)
         if(window.confirm('Add a comic??'))
         {
-            this.props.addComic(name,id,author,chap_number,des,date,img)
+            this.props.addComic(name,id,author,0,des,date,img)
             alert("Add success")
 
         }
@@ -65,7 +65,7 @@ class AddComic extends React.Component{
     render()
     {
         let {name,author,genre_id,chap_number,des}=this.state
-        var image={
+        var image1={
             width: "210px",
             height: "240px"
         }
@@ -108,12 +108,7 @@ class AddComic extends React.Component{
                                         <textarea value={des} onChange={e=> this.setState({des: e.target.value})} className="form-control" id="exampleFormControlTextarea3" rows="4"></textarea>
                                     </div>
                                 </div>
-                                
-                                <div className=" mb-3">
-                                    <label for="cc-expiration">Số chương</label>
-                                    <input type="text" value={chap_number} onChange={e=> this.setState({chap_number: e.target.value})} class="form-control" id="cc-expiration" placeholder="" required=""></input>
-            
-                                </div> 
+
                                 <div className="mb-3">
                                 <label><Link to="/Comic/"><i class="fas fa-plus"></i>Thêm chương </Link></label>
                                 
@@ -122,7 +117,7 @@ class AddComic extends React.Component{
                         </div>
                         <div className="col-md-4 order-md-2 ml-3 mb-4">
                             <div className="row">
-                                <img style={image} src={(this.state.imageUrls.length>0)?this.state.imageUrls:"http://dummyimage.com/250x235.bmp/dddddd/000000"}></img>
+                                <img style={image1} src={(this.state.imageUrls.length>0)?this.state.imageUrls:"http://dummyimage.com/250x235.bmp/dddddd/000000"}></img>
                             </div>
                             <input className="form-control " type="file" 
                                 onChange={this.selectImages} multiple/>                        

@@ -84,7 +84,7 @@ class ShowChapter extends React.Component{
                             <div className="col-md-7"></div>
                             <div className="col-md-5">
                                 <Link type="button" to={"/Comic/"+this.props.match.params.index+"/Chapter/"+this.props.match.params.id+"/Update"} class="btn btn-pill btn-warning">Edit</Link>
-                                <button type="button" onClick={e=>this.props.history.goBack()} class="btn btn-square btn-secondary">Cancel</button>
+                                <Link type="button" onClick={e=>this.props.history.goBack()} class="btn btn-square btn-secondary">Cancel</Link>
                             </div>
                         </div>
                     </div>               

@@ -94,6 +94,19 @@ export const deleteComic=(id) =>{
     }
 
 }
+export const updateComic=(id,Name,Author,genre_id,des,Image,date,chaps,Status) =>{
+    return dispatch =>{
+        return axios.patch('http://127.0.0.1:3000/comics/'+id,{'Name':Name,'Author':Author,
+        'Genre_id':genre_id,'Image':Image,'Description':des,'Post_DateTime':date,
+        'Chappter_number_of':chaps,'Status':Status}).then(
+            (data)=>{
+            dispatch(updatecomic())
+            
+        }
+        )
+    }
+
+}
 const returnList = (comics) => ({
     type: 'SHOW_LIST',
     list: comics
@@ -130,5 +143,9 @@ const addcomic =()=>({
 })
 const delComic =()=>({
     type:'DELETE_COMIC',
+    
+})
+const updatecomic =()=>({
+    type:'UPDATE_COMIC',
     
 })

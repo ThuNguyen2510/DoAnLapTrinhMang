@@ -22,6 +22,7 @@ import Read from './components/User/ReadBook';
 import AddChapter from './components/Admin/AddChapter';
 import UpdateChapter from './components/Admin/UpdateChapter';
 import ShowChapter from './components/Admin/ShowChapter'
+import ShowComic from './components/Admin/ShowComic';
 const history = createBrowserHistory()
 class App extends React.Component {
   render(){
@@ -48,6 +49,7 @@ class App extends React.Component {
           <Route path='/Admin/Comics' exact component={Admin_Comic}/> 
           <Route path='/Comics/Add' exact component={AddComic}/> 
           <Route path='/Comic/:index/Edit' component={Update_Comic}/> 
+          <Route path='/Comic/:index/Show' component={ShowComic}/> 
           <Route path='/Comic/:index/Delete' component={Admin_Comic}/> 
           <Route path='/Comic/:index/Chap/:id' component={AddChapter}/> 
           <Route path="/Comics/trang:index" component={Admin_Comic}/>
