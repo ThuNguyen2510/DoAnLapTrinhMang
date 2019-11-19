@@ -17,6 +17,7 @@ class Nav extends React.Component{
         super(props)
         this.state={
           flag:false,
+          login:false
         }
         this.handleClick=this.handleClick.bind(this)
       }
@@ -24,6 +25,7 @@ class Nav extends React.Component{
     componentDidMount()
     {   
       this.props.fetchGenres()
+      this.props.logout()
     }
     render(){
       var li_style={
@@ -84,45 +86,50 @@ class Nav extends React.Component{
         this.props.SearchByName(this.state.search)
         
       }
+  
     login_logout()
     {
-      if(localStorage.getItem('logninning')==='run')
-      {
-        return this.logoutf()
-      }
-      else  if(localStorage.getItem('login')==='success')
-      {
+      if(localStorage.getItem('login')==='success')
+      { 
+        console.log("IN")
         return this.login()
       }
       else{
-        return this.logoutf()
+        console.log("OUT")
+        return   <>
+        <Link className="link" id="login" to='/Signin'  ><i className="fas fa-sign-in-alt link" ></i></Link> 
+        </> 
       }
      
     }
     logoutf()
     {
-      localStorage.removeItem('login')
-      localStorage.removeItem('logined_user')
-     // this.props.logout()
-      return <>
-       <Link className="link" to='/Signin'><i className="fas fa-sign-in-alt link" >Signin/Signup</i></Link> 
-       </>  
+       localStorage.removeItem('login')
+       localStorage.removeItem('logined_user')
+       //document.getElementById('user').remove()
+      var link=document.getElementById('login')
+        link.setAttribute('href','/Signin')
+        var icon=document.getElementById('icon')
+        icon.setAttribute('class','fas fa-sign-in-alt link')
+     //   link.setAttribute('data-content','Signin/Signup')
+        document.getElementById("user").style.visibility = "hidden";
+        
+      
+       
     }
     login()
     {
       var span
       var link
       var i
-      var user    
-        
+      var user     
         span='Logout'
         link='/'
         i="fas fa-sign-out-alt"
-        user=<Link to="User/page" >{JSON.parse(localStorage.getItem('logined_user')).username}</Link>       
-        localStorage.setItem('loginning','run') 
+        user=<Link to="User/page" id="user">{JSON.parse(localStorage.getItem('logined_user')).username}</Link>       
       return <>
         {user}
-       <Link className="link" to={link}><i className={i} >{span}</i></Link> 
+       <Link onClick={this.logoutf}  id="login" className="link" to={link}><i id="icon" className={i}></i></Link> 
        </>          
 
     }
@@ -138,7 +145,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-   // logout: () => dispatch(logout()),
+    logout:() =>dispatch(logout()),
     fetchGenres:() =>dispatch(fetchGenres()),
     SearchByName:(keyword) =>dispatch(SearchByName(keyword))
 

@@ -9,6 +9,7 @@ class Login extends React.Component{
     constructor(props) {
         super(props);
         this.state = {};
+        console.log("OK")
         if(localStorage.getItem('signup')!=null)localStorage.removeItem('signup')
         this.onSubmit = this.onSubmit.bind(this);
     }
@@ -77,6 +78,7 @@ class Login extends React.Component{
                             <div className="message">  
                             { isLoginSuccess && this.LoginSuccess() }
                             { loginError && <p style={i}>Check PassWord and Username</p> }
+                            {!isLoginSuccess}
                           </div>
                             <button type="submit" className="btn btn-primary" >Sign in</button>
                             
@@ -106,10 +108,10 @@ class Login extends React.Component{
     }
     LoginSuccess()
     {
-      console.log('login')
+      
       localStorage.setItem('login','success')
       let user =JSON.parse(localStorage.getItem('logined_user'))
-      if(user.role===0)      
+      if(user.role==0)      
       { 
         return <Redirect  to="/"/>
         

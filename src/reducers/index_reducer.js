@@ -19,7 +19,6 @@ const appReducers = combineReducers({
     chapters,
     chapter,
     login,
-    logout,
     signup,
     genre,
     search,

@@ -6,11 +6,16 @@ import './Admin_Comic.css';
 import {connect} from 'react-redux';
 import Breadcrumb from './Breadcrumb';
 import {fetchListComic,deleteComic} from '../../actions/ComicActions';
-import {fetchGenres} from '../../actions/GenreAction'
+import {fetchGenres} from '../../actions/GenreAction';
+import {SearchByName} from '../../actions/SearchAction'
 class Admin_Comic extends React.Component{
     constructor(props)
     {
         super(props);
+        this.state={
+            keyword:''
+        }
+        this.search=this.search.bind(this)
     }
     componentDidMount()
     {
@@ -48,12 +53,17 @@ class Admin_Comic extends React.Component{
         
         )
       }
+    search(keyword)
+    {
+        this.props.SearchByName(keyword)
+    }  
     render() 
     {
         var a={
             float:"left"
         }
         var k="Quản lý truyện";
+        let{keyword}=this.state
         return(
             <>
             <div className="containers">
@@ -75,9 +85,9 @@ class Admin_Comic extends React.Component{
                                         <div className="row>">
                                             <div className="col-sm-12 col-md-6">
                                                 <div className="input-group" >
-                                                    <input type="search" id="adsearch" className="form-control" placeholder="Tìm tên truyện, tác giả..." />
+                                                    <input type="search"  id="adsearch" value={keyword} onChange={e=> this.setState({keyword: e.target.value})} className="form-control" placeholder="Tìm tên truyện,..." />
                                                     <span className="input-group-btn">
-                                                        <button id="adbut" className="btn btn-primary" type="submit" >
+                                                        <button onClick={e=>this.search(this.state.keyword)} id="adbut" className="btn btn-primary" type="submit" >
                                                         <i className="fas fa-search"></i>
                                                         </button>                    
                                                     </span>
@@ -130,15 +140,17 @@ const mapStateToProps =(state)=>
 {
   return{
     list: state.comics,
-    gens:state.genre
+    gens:state.genre,
+    search:state.search
   };
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchListComic : ()=> dispatch(fetchListComic()),
         fetchGenres :()=> dispatch(fetchGenres()),
-        deleteComic:(id) => dispatch(deleteComic(id))
-       
+        deleteComic:(id) => dispatch(deleteComic(id)),
+        SearchByName:(key) => dispatch(SearchByName(key))
+        
   };
 }
   export default connect(mapStateToProps, mapDispatchToProps)(Admin_Comic);  

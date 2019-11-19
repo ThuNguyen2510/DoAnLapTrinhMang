@@ -51,6 +51,7 @@ class ShowComic extends React.Component{
          for(var i=0;i<this.props.comic.length-1;i++)
             {
                 localStorage.setItem('a_comic_edit',JSON.stringify(this.props.comic[i]))
+                console.log("DJ")
             s.push(  <>
             <div className="row" id="row">
                         <div className="col-md-7 ml-3 order-md-1">
