@@ -39,6 +39,18 @@ class AddChapter extends React.Component{
         })
        
     }
+    selectFile = (file) => {
+       
+        this.setState({ file:file})
+        let reader = new FileReader()        
+        reader.onload = () => {
+          this.setState({
+            content: reader.result
+          })
+         
+        };
+    }
+   
     render()
     {
         let {name,content}=this.state
@@ -72,8 +84,10 @@ class AddChapter extends React.Component{
                                 <div className="mb-3">
                                     <label for="username">Nội dung</label>
                                     <div className="form-group">
-                                        <textarea value={content} onChange={e=> this.setState({content: e.target.value})} className="form-control" id="exampleFormControlTextarea3" rows="4"></textarea>
+                                        <textarea value={this.state.content} onChange={e=> this.setState({content: e.target.value})} className="form-control" id="exampleFormControlTextarea3" rows="4"></textarea>
+                                        <input type="file"   onChange={e=>this.selectFile(e.target.files[0])}></input>
                                     </div>
+                                    {console.log(this.state.content)}
                                 </div>
                                 
                             </form>

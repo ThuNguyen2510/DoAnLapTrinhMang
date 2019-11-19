@@ -149,13 +149,15 @@ class Update_Comic extends React.Component{
     {
      e.preventDefault();
      let {Name,Author,genre_id,des,Image,status}=this.state
+     console.log(status)
      var temp= new Date
     var date=temp.getMonth()+"/"+temp.getDate()+"/"+temp.getFullYear()
     var chap_number=this.props.chaps.length
     
     if(window.confirm('Are you sure?'))
     {
-        this.props.updateComic(this.props.match.params.index,Name,Author,parseInt(genre_id),des,Image,date,chap_number,parseInt(status))
+        this.props.updateComic(this.props.match.params.index,Name,Author,parseInt(genre_id),des,Image,date,chap_number,status)
+        
         alert("Success")
         this.props.history.push('/Admin/Comics')
     }
@@ -216,7 +218,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchChapters: (id) => dispatch(fetchChapters(id)),  
         fetchChapter:(id1,id) => dispatch(fetchChapter(id1,id)) ,  
         deleteChapter:(id,com) =>dispatch(deleteChapter(id,com)),
-        updateComic:(Name,Author,genre_id,des,Image,time,chaps,tus)=> dispatch(updateComic(Name,Author,genre_id,des,Image,time,chaps,tus))
+        updateComic:(id,Name,Author,genre_id,des,Image,time,chaps,tus)=> dispatch(updateComic(id,Name,Author,genre_id,des,Image,time,chaps,tus))
   };
 }
   export default connect(mapStateToProps, mapDispatchToProps)(Update_Comic);

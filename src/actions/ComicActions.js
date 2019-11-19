@@ -95,6 +95,8 @@ export const deleteComic=(id) =>{
 
 }
 export const updateComic=(id,Name,Author,genre_id,des,Image,date,chaps,Status) =>{
+    console.log("ACtion")
+    console.log(Status)
     return dispatch =>{
         return axios.patch('http://127.0.0.1:3000/comics/'+id,{'Name':Name,'Author':Author,
         'Genre_id':genre_id,'Image':Image,'Description':des,'Post_DateTime':date,

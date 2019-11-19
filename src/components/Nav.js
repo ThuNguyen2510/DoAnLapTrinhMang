@@ -91,11 +91,11 @@ class Nav extends React.Component{
     {
       if(localStorage.getItem('login')==='success')
       { 
-        console.log("IN")
+        
         return this.login()
       }
       else{
-        console.log("OUT")
+        
         return   <>
         <Link className="link" id="login" to='/Signin'  ><i className="fas fa-sign-in-alt link" ></i></Link> 
         </> 

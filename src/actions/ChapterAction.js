@@ -57,7 +57,6 @@ export const deleteChapter = (chap_id,comic_id) =>
                 return axios.delete('http://127.0.0.1:3000/chapters/'+gen.id).then(
                     (data=>{
                         dispatch(delchapter())
-                        
                         return axios.get('http://127.0.0.1:3000/chapters?comic_id='+comic_id).then(
                              data =>{
                                 const list=data.data

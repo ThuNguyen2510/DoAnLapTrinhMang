@@ -20,8 +20,9 @@ class Nav extends React.Component{
     }
     logout()
     {
-        localStorage.clear()
-
+        //localStorage.clear()
+        localStorage.removeItem('login')
+        localStorage.removeItem('logined_user')
     }
 }
 export default Nav;  
