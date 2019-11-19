@@ -82,7 +82,7 @@ class Comment extends React.Component{
             <>
             <hr/>
             <div className="row bootstrap snippets">
-              <div className="col-md-12 col-md-offset-2 col-sm-12">
+              <div className="col-md-12 col-sm-12">
                 <div className="comment-wrapper">
                   <div className="panel panel-info">
                     <div className="panel-heading">

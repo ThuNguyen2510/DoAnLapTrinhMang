@@ -52,7 +52,7 @@ import { fetchComicUpdateNew } from '../actions/ComicActions';
               <div>
               <h5 className="widget-heading font-nav" title="TRUYỆN ĐỌC NHIỀU NHẤT" >
               <i style={i_s} className="fab fa-font-awesome-flag"></i>
-                <Link to="/" style={i_s}>TRUYỆN ĐỌC NHIỀU NHẤT</Link>                
+                <Link to="/" style={i_s}>TRUYỆN MỚI NHẤT</Link>                
                 </h5>
               </div>
               <hr></hr>
@@ -60,7 +60,7 @@ import { fetchComicUpdateNew } from '../actions/ComicActions';
                 {this.show()}
               </div> 
               <span class="c-wg-button-wrap">
-                  <Link style={a_style} className="widget-view-more" to="/TruyenHot">Xem thêm</Link>
+                  <Link style={a_style} className="widget-view-more" to="/TruyenMoi">Xem thêm</Link>
               </span>           
             </div>
             </div>            

@@ -1,9 +1,30 @@
 import React from 'react';
 import ListComic from './ListComic';
 import {Link,Redirect} from 'react-router-dom';
-import './LeftBody.css'
+import './LeftBody.css';
+import {connect} from 'react-redux';
+import {fetchGenres} from '../actions/GenreAction';
+import {fetchComicByCategory} from '../actions/ComicActions'
 class LeftBody extends React.Component{
-    
+    componentDidMount()
+    {
+        this.props.fetchGenres()
+    }
+    componentWillMount()
+    {
+        this.props.fetchGenres()
+
+    }
+    filter()
+    {
+        var check=document.getElementById('check').checked
+        localStorage.setItem('checkbox',check)
+
+    }
+    change(e)
+    {
+        this.props.fetchComicByCategory(e.target.value)
+    }
     render(){
         var con_m21={
             backgroundColor: "#fff",
@@ -29,7 +50,9 @@ class LeftBody extends React.Component{
         var li={
             listStyle:"none"
         }
-        
+        var option=this.props.list.map((a,index)=>{
+            return <><option value={a.id} id={a.id}>{a.genre_name}</option></>
+            })
         return(
             <div className="float-left" style={con_m21}>
                 <div className="content m2l">
@@ -38,27 +61,19 @@ class LeftBody extends React.Component{
                         <table style={table_s}>                          
                             <tr>
                             <td> 
-                                <select class="mdb-select md-form colorful-select dropdown-primary">
+                                <select className="mdb-select md-form colorful-select dropdown-primary" onChange={this.change} >
                                     <option >Thể Loại </option>
-                                    <option value="1">Ngôn tình</option>
-                                    <option value="2">Kiếm hiệp</option>
-                                    <option value="3">Xuyên không</option>
-                                    <option value="4">Dị giới</option>
-                                </select>
+                                    {option}
+                            </select>
                             </td>
                             <td>
-                                <select class="mdb-select md-form colorful-select dropdown-primary">
-                                    <option >Sắp xếp theo </option>
-                                    <option value="1">A-Z</option>
-                                    <option value="2">Mới update</option>
-                                    <option value="3">Like nhiều</option>
-                                </select>
+                                
                             </td>
                             <td>                            
-                                <input type="checkbox" />Truyện Full
+                                <input type="checkbox" id="check"/>Truyện Full
                             </td>
                             <td>
-                                <button type="submit" className="btn btn-search"><i class="fa fa-search fa-fw"></i>Tìm truyện</button>
+                                <button onClick={this.filter} type="submit" className="btn btn-search"><i class="fa fa-search fa-fw"></i>Tìm truyện</button>
                             </td>
                             </tr>                                                
                         </table>
@@ -87,13 +102,27 @@ class LeftBody extends React.Component{
                     </ul>
                 </nav>
                 </div>
-               <div className="row ">
+               <div className="row">
                    <ListComic/>
-                </div> 
+                   </div> 
             </div>
         );
 
         
     }
 }
-export default LeftBody;
+const mapStateToProps = (state) => {
+    return {
+     list: state.genre
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchGenres:() =>dispatch(fetchGenres()),
+      fetchComicByCategory:(id) => dispatch(fetchComicByCategory(id))
+  
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(LeftBody);

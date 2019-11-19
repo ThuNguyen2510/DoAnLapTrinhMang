@@ -15,7 +15,6 @@ class Detail_R extends React.Component
     render()
     {
         
-       // var m=["Ngôn tình", "Huyền huyễn", "Đô thị", "Kiếm hiệp", "Cung đấu", "Trọng sinh", "Võng du", "Quân sự","Bách hợp", "Đam mĩ"];
         var list=this.props.gens.map((value_,index)=>
         {
             return   <><Link to="/Search"  className="theloai"  >{value_.genre_name}</Link><br></br></>

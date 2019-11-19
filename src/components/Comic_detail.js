@@ -24,7 +24,7 @@ class Comic_detail extends React.Component{
         var im;
         for(var i=0;i<this.props.comic.length-1;i++)
         {
-          im=<img src={this.props.comic[i].Image}></img>
+          im=<img id="s" src={this.props.comic[i].Image}></img>
         }
         return <>{im}</>
     }
@@ -44,7 +44,7 @@ class Comic_detail extends React.Component{
                     tus="Full"
                 }
                 localStorage.setItem('comic_name',this.props.comic[i].Name)
-                result.push(<Detail id_comic={this.props.comic[i].id} Name={this.props.comic[i].Name} 
+                result.push(<Detail id_comic={this.props.comic[i].id }Name={this.props.comic[i].Name} 
                     Author={this.props.comic[i].Author} id={this.props.comic[i+1]} 
                     like={this.props.comic[i].Number_of_Like} 
                     read={this.props.comic[i].Number_of_Read} status={tus} description={this.props.comic[i].Description}/>)
@@ -57,9 +57,11 @@ class Comic_detail extends React.Component{
     {
        
         return <>         
-        <div className="containers">    
+        <div className="container-fluid">    
             <Header/>
-            </div>  <hr/>              
+            </div> 
+            
+             <hr/>              
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 col-lg-9">
@@ -68,8 +70,7 @@ class Comic_detail extends React.Component{
                                {this.image()}
                             </div>
                             <div className="col-md-8 details">
-                            {this.Detail()}
-                           
+                            {this.Detail()}  
                             </div>
                         </div>
                         <hr/>

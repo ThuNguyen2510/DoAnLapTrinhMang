@@ -2,7 +2,6 @@ import React from 'react';
 import './User_page.css';
 import Sidebar from './Sidebar';
 import Nav from './Nav';
-import Footer from './Footer';
 import Info from './Info';
 import Book from './Book';
 import {Link,Route} from 'react-router-dom';
@@ -12,10 +11,10 @@ class User_page extends React.Component{
         return(
             <>
                 <div className="row">
-                    <div className="col-xs-6 col-md-2">
+                    <div className="col-xs-4 col-md-2">
                         <Sidebar/>
                     </div>
-                    <div className="col-xs-12 col-sm-6 col-md-10">
+                    <div className="col-xs-8 col-sm-6 col-md-10">
                         <div className="ml-sm-2">
                             <Nav br="Thông tin"/>
                             <div className="row">

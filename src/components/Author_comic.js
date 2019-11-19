@@ -17,11 +17,7 @@ class Author_comic extends React.Component
             <div className="container">
 
                 <div className="row">
-                <div className="col-md-12 nex"> 
-                    <i className="fas fa-home"></i><Link to="/">Trang chủ</Link><i className="fas fa-angle-right"></i>
-                    <Link to="/Comic/:index">Tái sinh để theo đuổi anh</Link><i className="fas fa-angle-right"></i>
-                    <Link to="/cm/">Chap 1</Link>
-                    <hr/>
+                <div className="col-md-12 nex">    
                 </div>
                     <div className="col-md-2">
                         <Comic_inSlider/>

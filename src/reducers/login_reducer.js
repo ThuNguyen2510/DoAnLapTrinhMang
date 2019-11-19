@@ -21,7 +21,7 @@ export function login(email, password) {
 }
 export function logout(){
   return dispatch=>{
-    dispatch(setLoginSuccess(false));
+    dispatch(log_out(false));
   }
 }
 function setLoginPending(isLoginPending) {
@@ -45,7 +45,13 @@ function setLoginError(loginError) {
     loginError
   }
 }
-
+function log_out(isLoginSuccess)
+{
+  return {
+    type: 'LOG_OUT',
+    isLoginSuccess
+  }
+}
 function callLoginApi(username, password, callback) {
     
    console.log(username+""+password)
@@ -89,6 +95,10 @@ export default function reducer(state = {
       return Object.assign({}, state, {
         loginError: action.loginError
       });
+    case 'LOG_OUT':
+        return Object.assign({}, state, {
+          isLoginSuccess: action.isLoginSuccess
+        });   
     default:
       return state;
   }

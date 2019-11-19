@@ -21,7 +21,15 @@ class Comic extends React.Component{
             textDecoration: "none"
         }
         var i_k={
-            padding: "10px"
+            float:"left",
+           
+                padding: "10px"
+            
+
+        }
+        var x={
+            color:"#999",
+            textAlign:"left"
         }
         // var x={
         //     color:"#999",
@@ -42,10 +50,11 @@ class Comic extends React.Component{
         }
         return(
             <>
-            <div className="col-12 col-md-3" style={i_k}>
-                    <div className="detail">
-                        <Link className="img" to={"/Comic/"+this.props.id}>
-                            <img style={i_s} src={this.props.Src}  />
+            <div className="col-12 col-md-6 badge-pos-1" style={i_k}>
+                <div className="page-item-detail manga">
+                    <div className="item-thumb hover-details c-image-hover">
+                        <Link className="book-img position-relative" to={"/Comic/"+this.props.id}>
+                            <img style={i_s} src={this.props.Src} className="zoom-me" />
                         </Link>
                         <p className="title"><Link style={a_s} to={"/Comic/"+this.props.id}>{this.props.name}</Link></p>
                         <span className="chapter font-meta" style={sp}>
@@ -57,6 +66,7 @@ class Comic extends React.Component{
                         </div>
                     </div>
             </div>
+           </div>
             </>
         );
         

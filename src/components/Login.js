@@ -9,45 +9,50 @@ class Login extends React.Component{
     constructor(props) {
         super(props);
         this.state = {};
+        console.log("OK")
         if(localStorage.getItem('signup')!=null)localStorage.removeItem('signup')
         this.onSubmit = this.onSubmit.bind(this);
-      }
+    }
     render()
     {
-        var image_s={
-            width:"250px"
-          }
-        var d_s={
-                    
-            border: "1px solid #E1E1E1",
-            padding: "10px 20px 10px 10px",
-            backgroundColor: "#42100f",
-            borderRadius: "8px",
-            width: "500px",
-            textAlign: "center",
-        }
-        var sign={
-            color: "#f66b00",
-            fontWeight:" bold",
+      var image_s={
+        width:"250px"
+      }
+    var d_s={
+                
+        border: "1px solid #E1E1E1",
+        padding: "10px 20px 10px 10px",
+        backgroundColor: "#42100f",
+        borderRadius: "8px",
+        width: "500px",
+        textAlign: "center",
+    }
+    var sign={
+        color: "#f66b00",
+        fontWeight:" bold",
 
-        }
-        var p={
-            textAlign:"left",
-            fontWeight:" 600",
-            fontVariant: "ordinal"
-        }
-        var input={
-            width: "400px",
-            marginLeft:" 40px"
-        }
-        var thi={
-            display: "inline-block",
-        }
+    }
+    var p={
+        textAlign:"left",
+        fontWeight:" 600",
+        fontVariant: "ordinal"
+    }
+    var input={
+        width: "400px",
+        marginLeft:" 40px"
+    }
+    var thi={
+        display: "inline-block",
+    }
+    var i={
+      color:"red"
+    }
         let {email, password} = this.state;
         let {isLoginPending, isLoginSuccess, loginError} = this.props;
-        return( 
-             <> 
-              <div className="containers h-100">
+        return(
+                  
+             <>
+             <div className="containers h-100">
                 <div className="row h-100 justify-content-center align-items-center">
                   <Link to="/"><img src={require('../TVT.PNG')} style={{width:'250px'}} alt="Logo"/></Link>
                 </div>
@@ -70,7 +75,13 @@ class Login extends React.Component{
                               <input style={input}type="password" className="form-control" id="passWord"
                               placeholder="***********" onChange={e => this.setState({password: e.target.value})} value={password} required />
                             </div>
+                            <div className="message">  
+                            { isLoginSuccess && this.LoginSuccess() }
+                            { loginError && <p style={i}>Check PassWord and Username</p> }
+                            {!isLoginSuccess}
+                          </div>
                             <button type="submit" className="btn btn-primary" >Sign in</button>
+                            
                           </form>
                         </div>
                       </div>
@@ -85,9 +96,7 @@ class Login extends React.Component{
                         <span><Link to="/"><i className="far fa-arrow-alt-circle-left"></i>Back to Homepage </Link></span>
                       </li>
                       </ul>
-                      <div className="message">  
-                        { isLoginSuccess && this.LoginSuccess() }
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -99,10 +108,10 @@ class Login extends React.Component{
     }
     LoginSuccess()
     {
-      console.log('login')
+      
       localStorage.setItem('login','success')
       let user =JSON.parse(localStorage.getItem('logined_user'))
-      if(user.role===0)      
+      if(user.role==0)      
       { 
         return <Redirect  to="/"/>
         

@@ -1,23 +1,28 @@
 import React from 'react';
 import {Link,Route} from 'react-router-dom';
-import './index.css'
 import Hello from './Hello';
 import Nav from './Nav';
 import Content from './Content';
 class index extends React.Component{
+    
     render(){
+        var meno={
+            marginTop: "20px",
+        }
         return(
-            
-            <body id="page-top">
-                <Nav/>
-                <div id="wrapper">
-                <Content/>
-                <Hello/>
+            <>
+            <div className="containers">
+                <div className="row">
+                    <div className="col-md-2 col-lg-2" >
+                        <Content/>
+                    </div>
+                    <div className="col-md-10 col-lg-10 ">
+                        <Nav/>
+                        <Hello/>
+                    </div>
                 </div>
-                
-                
-            </body>
-           
+            </div>
+            </>
         );
     }
 }

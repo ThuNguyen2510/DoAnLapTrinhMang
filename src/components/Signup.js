@@ -20,7 +20,8 @@ class Signup extends React.Component{
             this.props.signup(username,email, password,0);
             localStorage.setItem('signup','success');
         }
-        else{            
+        else{      
+            alert("Password incorrect!!")      
         }
         
       } 

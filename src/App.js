@@ -19,16 +19,22 @@ import Admin_user from './components/Admin/Admin_user';
 import User_page from './components/User/User_page';
 import User_book from './components/User/User_book';
 import Read from './components/User/ReadBook';
+import AddChapter from './components/Admin/AddChapter';
+import UpdateChapter from './components/Admin/UpdateChapter';
+import ShowChapter from './components/Admin/ShowChapter'
+import ShowComic from './components/Admin/ShowComic';
 const history = createBrowserHistory()
 class App extends React.Component {
   render(){
     
     return (
-      <div className="App">        
+      <div className="App">      
         <Router history={history}>
           <Switch> 
           <Route path='/Search' exact component={Filter}/>  
-          <Route path='/Author' exact component={Author}/>      
+          <Route path="/search/:string" exact component ={Filter}/>
+          <Route path="Comic/search" exact component ={Filter}/>
+          <Route path='/Author/' component={Author}/>      
           <Route path='/Signin' exact component={Login}/>   
           <Route path='/Signup' exact component={Signup}/>   
           <Route path='/Comic/:index' exact component={Comic_detail}/>   
@@ -36,11 +42,16 @@ class App extends React.Component {
           <Route path='/TruyenHot' exact component={Filter}/>   
           <Route path='/Category' exact component={Filter}/>
           <Route path='/Comic/:index/Chapter/:id' exact component={Chapter_detail}/>   
+          <Route path='/Comic/:index/Chapter/:id/Update' exact component={UpdateChapter}/>  
+          <Route path='/Comic/:index/Chapter/:id/Show' exact component={ShowChapter}/> 
+          <Route path='/Comic/:index/Chap' exact component={AddChapter}/> 
           <Route path='/Admin' exact component={index}/> 
           <Route path='/Admin/Comics' exact component={Admin_Comic}/> 
           <Route path='/Comics/Add' exact component={AddComic}/> 
           <Route path='/Comic/:index/Edit' component={Update_Comic}/> 
+          <Route path='/Comic/:index/Show' component={ShowComic}/> 
           <Route path='/Comic/:index/Delete' component={Admin_Comic}/> 
+          <Route path='/Comic/:index/Chap/:id' component={AddChapter}/> 
           <Route path="/Comics/trang:index" component={Admin_Comic}/>
           <Route path='/Admin/Users' exact component={Admin_user}/>
           <Route path='/Users/Add' exact component={Admin_user}/>

@@ -10,7 +10,6 @@ class ListComic extends React.Component{
     }
     componentDidMount()
     {
-
           this.props.fetchListComic();
 
     }
@@ -47,6 +46,7 @@ const mapDispatchToProps =(dispatch, props)=>
   return {
     fetchListComic : ()=>{
     dispatch(fetchListComic())
+    
 
   }
 }
