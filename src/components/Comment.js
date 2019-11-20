@@ -22,11 +22,17 @@ class Comment extends React.Component{
   
   handleOnClick(e)
   {
-    e.preventDefault();
-    let {content} =this.state;
-    var user=JSON.parse(localStorage.getItem('logined_user'));
-    this.props.addComt(user.id,this.props.comic_id,content,"7:05 AM"); 
-    this.setState({content: " " })
+    if(JSON.parse(localStorage.getItem('logined_user'))===null)
+    {
+      alert("vui lòng đăng nhập để tương tác")
+    }else{
+      e.preventDefault();
+      let {content} =this.state;
+      var user=JSON.parse(localStorage.getItem('logined_user'));
+      this.props.addComt(user.id,this.props.comic_id,content,"7:05 AM"); 
+      this.setState({content: " " })
+    }
+    
   }
   findusername(userid)
   {

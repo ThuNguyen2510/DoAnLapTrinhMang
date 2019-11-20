@@ -1,10 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
 import './Detail.css';
 import {likeComic} from '../actions/ComicActions';
 import {fetchLike} from '../actions/LikeComicAction';
 import {getLike} from '../actions/LikeComicAction';
-import {connect} from 'react-redux'
+import {unLike} from '../actions/LikeComicAction';
+import {connect} from 'react-redux';
+
 class Detail extends React.Component
 {
     constructor(props)
@@ -13,25 +15,39 @@ class Detail extends React.Component
         this.state={}
     }
     componentDidMount(){
-        var user=JSON.parse(localStorage.getItem('logined_user'))
-        this.props.getLike(user.id,this.props.id_comic)
+        if(JSON.parse(localStorage.getItem('logined_user'))===null)
+        {
+          if(window.confirm("vui lòng đăng nhập để tương tác")){
+              return <Redirect to="/Signin" />
+          }
+            
+        }else{
+            var user=JSON.parse(localStorage.getItem('logined_user'))
+            this.props.getLike(user.id,this.props.id_comic) 
+            
+        }
+        
     }
+    
     
     btnClick()
     {
-        
-        if(this.props.liked==false)
+        if(JSON.parse(localStorage.getItem('logined_user'))===null)
         {
-            var user=JSON.parse(localStorage.getItem('logined_user'))
-            this.props.fetchLike(user.id,this.props.id_comic)
-            
+            alert("vui lòng đăng nhập để tương tác")
         }else{
-            
+            var user=JSON.parse(localStorage.getItem('logined_user'))   
+
+            if(this.props.liked===false)
+            {
+                this.props.fetchLike(user.id,this.props.id_comic)
+                
+            }else{
+                
+                this.props.unLike(user.id,this.props.id_comic)
+            }
         }
-    }
-    Like()
-    {
-       // console.log("dnja")
+        
     }
     daLike(){
         return(<><button className="liked" onClick={this.btnClick.bind(this)}> 
@@ -97,7 +113,8 @@ const mapStateToProps = (state) => {
     return {
       likeComic: (id) => dispatch(likeComic(id)),    
       fetchLike: (user_id,comic_id)=> dispatch(fetchLike(user_id,comic_id)),
-      getLike: (user_id,comic_id) => dispatch(getLike(user_id,comic_id))
+      getLike: (user_id,comic_id) => dispatch(getLike(user_id,comic_id)),
+      unLike: (id,user_id,comic_id) => dispatch(unLike(id,user_id,comic_id))
     };
   }
  

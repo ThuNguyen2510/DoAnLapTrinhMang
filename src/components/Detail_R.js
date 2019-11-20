@@ -17,7 +17,7 @@ class Detail_R extends React.Component
         
         var list=this.props.gens.map((value_,index)=>
         {
-            return   <><Link to="/Search"  className="theloai" >{value_.genre_name}</Link><br></br></>
+            return   <><Link to="/Search"  className="theloai"  >{value_.genre_name}</Link><br></br></>
         })
         return(
             <>
