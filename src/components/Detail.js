@@ -1,11 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
 import './Detail.css';
 import {likeComic} from '../actions/ComicActions';
 import {fetchLike} from '../actions/LikeComicAction';
 import {getLike} from '../actions/LikeComicAction';
 import {unLike} from '../actions/LikeComicAction';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+
 class Detail extends React.Component
 {
     constructor(props)
@@ -14,9 +15,18 @@ class Detail extends React.Component
         this.state={}
     }
     componentDidMount(){
+        if(JSON.parse(localStorage.getItem('logined_user'))===null)
+        {
+          if(window.confirm("vui lòng đăng nhập để tương tác")){
+              return <Redirect to="/Signin" />
+          }
+            
+        }else{
+            var user=JSON.parse(localStorage.getItem('logined_user'))
+            this.props.getLike(user.id,this.props.id_comic) 
+            
+        }
         
-        var user=JSON.parse(localStorage.getItem('logined_user'))
-        this.props.getLike(user.id,this.props.id_comic) 
     }
     
     

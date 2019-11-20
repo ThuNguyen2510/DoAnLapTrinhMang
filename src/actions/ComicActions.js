@@ -37,7 +37,6 @@ export const fetchComicUpdateNew = () => {
         })
     }
 }
-
 export const fetchComicUpdateNew2 = () => {
     return dispatch => {
         return axios.get('http://127.0.0.1:3000/comics?_sort=Post_DateTime&_order=desc?_start=0&_end=8').then(data => {
@@ -55,7 +54,7 @@ export const fetchComicByCategory = (genre_id) => {
 
 export const likeComic = (comic_id, Number_of_Like) => {
     return dispatch => {
-        return axios.patch('http://127.0.0.1:3000/comics?' + comic_id, { 'Number_of_Like': Number_of_Like }).then(
+        return axios.patch('http://127.0.0.1:3000/comics?id=' + comic_id, Number_of_Like).then(
             (data) => {
 
                 dispatch(likeComic(data.data))
@@ -133,33 +132,30 @@ const like = (comic) => ({
     comic: comic
 })
 const returnComicHot = (comics) => ({
-        type: 'COMIC_HOT',
-        comics: comics
-    }) <<
-    << << < HEAD
+    type: 'COMIC_HOT',
+    comics: comics
+})
 const returnComicUpdateNew = (comics) => ({
-            type: 'COMIC_UPDATE_NEW',
-            comics: comics ===
-                === =
-                const returnComicUpdateNew2 = (comics) => ({
-                    type: 'COMIC_UPDATE_NEW_2',
-                    comics: comics
-                })
-            const returnComicByCategory = (comics) => ({
-                type: 'LIST_COMIC_BY_CATEGORY',
-                comics
-            })
-            const addcomic = () => ({
-                type: 'ADD_COMIC',
+    type: 'COMIC_UPDATE_NEW',
+    comics: comics
+})
+const returnComicUpdateNew2 = (comics) => ({
+    type: 'COMIC_UPDATE_NEW_2',
+    comics: comics
+})
+const returnComicByCategory = (comics) => ({
+    type: 'LIST_COMIC_BY_CATEGORY',
+    comics
+})
+const addcomic = () => ({
+    type: 'ADD_COMIC',
 
-            })
-            const delComic = () => ({
-                type: 'DELETE_COMIC',
+})
+const delComic = () => ({
+    type: 'DELETE_COMIC',
 
-            })
-            const updatecomic = () => ({
-                type: 'UPDATE_COMIC',
+})
+const updatecomic = () => ({
+    type: 'UPDATE_COMIC',
 
-                >>>
-                >>> > origin / Redux_API
-            })
+})
