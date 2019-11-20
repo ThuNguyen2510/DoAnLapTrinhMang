@@ -15,17 +15,17 @@ class Detail extends React.Component
         this.state={}
     }
     componentDidMount(){
-        if(JSON.parse(localStorage.getItem('logined_user'))===null)
-        {
-          if(window.confirm("vui lòng đăng nhập để tương tác")){
-              return <Redirect to="/Signin" />
-          }
+        // if(JSON.parse(localStorage.getItem('logined_user'))===null)
+        // {
+        //   if(window.confirm("vui lòng đăng nhập để tương tác")){
+        //       return <Redirect to="/Signin" />
+        //   }
             
-        }else{
-            var user=JSON.parse(localStorage.getItem('logined_user'))
-            this.props.getLike(user.id,this.props.id_comic) 
+        // }else{
+        //     var user=JSON.parse(localStorage.getItem('logined_user'))
+        //     this.props.getLike(user.id,this.props.id_comic) 
             
-        }
+        // }
         
     }
     
@@ -66,6 +66,7 @@ class Detail extends React.Component
     
         return(
             <>
+            
             <div className="title">
                 <h3 className="title">
                     <Link to={"/Comic/"+this.props.id_comic} className="comicname">{this.props.Name}</Link>

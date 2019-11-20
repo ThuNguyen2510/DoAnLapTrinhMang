@@ -10,21 +10,19 @@ class Comic extends React.Component{
             width: "150px",
         }
         var d_s={
-            marginBottom: "8px",
-            backgroundColor: "rgb(249, 241, 241)",
+            textAlign:"center"
         }
         var a_s={
             color:"#1b1e21",
             fontSize:"10px",
             fontWeight: "600",
             lineHeight: "1.0",
-            textDecoration: "none"
+            textDecoration: "none",
+            textAlign:"center"
         }
         var i_k={
             float:"left",
-           
-                padding: "10px"
-            
+            padding: "10px"           
 
         }
         var x={
@@ -56,7 +54,7 @@ class Comic extends React.Component{
                         <Link className="book-img position-relative" to={"/Comic/"+this.props.id}>
                             <img style={i_s} src={this.props.Src} />
                         </Link>
-                        <p className="title"><Link style={a_s} to={"/Comic/"+this.props.id}>{this.props.name}</Link></p>
+                        <p className="title" style={d_s}><Link style={a_s} to={"/Comic/"+this.props.id}>{this.props.name}</Link></p>
                         <span className="chapter font-meta" style={sp}>
                         <Link to="/Search" className="btn-link" style={sp}>Tác giả: {this.props.author}</Link>
                         </span> 

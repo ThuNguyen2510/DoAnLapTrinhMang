@@ -61,7 +61,7 @@ class LeftBody extends React.Component{
                         <table style={table_s}>                          
                             <tr>
                             <td> 
-                                <select className="mdb-select md-form colorful-select dropdown-primary" onChange={this.change} >
+                                <select className="mdb-select md-form colorful-select dropdown-primary"  >
                                     <option >Thể Loại </option>
                                     {option}
                             </select>
