@@ -11,7 +11,6 @@ import  appReducers from './reducers/index_reducer';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import {listcomic} from '../src/actions/ComicActions';
 const store=createStore(
     appReducers,{}, applyMiddleware(thunk, logger)
 );

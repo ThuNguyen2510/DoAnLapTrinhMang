@@ -20,15 +20,10 @@ class Sidebar extends React.Component{
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link " to="/User/Book">
-                                        <span data-feather="home" />Tủ sách
+                                        <span data-feather="home" />Truyện đã thích
                                     </Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/User/readbook">
-                                        <span data-feather="shopping-cart" />
-                                        Truyện đã đọc
-                                    </Link>
-                                </li>
+                                
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">
                                         <span data-feather="users" />

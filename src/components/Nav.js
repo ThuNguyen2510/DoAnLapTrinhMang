@@ -50,7 +50,7 @@ class Nav extends React.Component{
                       <Link className="name" to="/"><i className="fas fa-home"></i> Trang Chủ<span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="name" to="/truyenhot"><i className="fab fa-hotjar"></i> Truyệt hot</Link>
+                      <Link className="name" to="/TruyenHot"><i className="fab fa-hotjar"></i> Truyệt hot</Link>
                     </li>
                     <li className="nav-item subnav" >
                       <Link className="name" to="/Category">Thể loại</Link><i class="fas fa-caret-down"></i>
@@ -126,7 +126,7 @@ class Nav extends React.Component{
         span='Logout'
         link='/'
         i="fas fa-sign-out-alt"
-        user=<Link to="User/page" id="user">{JSON.parse(localStorage.getItem('logined_user')).username}</Link>       
+        user=<Link to="/User/page" id="user">{JSON.parse(localStorage.getItem('logined_user')).username}</Link>       
       return <>
         {user}
        <Link onClick={this.logoutf}  id="login" className="link" to={link}><i id="icon" className={i}></i></Link> 

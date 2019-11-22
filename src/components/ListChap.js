@@ -27,7 +27,7 @@ class ListChap extends React.Component
     show2(r)
     {
         var x=[]
-        for(var i=0;i<r.length/2;i++)
+        for(var i=0;i<=r.length/2 -1;i++)
         {
             x.push(r[i])
         }
@@ -36,7 +36,7 @@ class ListChap extends React.Component
     show3(r)
     {
         var e=[]
-        const s=parseInt(r.length/2)+1
+        const s=parseInt(r.length/2)
         for(var i=s;i<r.length;i++)
         {
             e.push(r[i])

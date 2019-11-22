@@ -18,14 +18,6 @@ class User_page extends React.Component{
                         <div className="ml-sm-2">
                             <Nav br="Thông tin"/>
                             <div className="row">
-                                {/* <div className="col-xs-6 col-md-2">
-                                    <img src="https://cdn.shopify.com/s/files/1/0078/6563/0831/products/TogaPrint_grande.png?v=1552807118" alt="avatar" id="ava"/>
-                                </div>
-                                <div className="col-xs-12 col-md-10 content">
-                                    <Info/>
-                                    {/* <h5>Username</h5>
-                                    <h6>#userID</h6> */}
-                                {/* </div> */} 
                                 <Info/>
                             </div>
                         </div>                        

@@ -62,11 +62,19 @@ class Admin_user extends React.Component{
     {
         var op=[]
         var max=20
-        if(this.props.list!=null) max=this.props.list.length
-        for(var i=1;i<=max;i++)
-        op.push( <option id={i} value={i}>{i} </option>)
+        if(this.props.list!=null)
+        {
+            max=this.props.list.length
+            for(var i=1;i<=max;i++)
+            op.push( <option id={i} value={i}>{i} </option>)
+            return op
+        } else {
+            max=localStorage.getItem('total_user')
+            for(var i=1;i<=max;i++)
+            op.push( <option id={i} value={i}>{i} </option>)
+            return op
+        }
         
-        return op
 
     }
     render(){

@@ -1,8 +1,28 @@
 import axios from 'axios';
+import Comic_detail from '../components/Comic_detail';
 export const fetchListComic = () => {
     return dispatch => {
         return axios.get('http://127.0.0.1:3000/comics').then(data => {
             dispatch(returnList(data.data))
+        })
+    }
+}
+export const fetchComicByCategory = (genre_id) => {
+    return dispatch => {
+        if (genre_id == 0) {
+            return axios.get('http://127.0.0.1:3000/comics').then(data => {
+                dispatch(returnList(data.data))
+            })
+        } else
+            return axios.get('http://127.0.0.1:3000/comics?Genre_id=' + genre_id).then(data => {
+                dispatch(returnComicByCategory(data.data))
+            })
+    }
+}
+export const getLikedComics = (userid) => {
+    return dispatch => {
+        return axios.get('http://127.0.0.1:3000/likes?user_id=' + userid).then(data => {
+            dispatch(returnLikedComicId(data.data))
         })
     }
 }
@@ -41,13 +61,6 @@ export const fetchComicUpdateNew2 = () => {
     return dispatch => {
         return axios.get('http://127.0.0.1:3000/comics?_sort=Post_DateTime&_order=desc?_start=0&_end=8').then(data => {
             dispatch(returnComicUpdateNew2(data.data))
-        })
-    }
-}
-export const fetchComicByCategory = (genre_id) => {
-    return dispatch => {
-        return axios.get('http://127.0.0.1:3000/comics?Genre_id=' + genre_id).then(data => {
-            dispatch(returnComicByCategory(data.data))
         })
     }
 }
@@ -121,11 +134,14 @@ const returnList = (comics) => ({
     type: 'SHOW_LIST',
     list: comics
 });
-
 const returnOneComic = (comic, gen) => ({
     type: 'SHOW_A_COMIC',
     comic: comic,
     gen: gen
+})
+const returnLikedComicId = (comicid) => ({
+    type: 'GET_LIKED_COMIC_ID',
+    comicid
 })
 const like = (comic) => ({
     type: 'LIKE',

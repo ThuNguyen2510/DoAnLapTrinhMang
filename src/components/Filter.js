@@ -10,7 +10,8 @@ import Comic from './Comic'
 import {connect} from 'react-redux';
 import {SearchByName} from '../actions/SearchAction';
 import {fetchGenres} from '../actions/GenreAction';
-import {fetchComicUpdateNew2,fetchComicHot} from '../actions/ComicActions'
+import {fetchComicUpdateNew2,fetchComicHot,fetchComicByCategory} from '../actions/ComicActions'
+import comic from '../reducers/a_comic_reducer';
 class Filter extends React.Component
 {
     constructor(props)
@@ -27,8 +28,9 @@ class Filter extends React.Component
         {
             this.props.fetchComicUpdateNew2()
         }
-        if(window.location.pathname=='/truyenhot')
+        if(window.location.pathname=='/TruyenHot')
         {
+            
             this.props.fetchComicHot()
             
         }else
@@ -39,12 +41,34 @@ class Filter extends React.Component
     }
     componentWillMount()
     {
-        this.props.SearchByName(localStorage.getItem('searchByName'))
+        this.props.fetchGenres()
+        
+        if(window.location.pathname=='/TruyenMoi')
+        {
+            this.props.fetchComicUpdateNew2()
+        }
+        if(window.location.pathname=='/TruyenHot')
+        {
+            
+            this.props.fetchComicHot()
+            
+        }else
+        {
+            this.props.SearchByName(localStorage.getItem('searchByName'))
+        }
     }
-
+    filter(comics)
+    {
+        comics.length=0;
+        for(var i=0;i<this.props.comicsfilter.length;i++)
+         comics.push(<Comic  id={this.props.comicsfilter[i].id} Src={this.props.comicsfilter[i].Image}
+             name={this.props.comicsfilter[i].Name} author={this.props.comicsfilter[i].Author}
+              follow={this.props.comicsfilter[i].Number_of_Read} like={this.props.comicsfilter[i].Number_of_Like}/>)
+        
+    }
     render()
     { 
-        console.log(window.location.pathname)
+    
         localStorage.setItem('searchByName',this.props.match.params.string)
         var con_m21={
         backgroundColor: "#fff",
@@ -71,26 +95,25 @@ class Filter extends React.Component
         listStyle:"none"
     }
     var option=this.props.list.map((a,index)=>{
-        return <><option id={index}>{a.genre_name}</option></>
+        return <><option value={a.id} id={index}>{a.genre_name}</option></>
         })
     var comics=[]    
-    if((window.location.pathname!=='/TruyenMoi'||window.location.pathname!=='/truyenhot')&&this.props.result.length>0){
-    
-    comics=this.props.result.map(a=>{
+    if((window.location.pathname!=='/TruyenMoi'||window.location.pathname!=='/TruyenHot')&&this.props.result.length>0){
+      
+         comics=this.props.result.map(a=>{
         return <Comic  id={a.id} Src={a.Image} name={a.Name} author={a.Author} follow={a.Number_of_Read} like={a.Number_of_Like} />
     })  }
      if(window.location.pathname=='/TruyenMoi'&&this.props.new.length>0){
-     
+       
         comics=this.props.new.map(a=>{
         return <Comic  id={a.id} Src={a.Image} name={a.Name} author={a.Author} follow={a.Number_of_Read} like={a.Number_of_Like}/>})
     }
-     if(window.location.pathname=='/truyenhot'&& this.props.hot.length>0)
+     if(window.location.pathname=='/TruyenHot'&& this.props.hot.length>0)
     {
-    
+
         comics=this.props.hot.map(a=>{
         return <Comic  id={a.id} Src={a.Image} name={a.Name} author={a.Author} follow={a.Number_of_Read} like={a.Number_of_Like}/>})
     }
-    
         return(
             <>
             <Header/>
@@ -100,16 +123,19 @@ class Filter extends React.Component
                     <div className="row">
                         <div className="col-md-12 col-lg-9 mb-4">
                            
-                            <div className="float-left" style={con_m21}>
+                            <div  style={con_m21}>
                 <div className="content m2l">
                 <div >
                     <form>
                         <table style={table_s}>                          
                             <tr>
                             <td> 
-                                <select class="mdb-select md-form colorful-select dropdown-primary">
+                          
+                                <select onChange={e=>this.props.fetchComicByCategory(e.target.value)} class="mdb-select md-form colorful-select dropdown-primary">
                                     <option >Thể Loại </option>
                                     {option}
+                                    {this.filter(comics)}
+                                    
                             </select>
                             </td>
                             <td>
@@ -148,11 +174,11 @@ class Filter extends React.Component
                     </ul>
                 </nav>
                 </div>
-               <div className="row ">
-                   { comics.length && comics }
+               <div className="row ">     
+                   { (comics.length) && comics }
                 </div> 
                 <div className="row ">
-                   { !comics.length && <p>NO RESULT</p> }
+                   { !comics.length && <p style={{marginLeft:"40%"}}>NO RESULT</p> }
                 </div> 
             </div>
                         </div>
@@ -176,7 +202,8 @@ const mapStateToProps = (state) => {
      result:state.search,
      list: state.genre,
      new: state.comicnew,
-     hot:state.comichot
+     hot:state.comichot,
+     comicsfilter:state.comics
     }
   }
   
@@ -184,6 +211,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
       SearchByName:(keyword) =>dispatch(SearchByName(keyword)),
       fetchGenres:() =>dispatch(fetchGenres()),
+      fetchComicByCategory:(id)=> dispatch(fetchComicByCategory(id)),
       fetchComicUpdateNew2:() => dispatch(fetchComicUpdateNew2()) ,
       fetchComicHot:() => dispatch(fetchComicHot())
     };

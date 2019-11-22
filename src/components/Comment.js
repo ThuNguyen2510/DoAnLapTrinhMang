@@ -29,7 +29,9 @@ class Comment extends React.Component{
       e.preventDefault();
       let {content} =this.state;
       var user=JSON.parse(localStorage.getItem('logined_user'));
-      this.props.addComt(user.id,this.props.comic_id,content,"7:05 AM"); 
+      var temp= new Date
+      var date=temp.getMonth()+"/"+temp.getDate()+"/"+temp.getFullYear()
+      this.props.addComt(user.id,this.props.comic_id,content,date); 
       this.setState({content: " " })
     }
     

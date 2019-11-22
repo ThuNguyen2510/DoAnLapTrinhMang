@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import './Book.css';
 class Info extends React.Component{
     render(){
+        var user= JSON.parse(localStorage.getItem('logined_user'))
+        var username=user.username
         return (
             <>
             <div className="coverContent mt-0">
@@ -30,7 +32,7 @@ class Info extends React.Component{
                             <div className="row">
                                 <div className="col-xs-12 col-sm-12">
                                     <h4 className="blue">
-                                        <span className="middle blue ml-5" > UserName</span>
+                                        <span className="middle blue ml-5" >{username}</span>
                                         <span className="label label-purple arrowed-in-right ml-5" style={{color: 'green', fontSize:'15px'}}>
                                         <i className="ace-icon fa fa-circle smaller-80 align-middle" />
                                         online

@@ -95,7 +95,7 @@ class Footer extends React.Component{
                 </div>
               </div>
             </div>
-            <div className="footer-design by text-center py-2">@Design by:
+            <div className="footer-design by text-center py-2">©Design by:
               <a href="/"> TVTComic</a>
             </div>
           </footer>

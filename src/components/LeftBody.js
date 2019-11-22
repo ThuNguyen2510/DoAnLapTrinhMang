@@ -6,6 +6,11 @@ import {connect} from 'react-redux';
 import {fetchGenres} from '../actions/GenreAction';
 import {fetchComicByCategory} from '../actions/ComicActions'
 class LeftBody extends React.Component{
+    constructor(props)
+    {
+        super(props)
+        this.Search23 = this.Search23.bind(this);
+    }
     componentDidMount()
     {
         this.props.fetchGenres()
@@ -21,9 +26,9 @@ class LeftBody extends React.Component{
         localStorage.setItem('checkbox',check)
 
     }
-    change(e)
+    Search23(e)
     {
-        this.props.fetchComicByCategory(e.target.value)
+        this.props.fetchComicByCategory(1)
     }
     render(){
         var con_m21={
@@ -54,15 +59,15 @@ class LeftBody extends React.Component{
             return <><option value={a.id} id={a.id}>{a.genre_name}</option></>
             })
         return(
-            <div className="float-left" style={con_m21}>
+            <div style={con_m21}>
                 <div className="content m2l">
                 <div >
                     <form>
                         <table style={table_s}>                          
                             <tr>
                             <td> 
-                                <select className="mdb-select md-form colorful-select dropdown-primary"  >
-                                    <option >Thể Loại </option>
+                                <select onChange={e=>this.props.fetchComicByCategory(e.target.value)} className="mdb-select md-form colorful-select dropdown-primary"  >
+                                    <option value="0" >Thể Loại </option>
                                     {option}
                             </select>
                             </td>
@@ -73,7 +78,7 @@ class LeftBody extends React.Component{
                                 <input type="checkbox" id="check"/>Truyện Full
                             </td>
                             <td>
-                                <button onClick={this.filter} type="submit" className="btn btn-search"><i class="fa fa-search fa-fw"></i>Tìm truyện</button>
+                                <button onClick={this.Search23} className="btn btn-search"><i class="fa fa-search fa-fw"></i>Tìm truyện</button>
                             </td>
                             </tr>                                                
                         </table>

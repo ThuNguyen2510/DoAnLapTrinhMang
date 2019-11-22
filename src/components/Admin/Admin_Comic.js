@@ -40,6 +40,7 @@ class Admin_Comic extends React.Component{
     show(){
         return this.props.list.map((a)=>
         <tr>
+            <td><img style={{width: "50px"}} src={a.Image}></img></td>
             <td> <Link to={"/Comic/"+a.id+"/Show"}>{a.Name}</Link></td>
             <td>{a.Author}</td>
             <td>{this.findGenre(a.Genre_id)}</td>     
@@ -98,6 +99,7 @@ class Admin_Comic extends React.Component{
                                             <div className="col-md-12">
                                                 <table className="table table-bordered dataTable" id="dataTable">
                                                     <tr role="row">
+                                                        <th></th>
                                                         <th>Tên truyện</th>
                                                        
                                                         <th>Tác giả</th>
